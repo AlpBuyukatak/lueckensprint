@@ -14,20 +14,20 @@
     },
     "B1": {
       "count": 120,
-      "averageWordCount": 95.7,
-      "averageSentenceLength": 13.7,
+      "averageWordCount": 82.6,
+      "averageSentenceLength": 11.8,
       "averageDifficulty": 52
     },
     "B2": {
       "count": 140,
-      "averageWordCount": 98.2,
-      "averageSentenceLength": 12.1,
+      "averageWordCount": 93.1,
+      "averageSentenceLength": 11.5,
       "averageDifficulty": 66.9
     },
     "C1": {
       "count": 70,
-      "averageWordCount": 107.1,
-      "averageSentenceLength": 13.4,
+      "averageWordCount": 95,
+      "averageSentenceLength": 11.9,
       "averageDifficulty": 82.8
     }
   },
