@@ -13,7 +13,7 @@ assert.ok(app.includes('Bewertungsb\\u00e4nder f\\u00fcr das Training'), 'Config
 assert.ok(!/soundEffect|sound effects|ses efekti/i.test(app), 'Unused sound setting remains.');
 assert.ok(css.includes('body.dark{--text:#f1f8f4'),'Dark theme light text token is missing.');
 assert.ok(css.includes('.ctext .word-gap{display:inline-flex'),'C-Test word fragments are not inline.');
-assert.ok(css.includes('width:clamp(2.4ch'),'C-Test gaps have no compact adaptive width.');
+assert.ok(css.includes('width:clamp(3.1ch')&&css.includes('text-indent:0!important'),'C-Test gaps need enough left text space and a compact adaptive width.');
 assert.ok(css.includes('.day{aspect-ratio:auto!important;height:36px'),'Calendar day cells are not compact.');
 assert.ok(css.includes('overflow-x:hidden'),'Horizontal-overflow protection is missing.');
 assert.ok(index.includes('./sync.js')&&index.includes('./supabase-config.js'),'Hosted sync assets are not loaded.');
