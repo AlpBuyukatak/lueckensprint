@@ -1,6 +1,6 @@
 const assert=require('assert'),fs=require('fs');
 const app=fs.readFileSync('app.js','utf8'),sw=fs.readFileSync('service-worker.js','utf8'),css=fs.readFileSync('styles.css','utf8'),index=fs.readFileSync('index.html','utf8');
-for(const page of ['home','daily','practice','exam','errors','custom','stats','settings'])assert.ok(app.includes(`data-view="${page}"`)||app.includes(`${page}:render`),`Missing ${page} navigation view.`);
+for(const page of ['home','daily','practice','miniExam','exam','errors','custom','stats','settings'])assert.ok(app.includes(`data-view="${page}"`)||index.includes(`data-view="${page}"`)||app.includes(`${page}:render`),`Missing ${page} navigation view.`);
 assert.ok(app.includes('`./data/texts-${level.toLowerCase()}.json`'),'Hosted runtime has no dynamic JSON loader.');
 for(const level of ['a1','a2','b1','b2','c1']){
   assert.ok(sw.includes(`./data/texts-${level}.json`),`Offline cache is missing ${level}.`);

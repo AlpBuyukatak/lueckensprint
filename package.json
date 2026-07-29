@@ -27,6 +27,7 @@
     "test:exam-progression": "node exam-progression-tests.js",
     "test:english-help": "node english-help-tests.js",
     "test:mobile": "node mobile-regression-tests.js",
+    "test:mini-exam": "node mini-exam-tests.js",
     "test:auth-callback": "node auth-callback-tests.js",
     "test:cefr-lower": "node cefr-lower-level-tests.js",
     "test:contextual-explanations": "node contextual-explanations-tests.js && node contextual-browser-tests.js"

@@ -1,5 +1,5 @@
 /* LückenSprint: offline, browser-only C-Test trainer */
-const APP_VERSION='2.6.3', EXAM_SECONDS=40*60;
+const APP_VERSION='2.7.0', EXAM_SECONDS=40*60;
 const TOPICS=[
  ['Alltag','guten Start in den Tag','kleine Aufgaben in Ruhe zu planen','einen kurzen Weg durch die Stadt'],['Universität','einen Einführungskurs an der Universität','Materialien für das Seminar','mit anderen Studierenden über Ideen zu sprechen'],['Arbeit','den ersten Arbeitstag in einem neuen Team','eine praktische Lösung für eine Aufgabe','die Ergebnisse verständlich zu erklären'],['Wohnen','eine Wohnung in einem ruhigen Viertel','die gemeinsamen Räume ordentlich','mit den Nachbarn freundlich zu sprechen'],['Verkehr','den Weg mit Bus und Straßenbahn','eine passende Verbindung für den Morgen','bei Verspätungen geduldig zu bleiben'],['Gesundheit','gesunde Gewohnheiten im Alltag','genug Wasser und regelmäßige Pausen','auf die Signale des Körpers zu achten'],['Sport','eine Laufgruppe im Park','ein Training mit klaren kleinen Zielen','sich nach dem Sport besser zu fühlen'],['Reisen','eine Reise in eine unbekannte Stadt','einen leichten Koffer für mehrere Tage','neue Orte aufmerksam zu entdecken'],['Digitale Kommunikation','eine Nachricht an eine Lerngruppe','klare und höfliche Formulierungen','wichtige Informationen nicht zu übersehen'],['Künstliche Intelligenz','digitale Werkzeuge mit künstlicher Intelligenz','die Ergebnisse solcher Systeme kritisch','Technik verantwortungsvoll zu verwenden'],['Umwelt','einen Gemeinschaftsgarten im Viertel','Müll zu vermeiden und Ressourcen zu sparen','Veränderungen im Alltag gemeinsam umzusetzen'],['Bildung','einen offenen Lerntag in der Schule','unterschiedliche Wege zum Lernen','Fragen ohne Angst zu stellen'],['Wissenschaft','ein einfaches Experiment im Labor','Beobachtungen sorgfältig zu notieren','aus Daten vorsichtige Schlüsse zu ziehen'],['Technologie','eine neue App für den Alltag','nützliche Funktionen vor der Nutzung','digitale Angebote bewusst auszuwählen'],['Soziale Medien','eine Diskussion in sozialen Medien','Beiträge vor dem Teilen genau','respektvoll mit anderen Meinungen umzugehen'],['Politik','eine öffentliche Diskussion im Rathaus','verschiedene Vorschläge sachlich','Entscheidungen nachvollziehbar zu erklären'],['Wirtschaft','einen kleinen Markt am Samstag','Preise und Qualität zu vergleichen','lokale Angebote sinnvoll zu nutzen'],['Kultur','eine Ausstellung im Stadtmuseum','Geschichten hinter den Bildern','kulturelle Angebote neugierig zu besuchen'],['Geschichte','ein altes Gebäude am Fluss','Spuren aus früheren Zeiten','Vergangenheit und Gegenwart zu verbinden'],['Psychologie','die Wirkung von Pausen beim Lernen','Aufmerksamkeit über längere Zeit','eigene Lerngewohnheiten besser zu verstehen'],['Forschung','ein Projekt über städtische Luftqualität','Messungen an mehreren Orten','Forschungsergebnisse transparent zu prüfen'],['Energie','ein Haus mit Solaranlage','Strom auch bei hohem Verbrauch','Energie im Alltag weniger zu verschwenden'],['Datenschutz','persönliche Daten in einer Anwendung','Berechtigungen vor der Anmeldung','digitale Privatsphäre aktiv zu schützen'],['Stadtplanung','einen Platz ohne viel Autoverkehr','sichere Wege für Fahrräder und Fußgänger','öffentliche Räume für viele Menschen zu gestalten'],['Integration','ein Sprachcafé in der Bibliothek','Menschen mit unterschiedlichen Erfahrungen','gemeinsame Regeln im Alltag zu finden']
 ];
@@ -239,7 +239,7 @@ const renderSettingsWithCoach=renderSettings;renderSettings=function(){return `$
 if(typeof window!=='undefined'){document.addEventListener('submit',event=>{if(event.target?.id==='settingsForm')S.settings.strategyCoach=Boolean(document.querySelector('#strategyCoach')?.checked)},true)}
 if(typeof window!=='undefined'){document.addEventListener('click',event=>{const process=event.target.closest?.('.targeted-start')?.dataset.process;if(process){const error=(S.errors||[]).find(item=>item.processLevel===process),gap=error&&similarGaps(error)[0],text=gap&&findText(gap.textId);if(text)startPractice(text,{gaps:Math.min(10,S.settings.gaps),timer:false})}})}
 /* PWA_UPDATE_MANAGER_START */
-const RUNNING_VERSION={appVersion:'2.6.3',serviceWorkerVersion:'lueckensprint-v2.4.3',dataSchemaVersion:3,textDatabaseVersion:'5'};
+const RUNNING_VERSION={appVersion:'2.7.0',serviceWorkerVersion:'lueckensprint-v2.5.0',dataSchemaVersion:3,textDatabaseVersion:'5'};
 function isNewerVersion(remote,current=RUNNING_VERSION.appVersion){const parse=value=>String(value||'0').split('.').map(part=>Number(part)||0),left=parse(remote),right=parse(current);for(let index=0;index<Math.max(left.length,right.length);index++){if((left[index]||0)!==(right[index]||0))return(left[index]||0)>(right[index]||0)}return false}
 const PwaUpdateManager=(()=>{let registration=null,checking=false,reloading=false,pendingVersion='',lastCheck='',status='Aktuell',timer=null,handlersBound=false;
 const log=(label,detail='')=>console.info('[LueckenSprint Update]',label,detail);
@@ -347,3 +347,83 @@ const renderTargetedWithContextualExplanations=renderTargetedTraining;renderTarg
 const renderStatsWithContextualExplanations=renderStats;renderStats=function(){const topics=updateExplanationTopics(),rows=Object.entries(topics).sort((left,right)=>right[1]-left[1]);return `${renderStatsWithContextualExplanations()}<section class="card contextual-topics"><h2>Schwierige Themen</h2>${rows.length?rows.map(([category,count])=>`<div class="mistake"><b>${esc(EXPLANATION_CATEGORIES[category]?.label||category)}</b><span>${count} offene C-Test-Lücke${count===1?'':'n'}</span></div>`).join(''):'<div class="empty">Nach falsch oder offen beantworteten C-Test-Lücken erscheinen hier nur Ihre tatsächlichen Schwierigkeiten.</div>'}</section>`};
 if(typeof window!=='undefined'){document.addEventListener('click',event=>{const explain=event.target.closest?.('[data-contextual-explain]');if(explain){const error=explain.dataset.contextualExplain==='result'?RESULT_EXPLANATIONS.get(explain.dataset.explanationId):(S.errors||[]).find(item=>item.id===explain.dataset.explanationId);const host=explain.parentElement?.querySelector('.contextual-explanation-host');if(error&&host){host.innerHTML=contextualExplanationMarkup(error);const category=contextualCategory(error);if(category){error.explanationCategory=category;updateExplanationTopics();save();}return;} }const similar=event.target.closest?.('[data-similar-gap-text]');if(similar){const text=findText(similar.dataset.similarGapText);if(text)startPractice(text,{gaps:Math.min(10,S.settings.gaps),timer:false});}})}
 if(typeof module!=='undefined')Object.assign(module.exports,{EXPLANATION_CATEGORIES,canExplainGap,contextualCategory,contextualExplanation,similarPracticeGaps,resultExplanationError});
+
+/* CONTINUATION_AND_MINI_EXAM_START */
+const MINI_EXAM_SECONDS=20*60,MINI_EXAM_LEVELS=['A1','A2','B1','B2','C1'];
+
+function selectRelatedTrainingText(pool,previous,seed=Date.now()){
+  const source=Array.isArray(pool)?pool:[],sameTopic=source.filter(text=>text.id!==previous?.id&&text.level===previous?.level&&text.topic===previous?.topic),sameLevel=source.filter(text=>text.id!==previous?.id&&text.level===previous?.level),candidates=sameTopic.length?sameTopic:sameLevel.length?sameLevel:source.filter(text=>text.id!==previous?.id);
+  if(!candidates.length)return previous||null;
+  return candidates[Math.abs(Number(seed))%candidates.length];
+}
+
+function selectMiniExamTexts(pool,recent={},seed=Date.now()){
+  const source=Array.isArray(pool)?pool:[],recentLimit=Date.now()-14*86400000,topics=new Set();
+  return MINI_EXAM_LEVELS.map((level,index)=>{
+    let candidates=source.filter(text=>{const seenAt=Date.parse(recent[text.id]||'');return text.level===level&&(!Number.isFinite(seenAt)||seenAt<recentLimit);});
+    if(!candidates.length)candidates=source.filter(text=>text.level===level);
+    const diverse=candidates.filter(text=>!topics.has(text.topic));
+    candidates=(diverse.length?diverse:candidates).slice().sort((left,right)=>String(left.id).localeCompare(String(right.id)));
+    const text=candidates[Math.abs(Number(seed)+index*31)%Math.max(1,candidates.length)];
+    if(!text)throw new Error(`Für die Mini-Prüfung fehlt ein ${level}-Text.`);
+    topics.add(text.topic);return text;
+  });
+}
+
+function normalizeMiniExam(mini){
+  if(!mini||!Array.isArray(mini.sets)||mini.sets.length!==MINI_EXAM_LEVELS.length)return null;
+  try{
+    mini.remaining=Math.max(0,Math.min(MINI_EXAM_SECONDS,Number(mini.remaining??MINI_EXAM_SECONDS)));
+    mini.current=Math.max(0,Math.min(mini.sets.length-1,Number(mini.current)||0));
+    mini.lastUpdated=Number(mini.lastUpdated||Date.now());
+    mini.sets=mini.sets.map((set,index)=>{const text=findText(set.text?.id)||set.text;if(!text?.text||text.level!==MINI_EXAM_LEVELS[index])throw new Error('invalid mini exam text');const generated=set.generated?.items?.length?set.generated:ctest(text.text,{gaps:10,level:text.level,textId:text.id});return{...set,text,generated,answers:Array.isArray(set.answers)?set.answers.slice(0,generated.gapCount).concat(Array(Math.max(0,generated.gapCount-set.answers.length)).fill('')):Array(generated.gapCount).fill('')}});
+    return mini;
+  }catch{return null}
+}
+
+function recoverMiniExamClock(mini,at=Date.now()){
+  const passed=Math.max(0,Math.floor((at-Number(mini.lastUpdated||at))/1000));
+  if(passed){mini.remaining=Math.max(0,mini.remaining-passed);mini.lastUpdated=at;}
+  return mini.remaining;
+}
+
+function newMiniExam(){
+  if(S.activeExam?.status==='running'){toast('Beenden oder pausieren Sie zuerst die laufende Prüfung.');return;}
+  const at=Date.now(),texts=selectMiniExamTexts(ALL,S.textExposure||{},at),sets=texts.map(text=>{const generated=ctest(text.text,{gaps:10,level:text.level,textId:text.id});return{text,generated,answers:Array(generated.gapCount).fill('')}});
+  S.textExposure={...(S.textExposure||{}),...Object.fromEntries(texts.map(text=>[text.id,new Date(at).toISOString()]))};
+  S.activeMiniExam={id:uid(),started:at,lastUpdated:at,remaining:MINI_EXAM_SECONDS,current:0,sets};S.lastMiniExamResult=null;save();navigate('miniExam');render();
+}
+
+function miniExamState(){const mini=normalizeMiniExam(S.activeMiniExam);if(!mini&&S.activeMiniExam){S.activeMiniExam=null;save();}return mini;}
+
+function miniResultMarkup(result){const rows=(result.textScores||[]).map(score=>`<tr><td>${esc(score.level)}</td><td>${esc(score.title)}</td><td>${score.correct}/${score.total}</td><td>${score.percent}%</td></tr>`).join('');return `${header('Mini-Prüfung','Mini-Prüfung abgeschlossen','Ihre Ergebnisse dienen als Trainingsfeedback und sind keine offizielle Einstufung.')}<section class="card"><div class="result-row"><div><small>Richtig</small><b>${result.correct}</b></div><div><small>Falsch</small><b>${result.incorrect}</b></div><div><small>Nicht beantwortet</small><b>${result.unanswered}</b></div><div><small>Ergebnis</small><b>${result.percent}%</b></div></div><div class="table-wrap"><table class="data-table"><tr><th>Niveau</th><th>Text</th><th>Richtig</th><th>Ergebnis</th></tr>${rows}</table></div><div class="exercise-actions"><button class="button-outline" data-go="practice">Training auswählen</button><button class="button" id="startMiniExam">Neue Mini-Prüfung</button></div></section>`}
+
+function renderMiniExam(){
+  const mini=miniExamState();
+  if(!mini)return S.lastMiniExamResult?miniResultMarkup(S.lastMiniExamResult):`${header('Mini-Prüfung','A1 bis C1 in einem Durchgang','Fünf kurze C-Tests in klar ansteigender Schwierigkeit.')}<div class="grid grid-2"><section class="card"><span class="pill">20 Minuten · 50 Lücken</span><h2>Schrittweise schwieriger</h2><ol style="line-height:2"><li>A1</li><li>A2</li><li>B1</li><li>B2</li><li>C1</li></ol><button class="button" id="startMiniExam">Mini-Prüfung starten</button></section><section class="card"><h2>So funktioniert es</h2><p class="lead">Jedes Niveau enthält einen kurzen Text mit zehn Lücken. Antworten werden erst am Ende ausgewertet; der Fortschritt bleibt auf diesem Gerät gespeichert.</p><button class="button-outline" data-go="practice">Stattdessen Training auswählen</button></section></div>`;
+  if(recoverMiniExamClock(mini)<=0){setTimeout(()=>submitMiniExam('expired'),0);return '<section class="card empty">Die Zeit ist abgelaufen. Das Ergebnis wird berechnet …</section>';}
+  const set=mini.sets[mini.current],total=mini.sets.reduce((sum,item)=>sum+item.generated.gapCount,0),done=mini.sets.reduce((sum,item)=>sum+item.answers.filter(Boolean).length,0);
+  return `${header('Mini-Prüfung','Laufende Mini-Prüfung','A1 → A2 → B1 → B2 → C1. Ihre Antworten werden lokal gespeichert.')}<div class="sticky"><section class="card"><div class="exercise-head"><div><span class="pill">${esc(set.text.level)} · Text ${mini.current+1} / ${mini.sets.length}</span><div class="exam-tabs">${mini.sets.map((item,index)=>`<button class="exam-tab ${index===mini.current?'active':''} ${item.answers.some(Boolean)?'complete':''}" data-mini-tab="${index}">${esc(item.text.level)}</button>`).join('')}</div></div><div><span class="timer" id="miniExamTimer">${clock(mini.remaining)}</span><br><small class="label">${done}/${total} beantwortet</small></div></div><div class="progressbar"><i style="width:${total?done/total*100:0}%"></i></div></section></div><section class="card exam-workspace" style="margin-top:17px"><h2>${esc(set.text.title)}</h2><article class="ctext" id="miniExamText">${set.generated.html}</article><div class="exercise-actions"><button class="button-outline" id="miniExamPrev" ${mini.current===0?'disabled':''}>← Zurück</button><span class="label">Dieser Text: ${set.answers.filter(Boolean).length}/${set.generated.gapCount}</span>${mini.current===mini.sets.length-1?'<button class="button" id="endMiniExam">Mini-Prüfung abgeben</button>':'<button class="button" id="miniExamNext">Weiter →</button>'}</div></section>`;
+}
+
+function wireMiniExamGaps(){const mini=miniExamState();if(!mini)return;const set=mini.sets[mini.current],inputs=[...document.querySelectorAll('#miniExamText .gap')];inputs.forEach((input,index)=>{input.value=set.answers[index]||'';input.addEventListener('input',()=>{set.answers[index]=input.value;mini.lastUpdated=Date.now();save();});input.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();(inputs[index+1]||document.querySelector('#miniExamNext')||document.querySelector('#endMiniExam')).focus()}});});}
+
+function startMiniExamTimer(){clearInterval(interval);const mini=miniExamState();if(!mini)return;interval=setInterval(()=>{const current=miniExamState();if(!current)return clearInterval(interval);recoverMiniExamClock(current);const timer=document.querySelector('#miniExamTimer');if(timer)timer.textContent=clock(current.remaining);if(current.remaining<=0){clearInterval(interval);submitMiniExam('expired')}else if(current.remaining%5===0)save()},1000);}
+
+function submitMiniExam(reason='manual'){
+  const mini=miniExamState();if(!mini)return;clearInterval(interval);recoverMiniExamClock(mini);const details=mini.sets.flatMap(set=>score(set.generated.items,set.answers,{lenient:false,acceptSS:false}).details.map(detail=>({...detail,text:set.text}))),total=details.length,correct=details.filter(detail=>detail.correct).length,unanswered=details.filter(detail=>!detail.answer).length,incorrect=total-correct-unanswered,textScores=mini.sets.map(set=>{const result=score(set.generated.items,set.answers,{lenient:false,acceptSS:false});return{title:set.text.title,level:set.text.level,correct:result.correct,total:result.total,percent:result.percent}}),result={id:mini.id,details,total,correct,incorrect,unanswered,percent:total?Math.round(correct/total*100):0,elapsed:MINI_EXAM_SECONDS-mini.remaining,textScores,finishedAt:Date.now(),reason};
+  S.attempts.push({id:mini.id,date:today(),mode:'mini_exam',level:'A1–C1',topic:'Gemischt',title:'Mini-Prüfung',correct,total,percent:result.percent,time:result.elapsed,textScores,details});
+  details.filter(detail=>!detail.correct).forEach(detail=>S.errors.push({id:uid(),date:today(),text:detail.text.title,level:detail.text.level,topic:detail.text.topic,word:detail.word,prefix:detail.prefix,missing:detail.missing,answer:detail.answer,context:sentenceFor(detail.text.text,detail.word),category:category(detail),mastery:0,updated_at:new Date().toISOString()}));
+  S.lastMiniExamResult=result;S.activeMiniExam=null;if(typeof updateExplanationTopics==='function')updateExplanationTopics();save();render();
+}
+
+function continueRelatedTraining(context){const text=selectRelatedTrainingText(ALL,context,Date.now());if(!text){toast('Für dieses Training ist kein weiterer Text verfügbar.');return;}startPractice(text,{gaps:S.settings.gaps,timer:S.settings.timer});}
+
+const renderResultWithTrainingChoice=renderResult;renderResult=function(active,result){renderResultWithTrainingChoice(active,result);if(typeof document==='undefined')return;const oldButton=document.querySelector('[data-go="practice"]');if(!oldButton)return;oldButton.removeAttribute('data-go');oldButton.id='continueRelatedTraining';oldButton.textContent=`Mit ${active.text.level} · ${active.text.topic} weitertrainieren`;oldButton.setAttribute('aria-label',`Weiter mit Niveau ${active.text.level} und Thema ${active.text.topic}`);oldButton.onclick=()=>continueRelatedTraining(active.text);oldButton.insertAdjacentHTML('afterend','<button class="button-outline" type="button" data-go="practice">Niveau oder Thema ändern</button>');bindView()};
+
+ROUTES.miniExam='#/mini-pruefung';ROUTE_VIEWS['#/mini-pruefung']='miniExam';
+const renderWithMiniExam=render;render=function(){if(currentRouteView()!=='miniExam')return renderWithMiniExam();clearInterval(interval);const main=document.querySelector('#main');try{main.innerHTML=renderMiniExam();window.VIEW='miniExam';document.querySelectorAll('.nav-btn').forEach(button=>button.classList.toggle('active',button.dataset.view==='miniExam'));bindView();wireMiniExamGaps();if(S.activeMiniExam)startMiniExamTimer();window.LueckenSync?.mountSettingsPanel?.();if(typeof decorateEnglishHelp==='function')decorateEnglishHelp()}catch(error){console.error('LückenSprint mini exam render error',error);main.innerHTML='<section class="card warning"><h1>Mini-Prüfung konnte nicht angezeigt werden</h1><button class="button" id="reloadPage">Seite erneut laden</button></section>';document.querySelector('#reloadPage').onclick=()=>location.reload()}};
+
+if(typeof window!=='undefined'){document.addEventListener('click',event=>{const start=event.target.closest?.('#startMiniExam');if(start){event.preventDefault();newMiniExam();return;}const tab=event.target.closest?.('[data-mini-tab]');if(tab){const mini=miniExamState();if(mini){mini.current=Number(tab.dataset.miniTab)||0;mini.lastUpdated=Date.now();save();render()}return;}if(event.target.closest?.('#miniExamPrev')){const mini=miniExamState();if(mini&&mini.current>0){mini.current--;save();render()}return;}if(event.target.closest?.('#miniExamNext')){const mini=miniExamState();if(mini&&mini.current<mini.sets.length-1){mini.current++;save();render()}return;}if(event.target.closest?.('#endMiniExam')){event.preventDefault();modal('Mini-Prüfung abgeben?','Danach werden alle Antworten ausgewertet.',()=>submitMiniExam('manual'),'Mini-Prüfung abgeben');}})}
+if(typeof module!=='undefined')Object.assign(module.exports,{MINI_EXAM_SECONDS,MINI_EXAM_LEVELS,selectRelatedTrainingText,selectMiniExamTexts,normalizeMiniExam,recoverMiniExamClock});
+/* CONTINUATION_AND_MINI_EXAM_END */
