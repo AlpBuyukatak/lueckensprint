@@ -10,7 +10,7 @@ assert.ok(!/<script[^>]+src=/i.test(html),'Standalone file must not load externa
 assert.ok(!/(?:src|href)=["'](?:https?:)?\/\//i.test(html),'Standalone file contains a network resource.');
 assert.ok(!/fetch\s*\(/.test(html),'Standalone file must not contain fetch calls.');
 assert.ok(html.includes("window.__STANDALONE__||!('serviceWorker'in navigator)"),'Service worker registration must be disabled in standalone mode.');
-const match=html.match(/window\.__STANDALONE_TEXTS__=(\{.*?\});<\/script>/s);
+const match=html.match(/window\.__STANDALONE_TEXTS__=(\{.*?\});[\s\S]*?window\.LUECKENSPRINT_SUPABASE_CONFIG/s);
 assert.ok(match,'Embedded JSON database is missing.');
 const data=JSON.parse(match[1]);
 assert.equal(Object.values(data).reduce((n,list)=>n+list.length,0),125,'All 125 texts must be embedded.');
