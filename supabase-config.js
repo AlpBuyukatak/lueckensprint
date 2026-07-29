@@ -5,5 +5,5 @@
  */
 window.LUECKENSPRINT_SUPABASE_CONFIG = {
   url: '',
-  publishableKey: ''
+  publishableKey: 'sb_publishable_eEEIvGvv1n-nwN6983xE2g_YvMOm_eX'
 };
