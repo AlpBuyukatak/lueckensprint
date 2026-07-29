@@ -8,15 +8,15 @@ const requiredFields=['genre','wordCount','sentenceCount','difficultyScore','est
 for(const level of levels){
   const rows=JSON.parse(fs.readFileSync(path.join(__dirname,'data',`texts-${level.toLowerCase()}.json`),'utf8'));
   assert.equal(rows.length,required[level],`${level} count is too low`);
-  const ids=new Set(),titles=new Set();let words=0,sentences=0;
+  const ids=new Set(),titles=new Set(),genres=new Set();let words=0,sentences=0;
   for(const row of rows){
     assert.equal(row.level,level,'wrong CEFR level');assert.ok(row.id&&!ids.has(row.id),`duplicate id: ${row.id}`);assert.ok(row.title&&!titles.has(row.title),`duplicate title: ${row.title}`);ids.add(row.id);titles.add(row.title);
     for(const key of requiredFields)assert.ok(row[key]!==undefined&&row[key]!==null,`${row.id}: missing ${key}`);
     if(level==='A1'||level==='A2'){assert.ok(row.cefrAudit?.reviewed,`${row.id}: lower-level qualitative CEFR audit missing`);for(const criterion of ['vocabulary','syntax','cohesion','abstraction','context'])assert.ok(row.cefrAudit.qualitativeCriteria?.[criterion],`${row.id}: CEFR audit lacks ${criterion}`)}
     assert.equal(row.sourceType,'original');assert.ok(!/<\/?[a-z][^>]*>/i.test(row.text),`${row.id}: HTML found`);assert.ok(!/https?:\/\/|www\.|lorem ipsum|\ufffd/i.test(row.text),`${row.id}: invalid source text`);assert.ok(!/Auf dem Arbeitsblatt stehen die Stichwörter|Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben/u.test(row.text),`${row.id}: legacy repetitive framing found`);assert.ok(/[.!?]$/.test(row.text.trim()),`${row.id}: unfinished text`);assert.ok(ctest(row.text,{gaps:20}).gapCount>=20,`${row.id}: too few C-Test gaps`);
-    words+=row.wordCount;sentences+=row.sentenceCount;report.topics[row.topic]=(report.topics[row.topic]||0)+1;report.genres[row.genre]=(report.genres[row.genre]||0)+1;all.push(row);
+    genres.add(row.genre);words+=row.wordCount;sentences+=row.sentenceCount;report.topics[row.topic]=(report.topics[row.topic]||0)+1;report.genres[row.genre]=(report.genres[row.genre]||0)+1;all.push(row);
   }
-  report.levels[level]={count:rows.length,averageWordCount:Number((words/rows.length).toFixed(1)),averageSentenceLength:Number((sentences?words/sentences:0).toFixed(1)),averageDifficulty:Number((rows.reduce((n,row)=>n+row.difficultyScore,0)/rows.length).toFixed(1))};
+  assert.equal(genres.size,10,`${level} corpus must include all ten text genres`);report.levels[level]={count:rows.length,averageWordCount:Number((words/rows.length).toFixed(1)),averageSentenceLength:Number((sentences?words/sentences:0).toFixed(1)),averageDifficulty:Number((rows.reduce((n,row)=>n+row.difficultyScore,0)/rows.length).toFixed(1))};
 }
 for(let i=0;i<all.length;i++)for(let j=i+1;j<all.length;j++){if(all[i].level!==all[j].level)continue;const score=similarity(all[i].text,all[j].text);if(score>.93)report.duplicates.push({left:all[i].id,right:all[j].id,score:Number(score.toFixed(2))})}
 assert.equal(all.length,450,'database must contain 450 texts');assert.equal(report.duplicates.length,0,`near duplicates: ${JSON.stringify(report.duplicates.slice(0,3))}`);for(let i=1;i<levels.length;i++)assert.ok(report.levels[levels[i]].averageDifficulty>report.levels[levels[i-1]].averageDifficulty,'difficulty must increase by level');

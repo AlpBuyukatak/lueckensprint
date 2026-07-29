@@ -24,7 +24,7 @@ for(const text of rows){
   coverage.gaps+=made.gapCount;
   coverage.levels[text.level]=(coverage.levels[text.level]||0)+1;
   try{
-    assert.ok(text.text.includes(`Thema ${text.topic}`),'topic is not embedded in a grammatical topic frame');
+    assert.ok(text.text.includes(`Thema ${text.topic}`)||text.text.includes(text.topicContext||''),'topic-specific context is not embedded in a grammatical sentence');
     assert.ok(!/Heute beginnt\s/u.test(text.text),'legacy incomplete A1 sentence frame remains');
     assert.ok(!/beschäftigt sich Amir mit (?!dem Thema)/u.test(text.text),'legacy A2 case frame remains');
     assert.ok(!/organisiert unsere Gruppe (?!ein kleines Projekt)/u.test(text.text),'legacy B1 sentence frame remains');

@@ -2,32 +2,32 @@
   "levels": {
     "A1": {
       "count": 50,
-      "averageWordCount": 84.1,
-      "averageSentenceLength": 7.6,
+      "averageWordCount": 95.5,
+      "averageSentenceLength": 7.3,
       "averageDifficulty": 23.3
     },
     "A2": {
       "count": 70,
-      "averageWordCount": 95.4,
-      "averageSentenceLength": 8.7,
+      "averageWordCount": 116.6,
+      "averageSentenceLength": 7.8,
       "averageDifficulty": 38.5
     },
     "B1": {
       "count": 120,
-      "averageWordCount": 82.6,
-      "averageSentenceLength": 11.8,
+      "averageWordCount": 112.7,
+      "averageSentenceLength": 9.4,
       "averageDifficulty": 52
     },
     "B2": {
       "count": 140,
-      "averageWordCount": 93.1,
-      "averageSentenceLength": 11.5,
+      "averageWordCount": 123.6,
+      "averageSentenceLength": 10.3,
       "averageDifficulty": 66.9
     },
     "C1": {
       "count": 70,
-      "averageWordCount": 95,
-      "averageSentenceLength": 11.9,
+      "averageWordCount": 133.7,
+      "averageSentenceLength": 11.1,
       "averageDifficulty": 82.8
     }
   },
@@ -59,18 +59,16 @@
     "Integration": 15
   },
   "genres": {
-    "Tagesnotiz": 50,
-    "Erlebnisbericht": 70,
-    "Alltagsbericht": 33,
-    "Erzählung": 33,
-    "Reisebericht": 33,
-    "Sachtext": 33,
-    "E-Mail": 33,
-    "Kommentar": 33,
-    "Museumsnotiz": 33,
-    "Kurzbericht": 33,
-    "Erklärung": 33,
-    "Porträt": 33
+    "Tagesnotiz": 45,
+    "Erzählung": 45,
+    "Reisebericht": 45,
+    "Sachtext": 45,
+    "E-Mail": 45,
+    "Kommentar": 45,
+    "Museumsnotiz": 45,
+    "Kurzbericht": 45,
+    "Erklärung": 45,
+    "Porträt": 45
   },
   "duplicates": []
 }
