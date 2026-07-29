@@ -16,4 +16,7 @@ const data=JSON.parse(match[1]);
 assert.equal(Object.values(data).reduce((n,list)=>n+list.length,0),450,'All 450 texts must be embedded.');
 assert.ok(html.includes('ä')&&html.includes('ö')&&html.includes('ü')&&html.includes('ß'),'German characters were not preserved.');
 assert.ok(html.includes('Sicherung erstellen'),'Standalone backup control is missing.');
+assert.ok(html.includes('const ENGLISH_HELP=Object.freeze'),'Standalone build must include the English-help dictionary.');
+assert.ok(html.includes('englishHelp:true'),'Standalone build must preserve the enabled English-help default.');
+assert.ok(html.includes('Kurze Begriffshilfe'),'Standalone build must include the first-use glossary.');
 console.log('Standalone build tests passed');
