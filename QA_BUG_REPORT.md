@@ -1,6 +1,6 @@
 # QA Bug Report
 
-Generated: 2026-07-29T16:12:47.751Z
+Generated: 2026-07-29T18:06:40.369Z
 
 - Discovered defects: **1**
 - Fixed: **1**
@@ -9,4 +9,4 @@ Generated: 2026-07-29T16:12:47.751Z
 
 ## CORPUS-001 — fixed (major)
 
-The original shared text factory inserted topic phrases into grammatically incompatible sentence frames. All 300 existing records have been regenerated from grammatically complete level-specific templates while retaining their IDs, levels and corpus size. The automated audit now verifies all 6,000 generated gaps and a 70-text stratified review set.
+The original shared text factory inserted topic phrases into grammatically incompatible sentence frames. The existing records were repaired and the corpus was extended to 450 texts while preserving previous IDs. The automated audit verifies all 9,000 generated gaps and a 100-text structured internal review set.

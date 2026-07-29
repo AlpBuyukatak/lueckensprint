@@ -1,7 +1,7 @@
 {
   "name": "lueckensprint",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "scripts": {
     "build:data": "node generate-text-data.js",
     "build:version": "node build-version.js",
@@ -20,7 +20,11 @@
     "test:targeted-training": "node targeted-training-tests.js",
     "test:pwa-update": "node pwa-update-tests.js",
     "test:responsive": "node responsive-tests.js",
-    "test:qa": "node qa-audit-tests.js && node qa-browser-tests.js"
+    "test:qa": "node qa-audit-tests.js && node qa-browser-tests.js",
+    "test:corpus-integrity": "node corpus-integrity-tests.js",
+    "test:answer-integrity": "node answer-integrity-tests.js",
+    "test:level-calibration": "node level-calibration-tests.js",
+    "test:exam-progression": "node exam-progression-tests.js"
   },
   "devDependencies": {
     "playwright": "^1.62.0"

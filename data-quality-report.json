@@ -1,74 +1,74 @@
 {
   "levels": {
     "A1": {
-      "count": 40,
-      "averageWordCount": 129.4,
-      "averageSentenceLength": 10.8,
-      "averageDifficulty": 20.9
+      "count": 50,
+      "averageWordCount": 92.3,
+      "averageSentenceLength": 11.5,
+      "averageDifficulty": 22.7
     },
     "A2": {
-      "count": 50,
-      "averageWordCount": 139.8,
-      "averageSentenceLength": 11.7,
-      "averageDifficulty": 34.9
+      "count": 70,
+      "averageWordCount": 96.8,
+      "averageSentenceLength": 12.1,
+      "averageDifficulty": 36.8
     },
     "B1": {
-      "count": 70,
-      "averageWordCount": 138.2,
-      "averageSentenceLength": 12.6,
-      "averageDifficulty": 53
+      "count": 120,
+      "averageWordCount": 95.7,
+      "averageSentenceLength": 13.7,
+      "averageDifficulty": 52
     },
     "B2": {
-      "count": 80,
-      "averageWordCount": 152.7,
-      "averageSentenceLength": 12.7,
-      "averageDifficulty": 72.9
+      "count": 140,
+      "averageWordCount": 98.2,
+      "averageSentenceLength": 12.1,
+      "averageDifficulty": 66.9
     },
     "C1": {
-      "count": 60,
-      "averageWordCount": 168.1,
-      "averageSentenceLength": 16.8,
-      "averageDifficulty": 90.9
+      "count": 70,
+      "averageWordCount": 107.1,
+      "averageSentenceLength": 13.4,
+      "averageDifficulty": 82.8
     }
   },
   "topics": {
-    "Alltag": 14,
-    "Universität": 14,
-    "Arbeit": 14,
-    "Wohnen": 14,
-    "Verkehr": 14,
-    "Gesundheit": 13,
-    "Sport": 13,
-    "Reisen": 13,
-    "Digitale Kommunikation": 13,
-    "Künstliche Intelligenz": 13,
-    "Umwelt": 12,
-    "Bildung": 12,
-    "Wissenschaft": 12,
-    "Technologie": 12,
-    "Soziale Medien": 12,
-    "Politik": 11,
-    "Wirtschaft": 11,
-    "Kultur": 11,
-    "Geschichte": 11,
-    "Psychologie": 11,
-    "Forschung": 10,
-    "Energie": 10,
-    "Datenschutz": 10,
-    "Stadtplanung": 10,
-    "Integration": 10
+    "Alltag": 19,
+    "Universität": 19,
+    "Arbeit": 19,
+    "Wohnen": 19,
+    "Verkehr": 19,
+    "Gesundheit": 19,
+    "Sport": 19,
+    "Reisen": 19,
+    "Digitale Kommunikation": 19,
+    "Künstliche Intelligenz": 19,
+    "Umwelt": 19,
+    "Bildung": 19,
+    "Wissenschaft": 19,
+    "Technologie": 19,
+    "Soziale Medien": 19,
+    "Politik": 18,
+    "Wirtschaft": 18,
+    "Kultur": 18,
+    "Geschichte": 18,
+    "Psychologie": 18,
+    "Forschung": 15,
+    "Energie": 15,
+    "Datenschutz": 15,
+    "Stadtplanung": 15,
+    "Integration": 15
   },
   "genres": {
-    "Alltagsbericht": 30,
-    "Erzählung": 30,
-    "Reisebericht": 30,
-    "Sachtext": 30,
-    "E-Mail": 30,
-    "Kommentar": 30,
-    "Museumsnotiz": 30,
-    "Kurzbericht": 30,
-    "Erklärung": 30,
-    "Porträt": 30
+    "Alltagsbericht": 45,
+    "Erzählung": 45,
+    "Reisebericht": 45,
+    "Sachtext": 45,
+    "E-Mail": 45,
+    "Kommentar": 45,
+    "Museumsnotiz": 45,
+    "Kurzbericht": 45,
+    "Erklärung": 45,
+    "Porträt": 45
   },
   "duplicates": []
 }

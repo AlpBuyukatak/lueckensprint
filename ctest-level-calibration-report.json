@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-07-29T18:06:39.393Z",
+  "method": "Reviewed linguistic feature scores (lexical, syntax, cohesion and C-Test gap difficulty); empirical values remain unset until at least 20 real attempts.",
+  "distribution": {
+    "A1": {
+      "count": 50,
+      "min": 18,
+      "max": 28,
+      "average": 22.7,
+      "range": [
+        15,
+        30
+      ]
+    },
+    "A2": {
+      "count": 70,
+      "min": 32,
+      "max": 42,
+      "average": 36.8,
+      "range": [
+        30,
+        45
+      ]
+    },
+    "B1": {
+      "count": 120,
+      "min": 47,
+      "max": 57,
+      "average": 51.96,
+      "range": [
+        45,
+        60
+      ]
+    },
+    "B2": {
+      "count": 140,
+      "min": 62,
+      "max": 72,
+      "average": 66.91,
+      "range": [
+        60,
+        75
+      ]
+    },
+    "C1": {
+      "count": 70,
+      "min": 78,
+      "max": 88,
+      "average": 82.8,
+      "range": [
+        75,
+        90
+      ]
+    }
+  },
+  "flags": []
+}

@@ -4,7 +4,7 @@ const path=require('path');
 const {ctest}=require('./app.js');
 
 const root=__dirname;
-const samplePlan={A1:10,A2:10,B1:20,B2:20,C1:10};
+const samplePlan={A1:10,A2:15,B1:30,B2:30,C1:15};
 const rows=Object.keys(samplePlan).flatMap(level=>JSON.parse(fs.readFileSync(path.join(root,'data',`texts-${level.toLowerCase()}.json`),'utf8')));
 const activeFindings=[];
 const fixedFindings=[{
@@ -14,7 +14,7 @@ const fixedFindings=[{
   expected:'Grammatisch vollständige, natürliche deutsche Sätze.',
   actual:'Die frühere Vorlagengenerierung setzte Nominalphrasen in unpassende Satzrahmen ein, etwa „Heute beginnt …“.',
   rootCause:'Die gemeinsame Textvorlage erwartete konjugierte Satzteile, die Themenliste enthielt jedoch Nominalphrasen.',
-  fix:'Die fünf Niveauvorlagen verwenden jetzt grammatisch geschlossene Themenrahmen; alle vorhandenen 300 JSON-Datensätze wurden mit unveränderten stabilen IDs regeneriert.',
+  fix:'Die Niveauvorlagen verwenden jetzt grammatisch geschlossene Themenrahmen; die bestehenden 300 Datensätze wurden repariert und anschließend auf 450 Texte mit unveränderten vorhandenen IDs erweitert.',
   regressionTest:'qa-audit-tests.js prüft die neuen Satzrahmen, die vollständige Rekonstruktion und alle 6.000 C-Test-Lücken.'
 }];
 const coverage={texts:rows.length,gaps:0,levels:{},sampleReview:[]};
@@ -47,9 +47,9 @@ for(const [level,count] of Object.entries(samplePlan)){
     textId:row.id,level,reviewed:true,issues:[],reviewScope:'Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion.'
   })));
 }
-assert.equal(rows.length,300,'corpus count changed unexpectedly');
-assert.equal(new Set(rows.map(row=>row.id)).size,300,'text IDs must be unique');
-assert.equal(coverage.gaps,6000,'all corpus texts must produce 20 gaps');
+assert.equal(rows.length,450,'corpus count changed unexpectedly');
+assert.equal(new Set(rows.map(row=>row.id)).size,450,'text IDs must be unique');
+assert.equal(coverage.gaps,9000,'all corpus texts must produce 20 gaps');
 assert.equal(activeFindings.length,0,`open corpus defects: ${JSON.stringify(activeFindings.slice(0,3))}`);
 
 const report={
@@ -58,5 +58,5 @@ const report={
   findings:[...fixedFindings,...activeFindings],coverage
 };
 fs.writeFileSync(path.join(root,'qa-bug-report.json'),JSON.stringify(report,null,2),'utf8');
-fs.writeFileSync(path.join(root,'QA_BUG_REPORT.md'),`# QA Bug Report\n\nGenerated: ${report.generatedAt}\n\n- Discovered defects: **${report.summary.bugsFound}**\n- Fixed: **${report.summary.fixed}**\n- Unresolved: **${report.summary.unresolved}**\n- Severity: blocker 0, critical 0, major ${report.summary.major}, minor ${report.summary.minor}\n\n## CORPUS-001 — fixed (major)\n\nThe original shared text factory inserted topic phrases into grammatically incompatible sentence frames. All 300 existing records have been regenerated from grammatically complete level-specific templates while retaining their IDs, levels and corpus size. The automated audit now verifies all 6,000 generated gaps and a 70-text stratified review set.\n`, 'utf8');
+fs.writeFileSync(path.join(root,'QA_BUG_REPORT.md'),`# QA Bug Report\n\nGenerated: ${report.generatedAt}\n\n- Discovered defects: **${report.summary.bugsFound}**\n- Fixed: **${report.summary.fixed}**\n- Unresolved: **${report.summary.unresolved}**\n- Severity: blocker 0, critical 0, major ${report.summary.major}, minor ${report.summary.minor}\n\n## CORPUS-001 — fixed (major)\n\nThe original shared text factory inserted topic phrases into grammatically incompatible sentence frames. The existing records were repaired and the corpus was extended to 450 texts while preserving previous IDs. The automated audit verifies all 9,000 generated gaps and a 100-text structured internal review set.\n`, 'utf8');
 console.log(`QA corpus audit passed: ${coverage.texts} texts, ${coverage.gaps} gaps, ${coverage.sampleReview.length} stratified reviews`);

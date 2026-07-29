@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-07-29T18:06:38.475Z",
+  "finalCounts": {
+    "A1": 50,
+    "A2": 70,
+    "B1": 120,
+    "B2": 140,
+    "C1": 70
+  },
+  "totalTexts": 450,
+  "totalGaps": 9000,
+  "invalidGapCount": 0,
+  "processLevelDistribution": {
+    "Wortebene": 3360,
+    "Satzebene": 2155,
+    "Textebene": 3485
+  },
+  "existingDefectsFixed": [
+    "CORPUS-001: grammatically incomplete topic-frame sentences"
+  ],
+  "newTextsAccepted": 150,
+  "newTextsRejected": 0,
+  "tokenHandling": {
+    "hyphenatedCompounds": "Skipped as one ineligible token; no partial compound gap is created.",
+    "apostrophes": "Tokens containing straight or typographic apostrophes are skipped as ineligible.",
+    "punctuation": "Kept outside the input and excluded from the completion."
+  },
+  "structuredInternalLinguisticReview": "Automated structural review plus template-level linguistic review; this is not native-speaker validation.",
+  "problems": []
+}

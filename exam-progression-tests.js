@@ -1,0 +1,6 @@
+const assert=require('assert');
+const fs=require('fs');
+const path=require('path');
+const {selectExamTexts}=require('./app.js');
+const root=__dirname,all=['a1','a2','b1','b2','c1'].flatMap(level=>JSON.parse(fs.readFileSync(path.join(root,'data',`texts-${level}.json`),'utf8'))),selected=selectExamTexts(all,{},17),scores=selected.map(text=>text.numericDifficultyScore),report={generatedAt:new Date().toISOString(),selected:selected.map(text=>({id:text.id,level:text.level,topic:text.topic,genre:text.genre,difficulty:text.numericDifficultyScore})),totalGaps:selected.length*20,valid:false};
+assert.equal(selected.length,5,'five exam texts');assert.equal(new Set(selected.map(text=>text.id)).size,5,'duplicate exam text');assert.equal(new Set(selected.map(text=>text.topic)).size,5,'topic diversity');assert.equal(new Set(selected.map(text=>text.genre)).size,5,'genre diversity');for(let i=1;i<scores.length;i++)assert.ok(scores[i]>scores[i-1],`difficulty ${i} must increase`);assert.deepEqual(scores.map(score=>score>=15&&score<=90),[true,true,true,true,true]);report.valid=true;fs.writeFileSync(path.join(root,'ctest-exam-progression-report.json'),JSON.stringify(report,null,2),'utf8');console.log(`Exam progression passed: ${scores.join(' < ')}`);

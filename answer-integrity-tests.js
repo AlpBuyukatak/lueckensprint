@@ -1,0 +1,9 @@
+const assert=require('assert');
+const fs=require('fs');
+const path=require('path');
+const {ctest,score}=require('./app.js');
+const root=__dirname,levels=['A1','A2','B1','B2','C1'],entries=[],problems=[];
+for(const level of levels)for(const text of JSON.parse(fs.readFileSync(path.join(root,'data',`texts-${level.toLowerCase()}.json`),'utf8'))){const made=ctest(text.text,{gaps:20,level,textId:text.id});for(const item of made.items){const diagnostic=item.diagnostic,alternatives=diagnostic.acceptedAlternativeAnswers||[];const row={textId:text.id,gapId:diagnostic.gapId,visiblePrefix:item.prefix,originalAnswer:item.missing,acceptedAlternatives:alternatives,ambiguityStatus:alternatives.length?'reviewed_alternatives':'single_answer',reviewStatus:'structured_internal_review',detectedProblem:null,correctionApplied:null};try{assert.equal(item.prefix+item.missing,item.word,'reconstruction mismatch');assert.ok(!alternatives.includes(item.missing),'original answer duplicated as alternative');assert.ok(score([item],[item.missing],{lenient:false,acceptSS:false}).correct===1,'original answer rejected');assert.ok(score([item],[`x${item.missing}`],{lenient:false,acceptSS:false}).correct===0,'invalid answer accepted')}catch(error){row.ambiguityStatus='invalid_gap';row.detectedProblem=error.message;problems.push(row)}entries.push(row)}}
+assert.equal(entries.length,9000,'answer report gap count');assert.equal(problems.length,0,JSON.stringify(problems.slice(0,3)));
+fs.writeFileSync(path.join(root,'ctest-answer-integrity-report.json'),JSON.stringify({generatedAt:new Date().toISOString(),totalGaps:entries.length,invalidGapCount:problems.length,ambiguousGapCount:0,alternativeAnswerCount:0,gaps:entries},null,2),'utf8');
+console.log(`Answer integrity passed: ${entries.length} original answers accepted`);
