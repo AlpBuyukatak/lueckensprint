@@ -9,7 +9,7 @@ assert.ok(app.includes('await fetch(file'), 'Hosted runtime does not load JSON f
 assert.ok(app.includes('window.__STANDALONE_TEXTS__'), 'Standalone JSON path is missing.');
 assert.ok(sw.includes("event.data==='SKIP_WAITING'"), 'PWA update activation is missing.');
 assert.ok(app.includes('openCustomEditor'), 'Custom-text editing is missing.');
-assert.ok(app.includes('Eğitim sonuç bantları'), 'Configurable training bands are missing.');
+assert.ok(app.includes('Bewertungsb\\u00e4nder f\\u00fcr das Training'), 'Configurable training bands are missing.');
 assert.ok(!/soundEffect|sound effects|ses efekti/i.test(app), 'Unused sound setting remains.');
 assert.ok(css.includes('body.dark{--text:#f1f8f4'),'Dark theme light text token is missing.');
 assert.ok(css.includes('.ctext .word-gap{display:inline-flex'),'C-Test word fragments are not inline.');

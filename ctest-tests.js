@@ -15,6 +15,6 @@ assert.equal(new Set(Object.values(DB).flat().map(x=>x.id)).size,125);
 const json=Object.fromEntries(['a1','a2','b1','b2','c1'].map(level=>[level.toUpperCase(),JSON.parse(fs.readFileSync(`data/texts-${level}.json`,'utf8'))]));
 setDatabase(json);
 assert.equal(Object.values(getDatabase()).reduce((n,list)=>n+list.length,0),125);
-assert.equal(trainingBand(59),'Belirgin gelişim gerekli');
-assert.equal(trainingBand(90),'Çok güçlü performans');
+assert.equal(trainingBand(59),'Deutlicher Übungsbedarf');
+assert.equal(trainingBand(90),'Sehr starke Leistung');
 console.log('C-Test tests passed');

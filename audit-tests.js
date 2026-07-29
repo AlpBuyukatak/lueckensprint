@@ -1,5 +1,7 @@
 const assert=require('assert'),fs=require('fs');
-const app=fs.readFileSync('app.js','utf8'),index=fs.readFileSync('index.html','utf8'),sw=fs.readFileSync('service-worker.js','utf8');
+const app=fs.readFileSync('app.js','utf8'),index=fs.readFileSync('index.html','utf8'),sync=fs.readFileSync('sync.js','utf8'),sw=fs.readFileSync('service-worker.js','utf8');
+const localized=app.slice(app.indexOf('/* Current user interface: German-only overrides'));
+assert.ok(localized.length>0,'The German runtime-localization block is missing.');
 for(const route of ['#/start','#/tagestraining','#/training','#/pruefung','#/fehlertraining','#/eigene-texte','#/statistik','#/einstellungen'])assert.ok(app.includes(route),`Missing hash route: ${route}`);
 assert.ok(app.includes('renderExam=()=>'),'Exam route must return HTML rather than mutate the DOM without a return value.');
 assert.ok(app.includes('activeExamIsValid'),'Saved exams need defensive validation.');
@@ -12,4 +14,7 @@ assert.ok(!app.includes('await window.LueckenSync?.initialize'),'Cloud initializ
 assert.ok(!app.includes("window.VIEW=S.activeExam?'exam':'home'"),'Startup must not force the home route.');
 for(const label of ['Startseite','Tagestraining','Training','Prüfung','Fehlertraining','Eigene Texte','Statistik','Einstellungen'])assert.ok(index.includes(label),`German navigation label missing: ${label}`);
 assert.ok(sw.includes('lueckensprint-v1.5.0'),'Service worker cache version was not bumped for the audit release.');
-console.log('Routing, exam recovery, German navigation, and render-boundary tests passed');
+const turkishUiMarkers=['Ana Sayfa','Günlük Çalışma','Günlük mücadele','Pratikte ','Karışık ','Hata Tekrarı','Kendi Metnim','İstatistikler','Ayarları kaydet','Yedek oluştur','Yüklenemedi','başlatıldı','Cevapları kontrol','Sonuç bantları','Başlık ve Almanca','Yerel olarak kaydet','Henüz kayıtlı','Tam Deneme','Deneme tamamlandı'];
+for(const marker of turkishUiMarkers){assert.ok(!localized.includes(marker),`Turkish user-facing text remains in the active UI: ${marker}`);assert.ok(!index.includes(marker),`Turkish user-facing text remains in index.html: ${marker}`);assert.ok(!sync.includes(marker),`Turkish user-facing text remains in sync.js: ${marker}`)}
+for(const phrase of ['Schnelles Training starten','Aktivit\\u00e4tskalender','Fehlertraining','Eigene Texte','Erweiterte Sicherung','Cloud-Synchronisierung','Nicht angemeldet'])assert.ok(localized.includes(phrase)||sync.includes(phrase),`German interface text missing: ${phrase}`);
+console.log('Routing, exam recovery, German localization, and render-boundary tests passed');

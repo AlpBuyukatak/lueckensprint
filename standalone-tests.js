@@ -15,5 +15,5 @@ assert.ok(match,'Embedded JSON database is missing.');
 const data=JSON.parse(match[1]);
 assert.equal(Object.values(data).reduce((n,list)=>n+list.length,0),125,'All 125 texts must be embedded.');
 assert.ok(html.includes('ä')&&html.includes('ö')&&html.includes('ü')&&html.includes('ß'),'German characters were not preserved.');
-assert.ok(html.includes('Yedek oluştur'),'Standalone backup control is missing.');
+assert.ok(html.includes('Sicherung erstellen'),'Standalone backup control is missing.');
 console.log('Standalone build tests passed');
