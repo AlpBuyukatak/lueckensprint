@@ -1,0 +1,15 @@
+const assert=require('assert'),fs=require('fs');
+const app=fs.readFileSync('app.js','utf8'),index=fs.readFileSync('index.html','utf8'),sw=fs.readFileSync('service-worker.js','utf8');
+for(const route of ['#/start','#/tagestraining','#/training','#/pruefung','#/fehlertraining','#/eigene-texte','#/statistik','#/einstellungen'])assert.ok(app.includes(route),`Missing hash route: ${route}`);
+assert.ok(app.includes('renderExam=()=>'),'Exam route must return HTML rather than mutate the DOM without a return value.');
+assert.ok(app.includes('activeExamIsValid'),'Saved exams need defensive validation.');
+assert.ok(app.includes('Seite konnte nicht angezeigt werden'),'Render error boundary is missing.');
+assert.ok(app.includes('Seite erneut laden')&&app.includes('Zur Startseite'),'Error boundary recovery actions are missing.');
+assert.ok(app.includes('renderStoredExamResult'),'Completed exam result must persist and render again.');
+assert.ok(app.includes('Richtige Ergänzung')&&app.includes('Vollständiges Wort'),'Answer feedback must show complete corrections.');
+assert.ok(app.includes('result-filter'),'Result filters are missing.');
+assert.ok(!app.includes('await window.LueckenSync?.initialize'),'Cloud initialization must not overwrite or block routes.');
+assert.ok(!app.includes("window.VIEW=S.activeExam?'exam':'home'"),'Startup must not force the home route.');
+for(const label of ['Startseite','Tagestraining','Training','Prüfung','Fehlertraining','Eigene Texte','Statistik','Einstellungen'])assert.ok(index.includes(label),`German navigation label missing: ${label}`);
+assert.ok(sw.includes('lueckensprint-v1.5.0'),'Service worker cache version was not bumped for the audit release.');
+console.log('Routing, exam recovery, German navigation, and render-boundary tests passed');

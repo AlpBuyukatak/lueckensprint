@@ -39,7 +39,7 @@ assert.equal(deviceAReceived.attempts.length,2,'two-device flow creates no dupli
 assert.equal(deviceAReceived.attempts.reduce((total,item)=>total+item.correct,0),37,'statistics can be recalculated from merged attempts');
 
 const source=fs.readFileSync('sync.js','utf8');
-for(const token of ['auth.getSession()','auth.onAuthStateChange','detectSessionInUrl:true','addEventListener(\'online\'','visibilitychange','addEventListener(\'focus\'','force:true, reason:\'periodic\'','POLL_MS = 90000','NORMAL_DEBOUNCE_MS = 2000','EXAM_DEBOUNCE_MS = 6500','save_user_progress','MAX_RETRIES = 3','Senkronizasyon yeniden denenecek','Çevrimdışı · cihazda kaydedildi','Henüz buluta gönderilmemiş yerel değişiklikler var','Giriş yapıldı','Giriş yapılmadı','id="syncNow"','id="pullCloud"','id="pushCloud"','id="downloadCloud"']){
+for(const token of ['auth.getSession()','auth.onAuthStateChange','detectSessionInUrl:true','addEventListener(\'online\'','visibilitychange','addEventListener(\'focus\'','force:true, reason:\'periodic\'','POLL_MS = 90000','NORMAL_DEBOUNCE_MS = 2000','EXAM_DEBOUNCE_MS = 6500','save_user_progress','MAX_RETRIES = 3','Synchronisierung wird erneut versucht','Offline · auf diesem Gerät gespeichert','Es gibt noch nicht synchronisierte lokale Änderungen','Angemeldet','Nicht angemeldet','id="syncNow"','id="pullCloud"','id="pushCloud"','id="downloadCloud"']){
   if(['id="syncNow"','id="pullCloud"','id="pushCloud"','id="downloadCloud"'].includes(token))assert.ok(!source.includes(token),`Manual cloud control leaked into normal UI: ${token}`);
   else assert.ok(source.includes(token),`Missing automatic sync behavior: ${token}`);
 }

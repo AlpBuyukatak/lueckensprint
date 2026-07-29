@@ -83,7 +83,7 @@
     };
   };
 
-  let client = null, getState = () => ({}), replaceState = () => {}, timer = null, retryTimer = null, user = null, lastSync = '', status = 'Yerel mod', detail = '', pending = false, applying = false;
+  let client = null, getState = () => ({}), replaceState = () => {}, timer = null, retryTimer = null, user = null, lastSync = '', status = 'Lokaler Modus', detail = '', pending = false, applying = false;
   const publicKey = cfg => cfg?.publishableKey || cfg?.anonKey || '';
   const configured = () => { const cfg = global.LUECKENSPRINT_SUPABASE_CONFIG || {}; return Boolean(cfg.url && publicKey(cfg) && global.supabase?.createClient); };
   const emit = () => { global.dispatchEvent?.(new CustomEvent('lueckensprint-sync-status', {detail:{status, detail, user, lastSync, pending, configured:configured()}})); mountSettingsPanel(); };
@@ -110,19 +110,19 @@
   const markPending = (kind = 'change') => {
     const state = getState(), meta = state.sync_meta = {...(state.sync_meta || {})};
     meta.schema_version = SCHEMA_VERSION; meta.device_id = deviceId(); meta.local_revision = (Number(meta.local_revision) || 0) + 1; meta.last_local_change_at = now(); meta.updated_at = meta.last_local_change_at; meta.pending_sync = true; pending = true; persistMeta();
-    if (!navigator.onLine) setStatus('Çevrimdışı · cihazda kaydedildi');
-    else if (user) setStatus('Bekleyen değişiklikler var');
-    else setStatus('Yerel mod');
+    if (!navigator.onLine) setStatus('Offline · auf diesem Gerät gespeichert');
+    else if (user) setStatus('Ausstehende Änderungen vorhanden');
+    else setStatus('Lokaler Modus');
     const delay = kind === 'active-exam' || state.activeExam ? EXAM_DEBOUNCE_MS : NORMAL_DEBOUNCE_MS;
     scheduleSync(delay);
   };
   const scheduleRetry = () => { clearTimeout(retryTimer); retryTimer = setTimeout(() => syncNow({reason:'retry'}), 3000); };
   const syncNow = async ({force = false, reason = 'automatic'} = {}) => {
-    if (!navigator.onLine) { if (pending) setStatus('Çevrimdışı · cihazda kaydedildi'); return false; }
+    if (!navigator.onLine) { if (pending) setStatus('Offline · auf diesem Gerät gespeichert'); return false; }
     const c = clientForSession();
-    if (!c || !user) { setStatus(user ? 'Senkronizasyon hatası' : (configured() ? 'Giriş yapılmadı' : 'Yerel mod')); return false; }
+    if (!c || !user) { setStatus(user ? 'Synchronisierungsfehler' : (configured() ? 'Nicht angemeldet' : 'Lokaler Modus')); return false; }
     if (!pending && !force) return true;
-    clearTimeout(timer); setStatus('Senkronize ediliyor…');
+    clearTimeout(timer); setStatus('Wird synchronisiert …');
     for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
       try {
         const cloud = await readCloud();
@@ -135,15 +135,15 @@
         lastSync = now(); pending = false;
         merged.sync_meta = {...(merged.sync_meta || {}), schema_version:SCHEMA_VERSION, device_id:deviceId(), cloud_revision:Number(result.revision) || expectedRevision + 1, pending_sync:false, last_successful_sync_at:lastSync};
         applying = true; replaceState(merged); applying = false;
-        setStatus('Senkronize edildi');
+        setStatus('Synchronisiert');
         return true;
       } catch (error) {
         diagnostic('Cloud sync failed', error?.message || 'unknown error');
         if (attempt < MAX_RETRIES - 1) { await pause(250 * (2 ** attempt)); continue; }
-        pending = true; const state = getState(); state.sync_meta = {...(state.sync_meta || {}), pending_sync:true}; persistMeta(); setStatus('Senkronizasyon yeniden denenecek', error?.message || ''); scheduleRetry(); return false;
+        pending = true; const state = getState(); state.sync_meta = {...(state.sync_meta || {}), pending_sync:true}; persistMeta(); setStatus('Synchronisierung wird erneut versucht', error?.message || ''); scheduleRetry(); return false;
       }
     }
-    pending = true; setStatus('Senkronizasyon yeniden denenecek'); scheduleRetry(); return false;
+    pending = true; setStatus('Synchronisierung wird erneut versucht'); scheduleRetry(); return false;
   };
   const scheduleSync = (delay = NORMAL_DEBOUNCE_MS) => { clearTimeout(timer); if (!user || !navigator.onLine) return; timer = setTimeout(() => syncNow({reason:'debounced'}), delay); };
   const preMergeSnapshotKey = userId => `first_cloud_premerge_snapshot_${userId}`;
@@ -166,35 +166,35 @@
     try { createPreMergeSnapshot(snapshotStorage, userId, state); } catch (error) { diagnostic('Pre-merge snapshot failed', error?.message || ''); }
     pending = true; state.sync_meta = {...(state.sync_meta || {}), pending_sync:true}; persistMeta();
     const okay = await syncNow({force:true, reason:'first-sign-in'});
-    if (okay) { detail = 'Yerel ve bulut ilerlemesi birleştirildi.'; emit(); }
+    if (okay) { detail = 'Lokaler und Cloud-Fortschritt wurden zusammengeführt.'; emit(); }
     return okay;
   };
   const applySession = async (event, session) => {
     diagnostic('Auth event name', event);
     user = session?.user || null;
-    if (!user) { setStatus(configured() ? 'Giriş yapılmadı' : 'Yerel mod'); return; }
-    diagnostic('Signed-in user email', user.email || '(email unavailable)'); cleanAuthCallbackUrl(); setStatus('Giriş yapıldı');
+    if (!user) { setStatus(configured() ? 'Nicht angemeldet' : 'Lokaler Modus'); return; }
+    diagnostic('Signed-in user email', user.email || '(email unavailable)'); cleanAuthCallbackUrl(); setStatus('Angemeldet');
     await runFirstMerge();
   };
   const initialize = api => {
     getState = api.getState; replaceState = api.replaceState;
     const state = getState(); lastSync = state.sync_meta?.last_successful_sync_at || ''; pending = Boolean(state.sync_meta?.pending_sync);
     const c = clientForSession();
-    if (!c) { diagnostic('Supabase client unavailable'); setStatus('Yerel mod'); return; }
-    c.auth.onAuthStateChange((event, session) => { applySession(event, session).catch(error => setStatus('Senkronizasyon hatası', error?.message || '')); });
-    void (async () => { try { const {data:{session}, error} = await c.auth.getSession(); if (error) throw error; diagnostic(session ? 'Initial session found' : 'Initial session missing'); await applySession('INITIAL_SESSION', session); } catch (error) { diagnostic('Initial session check failed', error?.message || ''); setStatus('Senkronizasyon hatası', error?.message || ''); } })();
-    global.addEventListener('online', () => { if (user) { setStatus('Senkronize ediliyor…'); syncNow({force:true, reason:'online'}); } });
+    if (!c) { diagnostic('Supabase client unavailable'); setStatus('Lokaler Modus'); return; }
+    c.auth.onAuthStateChange((event, session) => { applySession(event, session).catch(error => setStatus('Synchronisierungsfehler', error?.message || '')); });
+    void (async () => { try { const {data:{session}, error} = await c.auth.getSession(); if (error) throw error; diagnostic(session ? 'Initial session found' : 'Initial session missing'); await applySession('INITIAL_SESSION', session); } catch (error) { diagnostic('Initial session check failed', error?.message || ''); setStatus('Synchronisierungsfehler', error?.message || ''); } })();
+    global.addEventListener('online', () => { if (user) { setStatus('Wird synchronisiert …'); syncNow({force:true, reason:'online'}); } });
     global.addEventListener('focus', () => syncNow({force:true, reason:'focus'}));
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') syncNow({force:true, reason:'visible'}); });
     setInterval(() => syncNow({force:true, reason:'periodic'}), POLL_MS);
   };
-  const signIn = async email => { const c = clientForSession(); if (!c) throw new Error('Supabase yapılandırması eksik.'); const {error} = await c.auth.signInWithOtp({email, options:{emailRedirectTo:global.location.origin + global.location.pathname}}); if (error) throw error; setStatus('Giriş bağlantısı gönderildi'); };
+  const signIn = async email => { const c = clientForSession(); if (!c) throw new Error('Supabase-Konfiguration fehlt.'); const {error} = await c.auth.signInWithOtp({email, options:{emailRedirectTo:global.location.origin + global.location.pathname}}); if (error) throw error; setStatus('Anmelde-Link wurde gesendet'); };
   const signOut = async () => {
     if (pending) {
-      if (!navigator.onLine) { if (!global.confirm('Henüz buluta gönderilmemiş yerel değişiklikler var. Yine de çıkış yapmak istiyor musunuz?')) return; }
+      if (!navigator.onLine) { if (!global.confirm('Es gibt noch nicht synchronisierte lokale Änderungen. Trotzdem abmelden?')) return; }
       else await syncNow({force:true, reason:'sign-out'});
     }
-    if (client) await client.auth.signOut(); user = null; setStatus('Giriş yapılmadı');
+    if (client) await client.auth.signOut(); user = null; setStatus('Nicht angemeldet');
   };
   const onLocalSave = () => { if (!applying) markPending(getState().activeExam ? 'active-exam' : 'change'); };
   const restorePreMergeSnapshot = () => {
@@ -202,7 +202,7 @@
     const snapshot = readPreMergeSnapshot(snapshotStorage, user.id);
     if (!snapshot) return false;
     replaceState(clone(snapshot.state));
-    setStatus('Bekleyen değişiklikler var');
+    setStatus('Ausstehende Änderungen vorhanden');
     return true;
   };
   const mountRecoveryControl = () => {
@@ -212,16 +212,16 @@
     if (!host) { host = document.createElement('div'); host.id = 'preMergeRecoveryHost'; advanced.appendChild(host); }
     const snapshot = user && readPreMergeSnapshot(snapshotStorage, user.id);
     if (!snapshot) { host.innerHTML = ''; return; }
-    host.innerHTML = '<button class="button-outline" id="restorePreMergeSnapshot">İlk bulut birleştirmesi öncesi yerel durumu geri yükle</button>';
-    host.querySelector('#restorePreMergeSnapshot')?.addEventListener('click', () => { if (restorePreMergeSnapshot()) setStatus('Bekleyen değişiklikler var'); });
+    host.innerHTML = '<button class="button-outline" id="restorePreMergeSnapshot">Lokalen Stand vor der ersten Cloud-Zusammenführung wiederherstellen</button>';
+    host.querySelector('#restorePreMergeSnapshot')?.addEventListener('click', () => { if (restorePreMergeSnapshot()) setStatus('Ausstehende Änderungen vorhanden'); });
   };
   const mountSettingsPanel = () => {
     let host = document.querySelector('#syncPanelHost'); if (!host && global.VIEW === 'settings') { host = document.createElement('div'); host.id = 'syncPanelHost'; document.querySelector('#main')?.appendChild(host); } if (!host) return;
-    const time = lastSync ? new Intl.DateTimeFormat('tr-TR', {dateStyle:'short', timeStyle:'short'}).format(new Date(lastSync)) : 'Henüz senkronize edilmedi';
-    const account = user ? `<p class="sync-account"><strong>Giriş yapıldı</strong><br><span>${safeText(user.email)}</span><br><small>Son senkronizasyon: ${time}</small></p>` : `<p class="sync-account"><strong>Giriş yapılmadı</strong><br><small>${configured() ? 'Yerel verileriniz bu cihazda korunur.' : 'Yerel mod'}</small></p>`;
-    const errorDetails = detail && /^Senkronizasyon (yeniden denenecek|hatası)$/.test(status) ? `<details class="sync-details"><summary>Teknik ayrıntılar</summary><code>${safeText(detail)}</code></details>` : '';
-    host.innerHTML = `<section class="card sync-panel"><h2>Bulut senkronizasyonu</h2>${account}<p class="sync-status">${safeText(status)}</p>${pending ? '<p class="sync-pending">Bekleyen değişiklikler var</p>' : ''}${errorDetails}${user ? '<button class="button-danger" id="signOut">Çıkış yap</button>' : `<form id="magicLinkForm" class="choice-row"><input required type="email" id="syncEmail" placeholder="E-posta adresi" aria-label="E-posta adresi"><button class="button">Giriş bağlantısı gönder</button></form>`}</section>`;
-    host.querySelector('#magicLinkForm')?.addEventListener('submit', async event => { event.preventDefault(); try { await signIn(host.querySelector('#syncEmail').value); } catch (error) { setStatus('Senkronizasyon hatası', error?.message || ''); } });
+    const time = lastSync ? new Intl.DateTimeFormat('de-DE', {dateStyle:'short', timeStyle:'short'}).format(new Date(lastSync)) : 'Noch nicht synchronisiert';
+    const account = user ? `<p class="sync-account"><strong>Angemeldet</strong><br><span>${safeText(user.email)}</span><br><small>Letzte Synchronisierung: ${time}</small></p>` : `<p class="sync-account"><strong>Nicht angemeldet</strong><br><small>${configured() ? 'Ihre lokalen Daten bleiben auf diesem Gerät erhalten.' : 'Lokaler Modus'}</small></p>`;
+    const errorDetails = detail && /Synchronisierung/.test(status) ? `<details class="sync-details"><summary>Technische Details</summary><code>${safeText(detail)}</code></details>` : '';
+    host.innerHTML = `<section class="card sync-panel"><h2>Cloud-Synchronisierung</h2>${account}<p class="sync-status">${safeText(status)}</p>${pending ? '<p class="sync-pending">Ausstehende Änderungen vorhanden</p>' : ''}${errorDetails}${user ? '<button class="button-danger" id="signOut">Abmelden</button>' : `<form id="magicLinkForm" class="choice-row"><input required type="email" id="syncEmail" placeholder="E-Mail-Adresse" aria-label="E-Mail-Adresse"><button class="button">Anmelde-Link senden</button></form>`}</section>`;
+    host.querySelector('#magicLinkForm')?.addEventListener('submit', async event => { event.preventDefault(); try { await signIn(host.querySelector('#syncEmail').value); } catch (error) { setStatus('Synchronisierungsfehler', error?.message || ''); } });
     host.querySelector('#signOut')?.addEventListener('click', signOut);
     mountRecoveryControl();
   };

@@ -9,6 +9,7 @@
     "test:standalone": "node standalone-tests.js",
     "test:hosted": "node hosted-pwa-tests.js",
     "test:startup": "node startup-cache-tests.js",
+    "test:audit": "node audit-tests.js",
     "test:sync": "node sync-tests.js"
   }
 }
