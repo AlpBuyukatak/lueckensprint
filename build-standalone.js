@@ -13,8 +13,9 @@ try{
   if(Object.values(data).reduce((n,x)=>n+x.length,0)!==300)throw new Error('Expected 300 built-in texts in JSON databases.');
   const safe=value=>String(value).replace(/<\/script/gi,'<\\/script');
   const bootstrap=safe(`window.__STANDALONE__=true;window.__STANDALONE_TEXTS__=${JSON.stringify(data)};\n${publicConfig}`);
-  const standaloneJs=js.replace(/async function loadDatabase\(\)\{[^\n]*\}\n/,'async function loadDatabase(){if(typeof window!==\'undefined\')setDatabase(window.__STANDALONE_TEXTS__||{});}\n');
-  if(standaloneJs===js)throw new Error('Could not remove hosted database loader from standalone build.');
+  const withoutUpdateManager=js.replace(/\/\* PWA_UPDATE_MANAGER_START \*\/[\s\S]*?\/\* PWA_UPDATE_MANAGER_END \*\//,'');
+  const standaloneJs=withoutUpdateManager.replace(/async function loadDatabase\(\)\{[^\n]*\}\n/,'async function loadDatabase(){if(typeof window!==\'undefined\')setDatabase(window.__STANDALONE_TEXTS__||{});}\n');
+  if(standaloneJs===withoutUpdateManager)throw new Error('Could not remove hosted database loader from standalone build.');
   let output=html.replace(/<link rel="manifest"[^>]*>\s*/,'').replace(/<link rel="stylesheet" href="(?:\.\/)?styles\.css">/,'<style>'+safe(css)+'</style>').replace(/<script src="(?:\.\/)?supabase-config\.js"><\/script>\s*/,'').replace(/<script src="https:\/\/cdn\.jsdelivr\.net\/npm\/@supabase\/supabase-js@2\/dist\/umd\/supabase\.js" defer><\/script>\s*/,'').replace(/<script src="(?:\.\/)?sync\.js" defer><\/script>\s*/,'').replace(/<script src="(?:\.\/)?app\.js" defer><\/script>/,`<script>${bootstrap}<\/script><script>${safe(standaloneJs)}<\/script>`);
   if(/(?:src|href)=["'](?:https?:)?\/\//i.test(output))throw new Error('Standalone output contains an external resource.');
   if(!output.includes('window.__STANDALONE__||!(\'serviceWorker\'in navigator)'))throw new Error('Standalone guard for service-worker registration is missing.');

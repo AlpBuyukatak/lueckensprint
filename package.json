@@ -4,7 +4,8 @@
   "version": "1.1.0",
   "scripts": {
     "build:data": "node generate-text-data.js",
-    "build:standalone": "node build-standalone.js",
+    "build:version": "node build-version.js",
+    "build:standalone": "node build-version.js && node build-standalone.js",
     "test": "node ctest-tests.js",
     "test:standalone": "node standalone-tests.js",
     "test:hosted": "node hosted-pwa-tests.js",
@@ -16,6 +17,7 @@
     "test:performance": "node performance-tests.js",
     "test:calendar": "node calendar-tests.js",
     "test:ctest-diagnostics": "node ctest-diagnostics-tests.js",
-    "test:targeted-training": "node targeted-training-tests.js"
+    "test:targeted-training": "node targeted-training-tests.js",
+    "test:pwa-update": "node pwa-update-tests.js"
   }
 }

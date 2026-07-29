@@ -271,5 +271,6 @@ const renderExerciseWithCoach=renderExercise;renderExercise=function(){renderExe
 const renderSettingsWithCoach=renderSettings;renderSettings=function(){return `${renderSettingsWithCoach()}<section class="card" style="margin-top:18px"><h2>Strategiecoach</h2><p class="label">Nur im Lernmodus; in der Prüfungssimulation werden keine Hinweise gezeigt.</p><label class="toggle"><input id="strategyCoach" type="checkbox" ${S.settings.strategyCoach?'checked':''}> C-Test-Strategiecoach im Lernmodus anzeigen</label></section>`};
 if(typeof window!=='undefined'){document.addEventListener('submit',event=>{if(event.target?.id==='settingsForm')S.settings.strategyCoach=Boolean(document.querySelector('#strategyCoach')?.checked)},true)}
 if(typeof window!=='undefined'){document.addEventListener('click',event=>{const process=event.target.closest?.('.targeted-start')?.dataset.process;if(process){const error=(S.errors||[]).find(item=>item.processLevel===process),gap=error&&similarGaps(error)[0],text=gap&&findText(gap.textId);if(text)startPractice(text,{gaps:Math.min(10,S.settings.gaps),timer:false})}})}
+
 </script>
 </body></html>
