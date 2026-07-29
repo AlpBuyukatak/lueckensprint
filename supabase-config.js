@@ -4,6 +4,6 @@
  * designed for browser use; never put a secret or service-role key in this file.
  */
 window.LUECKENSPRINT_SUPABASE_CONFIG = {
-  url: '',
-  publishableKey: 'sb_publishable_eEEIvGvv1n-nwN6983xE2g_YvMOm_eX'
+  url: "https://hinucrjatqwjnuxcgffg.supabase.co",
+  publishableKey: "sb_publishable_eEEIvGvv1n-nwN6983xE2g_YvMOm_eX"
 };
