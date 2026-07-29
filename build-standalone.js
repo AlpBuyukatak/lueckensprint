@@ -14,7 +14,7 @@ try{
   const bootstrap=safe(`window.__STANDALONE__=true;window.__STANDALONE_TEXTS__=${JSON.stringify(data)};`);
   const standaloneJs=js.replace(/async function loadDatabase\(\)\{[^\n]*\}\n/,'async function loadDatabase(){if(typeof window!==\'undefined\')setDatabase(window.__STANDALONE_TEXTS__||{});}\n');
   if(standaloneJs===js)throw new Error('Could not remove hosted database loader from standalone build.');
-  let output=html.replace(/<link rel="manifest"[^>]*>\s*/,'').replace(/<link rel="stylesheet" href="(?:\.\/)?styles\.css">/,'<style>'+safe(css)+'</style>').replace(/<script src="(?:\.\/)?app\.js"><\/script>/,`<script>${bootstrap}<\/script><script>${safe(standaloneJs)}<\/script>`);
+  let output=html.replace(/<link rel="manifest"[^>]*>\s*/,'').replace(/<link rel="stylesheet" href="(?:\.\/)?styles\.css">/,'<style>'+safe(css)+'</style>').replace(/<script src="(?:\.\/)?supabase-config\.js"><\/script>\s*/,'').replace(/<script src="https:\/\/cdn\.jsdelivr\.net\/npm\/@supabase\/supabase-js@2\/dist\/umd\/supabase\.js" defer><\/script>\s*/,'').replace(/<script src="(?:\.\/)?sync\.js" defer><\/script>\s*/,'').replace(/<script src="(?:\.\/)?app\.js" defer><\/script>/,`<script>${bootstrap}<\/script><script>${safe(standaloneJs)}<\/script>`);
   if(/(?:src|href)=["'](?:https?:)?\/\//i.test(output))throw new Error('Standalone output contains an external resource.');
   if(!output.includes('window.__STANDALONE__||!(\'serviceWorker\'in navigator)'))throw new Error('Standalone guard for service-worker registration is missing.');
   if(/fetch\s*\(/.test(output))throw new Error('Standalone output must not contain fetch calls.');

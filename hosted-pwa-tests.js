@@ -1,5 +1,5 @@
 const assert=require('assert'),fs=require('fs');
-const app=fs.readFileSync('app.js','utf8'),sw=fs.readFileSync('service-worker.js','utf8'),css=fs.readFileSync('styles.css','utf8');
+const app=fs.readFileSync('app.js','utf8'),sw=fs.readFileSync('service-worker.js','utf8'),css=fs.readFileSync('styles.css','utf8'),index=fs.readFileSync('index.html','utf8');
 for(const page of ['home','daily','practice','exam','errors','custom','stats','settings'])assert.ok(app.includes(`data-view="${page}"`)||app.includes(`${page}:render`),`Missing ${page} navigation view.`);
 assert.ok(app.includes('`./data/texts-${level.toLowerCase()}.json`'),'Hosted runtime has no dynamic JSON loader.');
 for(const level of ['a1','a2','b1','b2','c1']){
@@ -16,4 +16,6 @@ assert.ok(css.includes('.ctext .word-gap{display:inline-flex'),'C-Test word frag
 assert.ok(css.includes('width:clamp(2.4ch'),'C-Test gaps have no compact adaptive width.');
 assert.ok(css.includes('.day{aspect-ratio:auto!important;height:36px'),'Calendar day cells are not compact.');
 assert.ok(css.includes('overflow-x:hidden'),'Horizontal-overflow protection is missing.');
+assert.ok(index.includes('./sync.js')&&index.includes('./supabase-config.js'),'Hosted sync assets are not loaded.');
+assert.ok(sw.includes("'./sync.js'")&&sw.includes("'./supabase-config.js'"),'Offline cache is missing sync assets.');
 console.log('Hosted PWA structural tests passed');

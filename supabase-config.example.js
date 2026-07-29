@@ -1,0 +1,4 @@
+window.LUECKENSPRINT_SUPABASE_CONFIG = {
+  url: 'https://YOUR_PROJECT_REF.supabase.co',
+  publishableKey: 'YOUR_SB_PUBLISHABLE_KEY'
+};

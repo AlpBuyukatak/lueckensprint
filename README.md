@@ -84,3 +84,15 @@ dist/                      Oluşturulan standalone dosya
 ```
 
 Uygulama yüzdeleri yalnızca eğitim geri bildirimidir; FAU’nun resmî yerleştirme sonucu veya eşikleri değildir.
+
+## Supabase ile isteğe bağlı cihazlar arası senkronizasyon
+
+Uygulama yapılandırılmadığında tamamen yerel misafir modunda çalışır; JSON/CSV yedekleri değişmeden kalır. Aynı e-posta ile PC ve iPhone arasında otomatik ilerleme senkronizasyonu için:
+
+1. Supabase’de ücretsiz bir proje oluşturun ve **Authentication → Providers → Email** altında Magic Link/OTP e-postasını etkinleştirin.
+2. **Authentication → URL Configuration** bölümüne şu redirect URL’yi ekleyin: `https://alpbuyukatak.github.io/lueckensprint/`.
+3. Supabase SQL Editor’da [supabase/migrations/001_user_progress.sql](supabase/migrations/001_user_progress.sql) dosyasının tamamını çalıştırın. Bu dosya tabloyu, indeksini, RLS’yi ve yalnızca `auth.uid() = user_id` erişim politikalarını oluşturur.
+4. [supabase-config.js](supabase-config.js) içindeki boş `url` ve `publishableKey` değerlerini Project URL’niz ve **`sb_publishable_…`** anahtarınızla doldurun. Secret veya service-role anahtarını asla tarayıcıya koymayın.
+5. Bu iki değerle çalıştıktan sonra dosyayı kendi yayın akışınızda güncelleyin. Anon anahtarı frontend için kamuya açıktır; güvenlik RLS politikalarıyla sağlanır.
+
+Ayarlarda e-posta magic-link girişi, geçerli kullanıcı, senkronizasyon durumu, manuel indirme/yükleme ve bulut yedeği kontrolleri görünür. Senkronizasyon; kayıtları kimliğe göre birleştirir, ayarlarda yeni zaman damgasını seçer, özel metin silmelerini tombstone ile korur ve en yeni açık denemeyi kullanır. Çevrimdışı değişiklikler yerelde kalır ve bağlantı döndüğünde debounced olarak yeniden denenir.
