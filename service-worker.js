@@ -1,4 +1,4 @@
-const CACHE='lueckensprint-v1.8.0';
+const CACHE='lueckensprint-v1.9.0';
 const ASSETS=['./','./index.html','./styles.css','./app.js','./sync.js','./supabase-config.js','./manifest.json','./icons/icon.svg','./data/texts-a1.json','./data/texts-a2.json','./data/texts-b1.json','./data/texts-b2.json','./data/texts-c1.json'];
 const cacheAsset=async(cache,url)=>{const response=await fetch(new Request(url,{cache:'reload'}));if(!response.ok)throw new Error(`Asset failed: ${url}`);await cache.put(url,response.clone())};
 self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(CACHE);try{await Promise.all(ASSETS.map(url=>cacheAsset(cache,url)))}catch(error){await caches.delete(CACHE);throw error}})()));

@@ -18,6 +18,7 @@
     "test:calendar": "node calendar-tests.js",
     "test:ctest-diagnostics": "node ctest-diagnostics-tests.js",
     "test:targeted-training": "node targeted-training-tests.js",
-    "test:pwa-update": "node pwa-update-tests.js"
+    "test:pwa-update": "node pwa-update-tests.js",
+    "test:responsive": "node responsive-tests.js"
   }
 }
