@@ -1,0 +1,18 @@
+const assert=require('assert');
+const fs=require('fs');
+const {ctest,score,norm,DB,setDatabase,getDatabase,trainingBand}=require('./app.js');
+const sample='Der erste Satz bleibt vollständig. Menschen besuchen wichtige Häuser, obwohl sie später arbeiten. Die Straße bleibt sauber.';
+const made=ctest(sample,{gaps:20});
+assert.ok(made.html.startsWith('Der erste Satz bleibt vollständig.'));
+assert.deepStrictEqual(made.items.map(x=>[x.word,x.prefix,x.missing]),[['besuchen','besu','chen'],['Häuser','Häu','ser'],['später','spä','ter'],['Straße','Str','aße'],['sauber','sau','ber']]);
+assert.equal(score(made.items,made.items.map(x=>x.missing),{lenient:false,acceptSS:false}).percent,100);
+assert.equal(norm('STRASSE',{lenient:true,acceptSS:true}),norm('Straße',{lenient:true,acceptSS:true}));
+assert.equal(Object.values(DB).reduce((n,a)=>n+a.length,0),125);
+assert.deepStrictEqual(Object.fromEntries(Object.entries(DB).map(([k,v])=>[k,v.length])),{A1:20,A2:25,B1:30,B2:30,C1:20});
+assert.equal(new Set(Object.values(DB).flat().map(x=>x.id)).size,125);
+const json=Object.fromEntries(['a1','a2','b1','b2','c1'].map(level=>[level.toUpperCase(),JSON.parse(fs.readFileSync(`data/texts-${level}.json`,'utf8'))]));
+setDatabase(json);
+assert.equal(Object.values(getDatabase()).reduce((n,list)=>n+list.length,0),125);
+assert.equal(trainingBand(59),'Belirgin gelişim gerekli');
+assert.equal(trainingBand(90),'Çok güçlü performans');
+console.log('C-Test tests passed');

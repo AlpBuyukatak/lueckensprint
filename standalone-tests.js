@@ -1,0 +1,17 @@
+const assert=require('assert'),fs=require('fs'),path=require('path');
+const target=path.join(__dirname,'dist','LueckenSprint_Standalone.html');
+assert.ok(fs.existsSync(target),'Run npm run build:standalone first.');
+const html=fs.readFileSync(target,'utf8');
+assert.ok(html.includes('window.__STANDALONE__=true'),'Standalone mode flag is missing.');
+assert.ok(!/<link[^>]+(?:stylesheet|manifest)/i.test(html),'Standalone file must not load linked CSS or a manifest.');
+assert.ok(!/<script[^>]+src=/i.test(html),'Standalone file must not load external scripts.');
+assert.ok(!/(?:src|href)=["'](?:https?:)?\/\//i.test(html),'Standalone file contains a network resource.');
+assert.ok(!/fetch\s*\(/.test(html),'Standalone file must not contain fetch calls.');
+assert.ok(html.includes("window.__STANDALONE__||!('serviceWorker'in navigator)"),'Service worker registration must be disabled in standalone mode.');
+const match=html.match(/window\.__STANDALONE_TEXTS__=(\{.*?\});<\/script>/s);
+assert.ok(match,'Embedded JSON database is missing.');
+const data=JSON.parse(match[1]);
+assert.equal(Object.values(data).reduce((n,list)=>n+list.length,0),125,'All 125 texts must be embedded.');
+assert.ok(html.includes('ä')&&html.includes('ö')&&html.includes('ü')&&html.includes('ß'),'German characters were not preserved.');
+assert.ok(html.includes('Yedek oluştur'),'Standalone backup control is missing.');
+console.log('Standalone build tests passed');

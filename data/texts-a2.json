@@ -1,0 +1,477 @@
+[
+  {
+    "id": "a2-01",
+    "title": "Alltag · 1",
+    "level": "A2",
+    "topic": "Alltag",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit guten Start in den Tag. Zuerst wollte er nur kleine Aufgaben in Ruhe zu planen ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie einen kurzen Weg durch die Stadt können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Vorbereitung im Team.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Alltag",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-02",
+    "title": "Universität · 2",
+    "level": "A2",
+    "topic": "Universität",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit einen Einführungskurs an der Universität. Zuerst wollte er nur Materialien für das Seminar ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie mit anderen Studierenden über Ideen zu sprechen können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Rolle klarer Informationen.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Universität",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-03",
+    "title": "Arbeit · 3",
+    "level": "A2",
+    "topic": "Arbeit",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit den ersten Arbeitstag in einem neuen Team. Zuerst wollte er nur eine praktische Lösung für eine Aufgabe ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie die Ergebnisse verständlich zu erklären können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Bedeutung kleiner Routinen.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Arbeit",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-04",
+    "title": "Wohnen · 4",
+    "level": "A2",
+    "topic": "Wohnen",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit eine Wohnung in einem ruhigen Viertel. Zuerst wollte er nur die gemeinsamen Räume ordentlich ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie mit den Nachbarn freundlich zu sprechen können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: der Nutzen offener Fragen.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Wohnen",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-05",
+    "title": "Verkehr · 5",
+    "level": "A2",
+    "topic": "Verkehr",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit den Weg mit Bus und Straßenbahn. Zuerst wollte er nur eine passende Verbindung für den Morgen ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie bei Verspätungen geduldig zu bleiben können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Verbindung von Theorie und Praxis.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Verkehr",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-06",
+    "title": "Gesundheit · 6",
+    "level": "A2",
+    "topic": "Gesundheit",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit gesunde Gewohnheiten im Alltag. Zuerst wollte er nur genug Wasser und regelmäßige Pausen ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie auf die Signale des Körpers zu achten können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Vorbereitung im Team.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Gesundheit",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-07",
+    "title": "Sport · 7",
+    "level": "A2",
+    "topic": "Sport",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit eine Laufgruppe im Park. Zuerst wollte er nur ein Training mit klaren kleinen Zielen ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie sich nach dem Sport besser zu fühlen können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Rolle klarer Informationen.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Sport",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-08",
+    "title": "Reisen · 8",
+    "level": "A2",
+    "topic": "Reisen",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit eine Reise in eine unbekannte Stadt. Zuerst wollte er nur einen leichten Koffer für mehrere Tage ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie neue Orte aufmerksam zu entdecken können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Bedeutung kleiner Routinen.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Reisen",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-09",
+    "title": "Digitale Kommunikation · 9",
+    "level": "A2",
+    "topic": "Digitale Kommunikation",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit eine Nachricht an eine Lerngruppe. Zuerst wollte er nur klare und höfliche Formulierungen ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie wichtige Informationen nicht zu übersehen können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: der Nutzen offener Fragen.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Digitale Kommunikation",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-10",
+    "title": "Künstliche Intelligenz · 10",
+    "level": "A2",
+    "topic": "Künstliche Intelligenz",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit digitale Werkzeuge mit künstlicher Intelligenz. Zuerst wollte er nur die Ergebnisse solcher Systeme kritisch ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie Technik verantwortungsvoll zu verwenden können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Verbindung von Theorie und Praxis.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Künstliche Intelligenz",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-11",
+    "title": "Umwelt · 11",
+    "level": "A2",
+    "topic": "Umwelt",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit einen Gemeinschaftsgarten im Viertel. Zuerst wollte er nur Müll zu vermeiden und Ressourcen zu sparen ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie Veränderungen im Alltag gemeinsam umzusetzen können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Vorbereitung im Team.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Umwelt",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-12",
+    "title": "Bildung · 12",
+    "level": "A2",
+    "topic": "Bildung",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit einen offenen Lerntag in der Schule. Zuerst wollte er nur unterschiedliche Wege zum Lernen ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie Fragen ohne Angst zu stellen können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Rolle klarer Informationen.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Bildung",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-13",
+    "title": "Wissenschaft · 13",
+    "level": "A2",
+    "topic": "Wissenschaft",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit ein einfaches Experiment im Labor. Zuerst wollte er nur Beobachtungen sorgfältig zu notieren ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie aus Daten vorsichtige Schlüsse zu ziehen können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Bedeutung kleiner Routinen.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Wissenschaft",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-14",
+    "title": "Technologie · 14",
+    "level": "A2",
+    "topic": "Technologie",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit eine neue App für den Alltag. Zuerst wollte er nur nützliche Funktionen vor der Nutzung ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie digitale Angebote bewusst auszuwählen können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: der Nutzen offener Fragen.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Technologie",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-15",
+    "title": "Soziale Medien · 15",
+    "level": "A2",
+    "topic": "Soziale Medien",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit eine Diskussion in sozialen Medien. Zuerst wollte er nur Beiträge vor dem Teilen genau ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie respektvoll mit anderen Meinungen umzugehen können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Verbindung von Theorie und Praxis.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Soziale Medien",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-16",
+    "title": "Politik · 16",
+    "level": "A2",
+    "topic": "Politik",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit eine öffentliche Diskussion im Rathaus. Zuerst wollte er nur verschiedene Vorschläge sachlich ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie Entscheidungen nachvollziehbar zu erklären können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Vorbereitung im Team.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Politik",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-17",
+    "title": "Wirtschaft · 17",
+    "level": "A2",
+    "topic": "Wirtschaft",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit einen kleinen Markt am Samstag. Zuerst wollte er nur Preise und Qualität zu vergleichen ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie lokale Angebote sinnvoll zu nutzen können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Rolle klarer Informationen.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Wirtschaft",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-18",
+    "title": "Kultur · 18",
+    "level": "A2",
+    "topic": "Kultur",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit eine Ausstellung im Stadtmuseum. Zuerst wollte er nur Geschichten hinter den Bildern ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie kulturelle Angebote neugierig zu besuchen können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Bedeutung kleiner Routinen.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Kultur",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-19",
+    "title": "Geschichte · 19",
+    "level": "A2",
+    "topic": "Geschichte",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit ein altes Gebäude am Fluss. Zuerst wollte er nur Spuren aus früheren Zeiten ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie Vergangenheit und Gegenwart zu verbinden können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: der Nutzen offener Fragen.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Geschichte",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-20",
+    "title": "Psychologie · 20",
+    "level": "A2",
+    "topic": "Psychologie",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit die Wirkung von Pausen beim Lernen. Zuerst wollte er nur Aufmerksamkeit über längere Zeit ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie eigene Lerngewohnheiten besser zu verstehen können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Verbindung von Theorie und Praxis.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Psychologie",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-21",
+    "title": "Forschung · 21",
+    "level": "A2",
+    "topic": "Forschung",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit ein Projekt über städtische Luftqualität. Zuerst wollte er nur Messungen an mehreren Orten ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie Forschungsergebnisse transparent zu prüfen können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Vorbereitung im Team.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Forschung",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-22",
+    "title": "Energie · 22",
+    "level": "A2",
+    "topic": "Energie",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit ein Haus mit Solaranlage. Zuerst wollte er nur Strom auch bei hohem Verbrauch ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie Energie im Alltag weniger zu verschwenden können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Rolle klarer Informationen.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Energie",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-23",
+    "title": "Datenschutz · 23",
+    "level": "A2",
+    "topic": "Datenschutz",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit persönliche Daten in einer Anwendung. Zuerst wollte er nur Berechtigungen vor der Anmeldung ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie digitale Privatsphäre aktiv zu schützen können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Bedeutung kleiner Routinen.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Datenschutz",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-24",
+    "title": "Stadtplanung · 24",
+    "level": "A2",
+    "topic": "Stadtplanung",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit einen Platz ohne viel Autoverkehr. Zuerst wollte er nur sichere Wege für Fahrräder und Fußgänger ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie öffentliche Räume für viele Menschen zu gestalten können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: der Nutzen offener Fragen.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Stadtplanung",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "a2-25",
+    "title": "Integration · 25",
+    "level": "A2",
+    "topic": "Integration",
+    "text": "Seit einigen Wochen beschäftigt sich Amir mit ein Sprachcafé in der Bibliothek. Zuerst wollte er nur Menschen mit unterschiedlichen Erfahrungen ausprobieren, doch bald merkte er, wie viel Freude ihm die Sache macht. Deshalb sucht er jeden Dienstag Informationen in der Bibliothek. Seine Schwester begleitet ihn manchmal, obwohl sie andere Interessen hat. Gemeinsam überlegen sie, wie sie gemeinsame Regeln im Alltag zu finden können. Nach jedem Treffen schreibt Amir drei neue Wörter in sein Heft. So kann er später leichter über seine Erfahrungen sprechen. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Verbindung von Theorie und Praxis.",
+    "difficulty": 2,
+    "readingTime": 1,
+    "grammarTags": [
+      "Perfekt",
+      "Modalverben",
+      "Zeitangaben"
+    ],
+    "vocabularyTags": [
+      "Integration",
+      "Kontext",
+      "Lückentext"
+    ]
+  }
+]

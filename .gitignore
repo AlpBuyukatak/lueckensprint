@@ -1,0 +1,16 @@
+# Editor and operating-system files
+.vscode/
+.idea/
+*.swp
+*.tmp
+Thumbs.db
+Desktop.ini
+
+# Node diagnostics and local credentials (the project has no runtime dependencies)
+node_modules/
+npm-debug.log*
+.env
+.env.*
+!.env.example
+
+# Keep deployable application files, JSON databases, PWA assets, workflow, and dist/ tracked.

@@ -1,0 +1,572 @@
+[
+  {
+    "id": "b2-01",
+    "title": "Alltag · 1",
+    "level": "B2",
+    "topic": "Alltag",
+    "text": "Die aktuelle Diskussion über guten Start in den Tag zeigt, dass kleine Aufgaben in Ruhe zu planen nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen einen kurzen Weg durch die Stadt möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Vorbereitung im Team.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Alltag",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-02",
+    "title": "Universität · 2",
+    "level": "B2",
+    "topic": "Universität",
+    "text": "Die aktuelle Diskussion über einen Einführungskurs an der Universität zeigt, dass Materialien für das Seminar nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen mit anderen Studierenden über Ideen zu sprechen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Rolle klarer Informationen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Universität",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-03",
+    "title": "Arbeit · 3",
+    "level": "B2",
+    "topic": "Arbeit",
+    "text": "Die aktuelle Diskussion über den ersten Arbeitstag in einem neuen Team zeigt, dass eine praktische Lösung für eine Aufgabe nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen die Ergebnisse verständlich zu erklären möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Bedeutung kleiner Routinen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Arbeit",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-04",
+    "title": "Wohnen · 4",
+    "level": "B2",
+    "topic": "Wohnen",
+    "text": "Die aktuelle Diskussion über eine Wohnung in einem ruhigen Viertel zeigt, dass die gemeinsamen Räume ordentlich nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen mit den Nachbarn freundlich zu sprechen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: der Nutzen offener Fragen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Wohnen",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-05",
+    "title": "Verkehr · 5",
+    "level": "B2",
+    "topic": "Verkehr",
+    "text": "Die aktuelle Diskussion über den Weg mit Bus und Straßenbahn zeigt, dass eine passende Verbindung für den Morgen nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen bei Verspätungen geduldig zu bleiben möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Verbindung von Theorie und Praxis.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Verkehr",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-06",
+    "title": "Gesundheit · 6",
+    "level": "B2",
+    "topic": "Gesundheit",
+    "text": "Die aktuelle Diskussion über gesunde Gewohnheiten im Alltag zeigt, dass genug Wasser und regelmäßige Pausen nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen auf die Signale des Körpers zu achten möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Vorbereitung im Team.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Gesundheit",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-07",
+    "title": "Sport · 7",
+    "level": "B2",
+    "topic": "Sport",
+    "text": "Die aktuelle Diskussion über eine Laufgruppe im Park zeigt, dass ein Training mit klaren kleinen Zielen nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen sich nach dem Sport besser zu fühlen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Rolle klarer Informationen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Sport",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-08",
+    "title": "Reisen · 8",
+    "level": "B2",
+    "topic": "Reisen",
+    "text": "Die aktuelle Diskussion über eine Reise in eine unbekannte Stadt zeigt, dass einen leichten Koffer für mehrere Tage nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen neue Orte aufmerksam zu entdecken möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Bedeutung kleiner Routinen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Reisen",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-09",
+    "title": "Digitale Kommunikation · 9",
+    "level": "B2",
+    "topic": "Digitale Kommunikation",
+    "text": "Die aktuelle Diskussion über eine Nachricht an eine Lerngruppe zeigt, dass klare und höfliche Formulierungen nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen wichtige Informationen nicht zu übersehen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: der Nutzen offener Fragen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Digitale Kommunikation",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-10",
+    "title": "Künstliche Intelligenz · 10",
+    "level": "B2",
+    "topic": "Künstliche Intelligenz",
+    "text": "Die aktuelle Diskussion über digitale Werkzeuge mit künstlicher Intelligenz zeigt, dass die Ergebnisse solcher Systeme kritisch nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen Technik verantwortungsvoll zu verwenden möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Verbindung von Theorie und Praxis.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Künstliche Intelligenz",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-11",
+    "title": "Umwelt · 11",
+    "level": "B2",
+    "topic": "Umwelt",
+    "text": "Die aktuelle Diskussion über einen Gemeinschaftsgarten im Viertel zeigt, dass Müll zu vermeiden und Ressourcen zu sparen nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen Veränderungen im Alltag gemeinsam umzusetzen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Vorbereitung im Team.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Umwelt",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-12",
+    "title": "Bildung · 12",
+    "level": "B2",
+    "topic": "Bildung",
+    "text": "Die aktuelle Diskussion über einen offenen Lerntag in der Schule zeigt, dass unterschiedliche Wege zum Lernen nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen Fragen ohne Angst zu stellen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Rolle klarer Informationen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Bildung",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-13",
+    "title": "Wissenschaft · 13",
+    "level": "B2",
+    "topic": "Wissenschaft",
+    "text": "Die aktuelle Diskussion über ein einfaches Experiment im Labor zeigt, dass Beobachtungen sorgfältig zu notieren nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen aus Daten vorsichtige Schlüsse zu ziehen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Bedeutung kleiner Routinen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Wissenschaft",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-14",
+    "title": "Technologie · 14",
+    "level": "B2",
+    "topic": "Technologie",
+    "text": "Die aktuelle Diskussion über eine neue App für den Alltag zeigt, dass nützliche Funktionen vor der Nutzung nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen digitale Angebote bewusst auszuwählen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: der Nutzen offener Fragen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Technologie",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-15",
+    "title": "Soziale Medien · 15",
+    "level": "B2",
+    "topic": "Soziale Medien",
+    "text": "Die aktuelle Diskussion über eine Diskussion in sozialen Medien zeigt, dass Beiträge vor dem Teilen genau nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen respektvoll mit anderen Meinungen umzugehen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Verbindung von Theorie und Praxis.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Soziale Medien",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-16",
+    "title": "Politik · 16",
+    "level": "B2",
+    "topic": "Politik",
+    "text": "Die aktuelle Diskussion über eine öffentliche Diskussion im Rathaus zeigt, dass verschiedene Vorschläge sachlich nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen Entscheidungen nachvollziehbar zu erklären möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Vorbereitung im Team.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Politik",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-17",
+    "title": "Wirtschaft · 17",
+    "level": "B2",
+    "topic": "Wirtschaft",
+    "text": "Die aktuelle Diskussion über einen kleinen Markt am Samstag zeigt, dass Preise und Qualität zu vergleichen nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen lokale Angebote sinnvoll zu nutzen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Rolle klarer Informationen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Wirtschaft",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-18",
+    "title": "Kultur · 18",
+    "level": "B2",
+    "topic": "Kultur",
+    "text": "Die aktuelle Diskussion über eine Ausstellung im Stadtmuseum zeigt, dass Geschichten hinter den Bildern nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen kulturelle Angebote neugierig zu besuchen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Bedeutung kleiner Routinen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Kultur",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-19",
+    "title": "Geschichte · 19",
+    "level": "B2",
+    "topic": "Geschichte",
+    "text": "Die aktuelle Diskussion über ein altes Gebäude am Fluss zeigt, dass Spuren aus früheren Zeiten nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen Vergangenheit und Gegenwart zu verbinden möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: der Nutzen offener Fragen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Geschichte",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-20",
+    "title": "Psychologie · 20",
+    "level": "B2",
+    "topic": "Psychologie",
+    "text": "Die aktuelle Diskussion über die Wirkung von Pausen beim Lernen zeigt, dass Aufmerksamkeit über längere Zeit nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen eigene Lerngewohnheiten besser zu verstehen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Verbindung von Theorie und Praxis.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Psychologie",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-21",
+    "title": "Forschung · 21",
+    "level": "B2",
+    "topic": "Forschung",
+    "text": "Die aktuelle Diskussion über ein Projekt über städtische Luftqualität zeigt, dass Messungen an mehreren Orten nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen Forschungsergebnisse transparent zu prüfen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Vorbereitung im Team.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Forschung",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-22",
+    "title": "Energie · 22",
+    "level": "B2",
+    "topic": "Energie",
+    "text": "Die aktuelle Diskussion über ein Haus mit Solaranlage zeigt, dass Strom auch bei hohem Verbrauch nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen Energie im Alltag weniger zu verschwenden möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Rolle klarer Informationen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Energie",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-23",
+    "title": "Datenschutz · 23",
+    "level": "B2",
+    "topic": "Datenschutz",
+    "text": "Die aktuelle Diskussion über persönliche Daten in einer Anwendung zeigt, dass Berechtigungen vor der Anmeldung nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen digitale Privatsphäre aktiv zu schützen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Bedeutung kleiner Routinen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Datenschutz",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-24",
+    "title": "Stadtplanung · 24",
+    "level": "B2",
+    "topic": "Stadtplanung",
+    "text": "Die aktuelle Diskussion über einen Platz ohne viel Autoverkehr zeigt, dass sichere Wege für Fahrräder und Fußgänger nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen öffentliche Räume für viele Menschen zu gestalten möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: der Nutzen offener Fragen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Stadtplanung",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-25",
+    "title": "Integration · 25",
+    "level": "B2",
+    "topic": "Integration",
+    "text": "Die aktuelle Diskussion über ein Sprachcafé in der Bibliothek zeigt, dass Menschen mit unterschiedlichen Erfahrungen nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen gemeinsame Regeln im Alltag zu finden möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Verbindung von Theorie und Praxis.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Integration",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-26",
+    "title": "Alltag · 26",
+    "level": "B2",
+    "topic": "Alltag",
+    "text": "Die aktuelle Diskussion über guten Start in den Tag zeigt, dass kleine Aufgaben in Ruhe zu planen nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen einen kurzen Weg durch die Stadt möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Vorbereitung im Team.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Alltag",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-27",
+    "title": "Universität · 27",
+    "level": "B2",
+    "topic": "Universität",
+    "text": "Die aktuelle Diskussion über einen Einführungskurs an der Universität zeigt, dass Materialien für das Seminar nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen mit anderen Studierenden über Ideen zu sprechen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Rolle klarer Informationen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Universität",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-28",
+    "title": "Arbeit · 28",
+    "level": "B2",
+    "topic": "Arbeit",
+    "text": "Die aktuelle Diskussion über den ersten Arbeitstag in einem neuen Team zeigt, dass eine praktische Lösung für eine Aufgabe nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen die Ergebnisse verständlich zu erklären möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Bedeutung kleiner Routinen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Arbeit",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-29",
+    "title": "Wohnen · 29",
+    "level": "B2",
+    "topic": "Wohnen",
+    "text": "Die aktuelle Diskussion über eine Wohnung in einem ruhigen Viertel zeigt, dass die gemeinsamen Räume ordentlich nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen mit den Nachbarn freundlich zu sprechen möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: der Nutzen offener Fragen.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Wohnen",
+      "Kontext",
+      "Lückentext"
+    ]
+  },
+  {
+    "id": "b2-30",
+    "title": "Verkehr · 30",
+    "level": "B2",
+    "topic": "Verkehr",
+    "text": "Die aktuelle Diskussion über den Weg mit Bus und Straßenbahn zeigt, dass eine passende Verbindung für den Morgen nicht allein eine technische Frage ist. Eine nachhaltige Verbesserung kann nur erreicht werden, wenn unterschiedliche Interessen frühzeitig berücksichtigt werden. In einer Befragung wurde deutlich, dass viele Menschen bei Verspätungen geduldig zu bleiben möchten, zugleich jedoch verständliche Informationen erwarten. Die sorgfältige Auswertung der Rückmeldungen ermöglicht eine differenzierte Planung. Maßnahmen sollten nicht lediglich angekündigt, sondern transparent begründet und regelmäßig überprüft werden. Besonders hilfreich sind Kooperationen zwischen Fachleuten, Verwaltung und engagierten Bürgerinnen und Bürgern. Dadurch wird die Umsetzung weniger abhängig von einzelnen Entscheidungen. Langfristig entsteht so ein Angebot, dessen Nutzen auch außerhalb der ursprünglichen Zielgruppe wahrgenommen wird. Zusätzlich wird bei dieser Ausgabe ein besonderer Aspekt hervorgehoben: die Verbindung von Theorie und Praxis.",
+    "difficulty": 4,
+    "readingTime": 2,
+    "grammarTags": [
+      "Nominalisierung",
+      "Passiv",
+      "Konnektoren"
+    ],
+    "vocabularyTags": [
+      "Verkehr",
+      "Kontext",
+      "Lückentext"
+    ]
+  }
+]
