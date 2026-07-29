@@ -1,5 +1,5 @@
 const assert=require('assert'),fs=require('fs');
-const {mergeProgress,chooseRecord,completeness,createPreMergeSnapshot,readPreMergeSnapshot,preMergeSnapshotKey}=require('./sync.js');
+const {mergeProgress,chooseRecord,completeness,createPreMergeSnapshot,readPreMergeSnapshot,preMergeSnapshotKey,appRoute}=require('./sync.js');
 const base=overrides=>({version:1,settings:{theme:'light'},attempts:[],errors:[],custom:[],custom_deleted:[],daily:{},tasks:{},seen:[],activeExam:null,sync_meta:{updated_at:'2026-01-01T00:00:00.000Z',settings_updated_at:'2026-01-01T00:00:00.000Z',local_revision:0,cloud_revision:0},...overrides});
 const row=(id,time='2026-01-01T00:00:00.000Z',extra={})=>({id,updated_at:time,...extra});
 
@@ -62,5 +62,9 @@ assert.equal((source.match(/createPreMergeSnapshot\(/g)||[]).length,1,'snapshot 
 const appSource=fs.readFileSync('app.js','utf8');
 assert.ok(appSource.includes('id="exportJson"'),'manual JSON backup remains available');
 assert.ok(appSource.includes("$('#exportJson')&&($('#exportJson').onclick=()=>download("),'manual JSON export is available only through its explicit click handler');
+assert.equal(appRoute('#/einstellungen'),'#/einstellungen','a normal hash route survives magic-link cleanup');
+assert.equal(appRoute('#access_token=example'),'#/start','an OAuth token hash never becomes an application route');
+for(const token of ['processAuthCallback','exchangeCodeForSession','auth.setSession','redirect.hash = \'#/start\'','cleanAuthCallbackUrl','auth.onAuthStateChange','auth.getSession()'])assert.ok(source.includes(token),`Missing mobile magic-link callback handling: ${token}`);
+assert.ok(appSource.includes('await window.LueckenSync?.processAuthCallback?.()'),'The magic-link callback is not processed before normal application startup.');
 console.log('Internal pre-merge snapshot and no-auto-download tests passed');
 console.log('Sync merge, offline queue, revision, and automatic UX tests passed');

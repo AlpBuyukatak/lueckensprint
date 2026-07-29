@@ -13,7 +13,7 @@ assert.ok(app.includes('result-filter'),'Result filters are missing.');
 assert.ok(!app.includes('await window.LueckenSync?.initialize'),'Cloud initialization must not overwrite or block routes.');
 assert.ok(!app.includes("window.VIEW=S.activeExam?'exam':'home'"),'Startup must not force the home route.');
 for(const label of ['Startseite','Tagestraining','Training','Prüfung','Fehlertraining','Eigene Texte','Statistik','Einstellungen'])assert.ok(index.includes(label),`German navigation label missing: ${label}`);
-assert.ok(sw.includes('lueckensprint-v2.1.0'),'Service worker cache version was not bumped for the English-help release.');
+assert.ok(sw.includes('lueckensprint-v2.2.0'),'Service worker cache version was not bumped for the mobile reliability release.');
 for(const feature of ['EXAM_SCHEMA_VERSION','Lernmodus','Prüfungssimulation','Prüfung pausiert','remaining_ms','deadline_at','activePractice','Ausgewogen','B1.2-Ziel','Zufälligen Text wählen'])assert.ok(app.includes(feature),`Missing resilient-exam or text-selection feature: ${feature}`);
 const turkishUiMarkers=['Ana Sayfa','Günlük Çalışma','Günlük mücadele','Pratikte ','Karışık ','Hata Tekrarı','Kendi Metnim','İstatistikler','Ayarları kaydet','Yedek oluştur','Yüklenemedi','başlatıldı','Cevapları kontrol','Sonuç bantları','Başlık ve Almanca','Yerel olarak kaydet','Henüz kayıtlı','Tam Deneme','Deneme tamamlandı'];
 for(const marker of turkishUiMarkers){assert.ok(!localized.includes(marker),`Turkish user-facing text remains in the active UI: ${marker}`);assert.ok(!index.includes(marker),`Turkish user-facing text remains in index.html: ${marker}`);assert.ok(!sync.includes(marker),`Turkish user-facing text remains in sync.js: ${marker}`)}

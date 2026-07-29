@@ -25,7 +25,9 @@
     "test:answer-integrity": "node answer-integrity-tests.js",
     "test:level-calibration": "node level-calibration-tests.js",
     "test:exam-progression": "node exam-progression-tests.js",
-    "test:english-help": "node english-help-tests.js"
+    "test:english-help": "node english-help-tests.js",
+    "test:mobile": "node mobile-regression-tests.js",
+    "test:auth-callback": "node auth-callback-tests.js"
   },
   "devDependencies": {
     "playwright": "^1.62.0"

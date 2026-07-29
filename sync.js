@@ -89,7 +89,7 @@
     };
   };
 
-  let client = null, getState = () => ({}), replaceState = () => {}, timer = null, retryTimer = null, user = null, lastSync = '', status = 'Lokaler Modus', detail = '', pending = false, applying = false;
+  let client = null, getState = () => ({}), replaceState = () => {}, timer = null, retryTimer = null, user = null, lastSync = '', status = 'Lokaler Modus', detail = '', pending = false, applying = false, callbackError = '', handledSessionUserId = '';
   const publicKey = cfg => cfg?.publishableKey || cfg?.anonKey || '';
   const configured = () => { const cfg = global.LUECKENSPRINT_SUPABASE_CONFIG || {}; return Boolean(cfg.url && publicKey(cfg) && global.supabase?.createClient); };
   const emit = () => { global.dispatchEvent?.(new CustomEvent('lueckensprint-sync-status', {detail:{status, detail, user, lastSync, pending, configured:configured()}})); mountSettingsPanel(); };
@@ -103,13 +103,40 @@
     diagnostic('Supabase client created');
     return client;
   };
+  const AUTH_CALLBACK_KEYS = ['code','access_token','refresh_token','expires_in','expires_at','token_type','type'];
+  const appRoute = hash => String(hash || '').startsWith('#/') ? hash : '#/start';
+  const authCallback = () => {
+    if (!global.location) return {present:false};
+    const url = new URL(global.location.href), hash = new URLSearchParams(url.hash.replace(/^#/, ''));
+    return {url, hash, code:url.searchParams.get('code'), present:AUTH_CALLBACK_KEYS.some(key => url.searchParams.has(key) || hash.has(key))};
+  };
   const cleanAuthCallbackUrl = () => {
     if (!global.history?.replaceState || !global.location) return;
-    const url = new URL(global.location.href), keys = ['code','access_token','refresh_token','expires_in','expires_at','token_type','type']; let changed = false;
-    keys.forEach(key => { if (url.searchParams.has(key)) { url.searchParams.delete(key); changed = true; } });
-    const hash = new URLSearchParams(url.hash.replace(/^#/, ''));
-    if (keys.some(key => hash.has(key))) { url.hash = ''; changed = true; }
-    if (changed) global.history.replaceState({}, document.title, url.pathname + url.search + url.hash);
+    const callback = authCallback(); if (!callback.present) return;
+    const {url, hash} = callback;
+    AUTH_CALLBACK_KEYS.forEach(key => url.searchParams.delete(key));
+    const hadHashTokens = AUTH_CALLBACK_KEYS.some(key => hash.has(key));
+    url.hash = hadHashTokens ? '#/start' : appRoute(url.hash);
+    global.history.replaceState({}, document.title, url.pathname + url.search + url.hash);
+  };
+  const processAuthCallback = async () => {
+    const callback = authCallback(); if (!callback.present) return false;
+    const c = clientForSession();
+    if (!c) { callbackError = 'Die Anmeldung konnte nicht abgeschlossen werden. Bitte prüfen Sie die Verbindung und versuchen Sie es erneut.'; return false; }
+    try {
+      let session = null;
+      if (callback.code) {
+        const {data, error} = await c.auth.exchangeCodeForSession(callback.code); if (error) throw error; session = data?.session || null;
+      } else if (callback.hash.get('access_token') && callback.hash.get('refresh_token')) {
+        const {data, error} = await c.auth.setSession({access_token:callback.hash.get('access_token'),refresh_token:callback.hash.get('refresh_token')}); if (error) throw error; session = data?.session || null;
+      } else {
+        const {data, error} = await c.auth.getSession(); if (error) throw error; session = data?.session || null;
+      }
+      if (!session) throw new Error('session missing');
+      callbackError = ''; cleanAuthCallbackUrl(); diagnostic('Magic-link callback completed'); return true;
+    } catch (error) {
+      diagnostic('Magic-link callback failed', error?.message || 'unknown error'); callbackError = 'Die Anmeldung konnte nicht abgeschlossen werden. Bitte fordern Sie einen neuen Anmelde-Link an.'; return false;
+    }
   };
   const readCloud = async () => { const c = clientForSession(); if (!c || !user) return null; const {data, error} = await c.from('user_progress').select('*').eq('user_id', user.id).maybeSingle(); if (error) throw error; return data; };
   const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -178,8 +205,10 @@
   const applySession = async (event, session) => {
     diagnostic('Auth event name', event);
     user = session?.user || null;
-    if (!user) { setStatus(configured() ? 'Nicht angemeldet' : 'Lokaler Modus'); return; }
+    if (!user) { setStatus(callbackError || (configured() ? 'Nicht angemeldet' : 'Lokaler Modus'), callbackError ? 'Der Anmelde-Link ist ungültig oder abgelaufen.' : ''); return; }
     diagnostic('Signed-in user email', user.email || '(email unavailable)'); cleanAuthCallbackUrl(); setStatus('Angemeldet');
+    if (handledSessionUserId === user.id) return;
+    handledSessionUserId = user.id;
     await runFirstMerge();
   };
   const initialize = api => {
@@ -194,13 +223,13 @@
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') syncNow({force:true, reason:'visible'}); });
     setInterval(() => syncNow({force:true, reason:'periodic'}), POLL_MS);
   };
-  const signIn = async email => { const c = clientForSession(); if (!c) throw new Error('Supabase-Konfiguration fehlt.'); const {error} = await c.auth.signInWithOtp({email, options:{emailRedirectTo:global.location.origin + global.location.pathname}}); if (error) throw error; setStatus('Anmelde-Link wurde gesendet'); };
+  const signIn = async email => { const c = clientForSession(); if (!c) throw new Error('Supabase-Konfiguration fehlt.'); const redirect = new URL(global.location.href); redirect.search = ''; redirect.hash = '#/start'; const {error} = await c.auth.signInWithOtp({email, options:{emailRedirectTo:redirect.toString()}}); if (error) throw error; setStatus('Anmelde-Link wurde gesendet'); };
   const signOut = async () => {
     if (pending) {
       if (!navigator.onLine) { if (!global.confirm('Es gibt noch nicht synchronisierte lokale Änderungen. Trotzdem abmelden?')) return; }
       else await syncNow({force:true, reason:'sign-out'});
     }
-    if (client) await client.auth.signOut(); user = null; setStatus('Nicht angemeldet');
+    if (client) await client.auth.signOut(); user = null; handledSessionUserId = ''; setStatus('Nicht angemeldet');
   };
   const onLocalSave = () => { if (!applying) markPending(getState().activeExam ? 'active-exam' : 'change'); };
   const restorePreMergeSnapshot = () => {
@@ -231,6 +260,6 @@
     host.querySelector('#signOut')?.addEventListener('click', signOut);
     mountRecoveryControl();
   };
-  global.LueckenSync = {initialize, onLocalSave, syncNow, signIn, signOut, mountSettingsPanel, runFirstMerge, restorePreMergeSnapshot, mergeProgress, chooseRecord, completeness};
-  if (typeof module !== 'undefined') module.exports = {mergeProgress, mergeActiveExam, chooseRecord, completeness, mergeErrors, mergeByDate, preMergeSnapshotKey, createPreMergeSnapshot, readPreMergeSnapshot};
+  global.LueckenSync = {initialize, onLocalSave, syncNow, signIn, signOut, mountSettingsPanel, runFirstMerge, restorePreMergeSnapshot, processAuthCallback, cleanAuthCallbackUrl, mergeProgress, chooseRecord, completeness};
+  if (typeof module !== 'undefined') module.exports = {mergeProgress, mergeActiveExam, chooseRecord, completeness, mergeErrors, mergeByDate, preMergeSnapshotKey, createPreMergeSnapshot, readPreMergeSnapshot, appRoute};
 })(typeof window !== 'undefined' ? window : globalThis);
