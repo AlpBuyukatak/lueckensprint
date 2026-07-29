@@ -13,6 +13,9 @@
     "test:sync": "node sync-tests.js",
     "test:texts": "node text-database-tests.js",
     "test:exam-state": "node exam-state-tests.js",
-    "test:performance": "node performance-tests.js"
+    "test:performance": "node performance-tests.js",
+    "test:calendar": "node calendar-tests.js",
+    "test:ctest-diagnostics": "node ctest-diagnostics-tests.js",
+    "test:targeted-training": "node targeted-training-tests.js"
   }
 }
