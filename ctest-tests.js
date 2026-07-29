@@ -4,6 +4,8 @@ const {ctest,score,norm,DB,setDatabase,getDatabase,trainingBand}=require('./app.
 const sample='Der erste Satz bleibt vollständig. Menschen besuchen wichtige Häuser, obwohl sie später arbeiten. Die Straße bleibt sauber.';
 const made=ctest(sample,{gaps:20});
 assert.ok(made.html.startsWith('Der erste Satz bleibt vollständig.'));
+assert.ok(made.html.includes('class="word-gap"'),'Gap prefix and input are not grouped inline.');
+assert.ok(made.html.includes('style="--gap-ch:'),'Gap width does not use missing-part length.');
 assert.deepStrictEqual(made.items.map(x=>[x.word,x.prefix,x.missing]),[['besuchen','besu','chen'],['Häuser','Häu','ser'],['später','spä','ter'],['Straße','Str','aße'],['sauber','sau','ber']]);
 assert.equal(score(made.items,made.items.map(x=>x.missing),{lenient:false,acceptSS:false}).percent,100);
 assert.equal(norm('STRASSE',{lenient:true,acceptSS:true}),norm('Straße',{lenient:true,acceptSS:true}));
