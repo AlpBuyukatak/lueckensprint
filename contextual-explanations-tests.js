@@ -1,0 +1,22 @@
+const assert=require('assert'),fs=require('fs'),path=require('path');
+const app=require('./app.js');
+const database=Object.fromEntries(['a1','a2','b1','b2','c1'].map(level=>[level.toUpperCase(),JSON.parse(fs.readFileSync(path.join(__dirname,'data',`texts-${level}.json`),'utf8'))]));
+app.setDatabase(database);app.buildGapIndexes();
+const text=database.B1[0],made=app.ctest(text.text,{gaps:20,level:text.level,textId:text.id}),detail={...made.items[1],answer:'',correct:false};
+const error=app.resultExplanationError(detail,text),explanation=app.contextualExplanation(error,true);
+assert.equal(app.canExplainGap(null),false,'an explanation must not exist before an incorrect or skipped checked gap exists');
+assert.equal(app.canExplainGap({...error,correct:true}),false,'correct answers must not receive an error explanation');
+assert.ok(error&&explanation,'a checked skipped gap produces an explanation');
+assert.equal(explanation.word,detail.word,'the explanation uses the actual complete C-Test word');
+assert.equal(explanation.missing,detail.missing,'the explanation uses the actual missing part');
+assert.ok(explanation.sentence.includes(detail.word),'the full sentence is taken from the actual C-Test text');
+assert.ok(Object.keys(app.EXPLANATION_CATEGORIES).includes(explanation.category),'only supported evidence-backed categories are used');
+assert.ok(!/Akkusativ|Dativ|Verben mit Präpositionen/u.test(explanation.why),'no unrelated generic grammar course is invented');
+assert.ok(explanation.english.length>0,'English explanation is shown when English help is enabled');
+assert.equal(app.contextualExplanation(error,false).english,'','English explanation is hidden when English help is disabled');
+assert.ok(explanation.similar.length>=2&&explanation.similar.length<=3,'two-to-three similar corpus gaps are offered for practice');
+const corpusIds=new Set(Object.values(database).flat().map(row=>row.id));
+for(const gap of explanation.similar){assert.ok(corpusIds.has(gap.textId),'similar practice originates from the C-Test corpus');assert.ok(gap.word&&gap.sentence,'similar practice retains actual gap metadata');}
+const source=fs.readFileSync(path.join(__dirname,'app.js'),'utf8');
+for(const token of ['CONTEXTUAL_CTEST_EXPLANATIONS','Thema erklären','Warum war diese Lücke schwierig?','Woran konnte man die Lösung erkennen?','Kurze Erklärung auf Englisch','Einfaches Beispiel','Ähnliche C-Test-Lücken üben','Schwierige Themen','renderResultWithContextualExplanations','renderErrorsWithContextualExplanations','renderTargetedWithContextualExplanations'])assert.ok(source.includes(token),`missing contextual explanation integration: ${token}`);
+console.log('Contextual C-Test explanation tests passed.');

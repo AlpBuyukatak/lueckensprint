@@ -19,4 +19,7 @@ assert.ok(html.includes('Sicherung erstellen'),'Standalone backup control is mis
 assert.ok(html.includes('const ENGLISH_HELP=Object.freeze'),'Standalone build must include the English-help dictionary.');
 assert.ok(html.includes('englishHelp:true'),'Standalone build must preserve the enabled English-help default.');
 assert.ok(html.includes('Kurze Begriffshilfe'),'Standalone build must include the first-use glossary.');
+assert.ok(html.includes('CONTEXTUAL_CTEST_EXPLANATIONS'),'Standalone build must include contextual C-Test explanations.');
+assert.ok(html.includes('Thema erklären'),'Standalone build must include the explanation action.');
+assert.ok(html.includes('Ähnliche C-Test-Lücken üben'),'Standalone build must retain corpus-based similar-gap practice.');
 console.log('Standalone build tests passed');

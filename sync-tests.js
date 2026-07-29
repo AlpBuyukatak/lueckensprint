@@ -42,6 +42,8 @@ merged=mergeProgress(base({activeExam:localExam}),base({activeExam:cloudExam}));
 assert.deepStrictEqual(merged.activeExam.sets[0].answers,['neu','wolke'],'same exam merges answers gap by gap');
 assert.equal(merged.activeExam.remaining_ms,90000,'newest usable timer state is preserved without negative time');
 assert.equal(deviceAReceived.attempts.reduce((total,item)=>total+item.correct,0),37,'statistics can be recalculated from merged attempts');
+merged=mergeProgress(base({explanationTopics:{verbForm:2,wordEnding:1}}),base({explanationTopics:{verbForm:1,preposition:3}}));
+assert.deepStrictEqual(merged.explanationTopics,{verbForm:2,wordEnding:1,preposition:3},'struggle categories remain available after a cross-device merge');
 
 const source=fs.readFileSync('sync.js','utf8');
 for(const token of ['auth.getSession()','auth.onAuthStateChange','detectSessionInUrl:true','addEventListener(\'online\'','visibilitychange','addEventListener(\'focus\'','force:true, reason:\'periodic\'','POLL_MS = 90000','NORMAL_DEBOUNCE_MS = 2000','EXAM_DEBOUNCE_MS = 6500','save_user_progress','MAX_RETRIES = 3','Synchronisierung wird erneut versucht','Offline · auf diesem Gerät gespeichert','Es gibt noch nicht synchronisierte lokale Änderungen','Angemeldet','Nicht angemeldet','id="syncNow"','id="pullCloud"','id="pushCloud"','id="downloadCloud"']){

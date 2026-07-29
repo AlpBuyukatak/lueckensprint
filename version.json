@@ -1,8 +1,8 @@
 {
-  "appVersion": "2.5.0",
-  "serviceWorkerVersion": "lueckensprint-v2.3.0",
+  "appVersion": "2.6.0",
+  "serviceWorkerVersion": "lueckensprint-v2.4.0",
   "dataSchemaVersion": 3,
   "textDatabaseVersion": "4",
-  "buildTimestamp": "2026-07-29T20:24:11.312Z",
-  "commit": "d6761e7"
+  "buildTimestamp": "2026-07-29T20:32:55.678Z",
+  "commit": "24e8e94"
 }

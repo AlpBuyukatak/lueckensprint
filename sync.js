@@ -45,6 +45,11 @@
     }
     return output;
   };
+  const mergeCounters = (left = {}, right = {}) => {
+    const result = {};
+    for (const key of new Set([...Object.keys(left || {}), ...Object.keys(right || {})])) result[key] = Math.max(Number(left?.[key]) || 0, Number(right?.[key]) || 0);
+    return result;
+  };
   const mergeCustom = (left, right, tombstones) => {
     const deleted = byId(tombstones);
     return mergeRecords(left, right).filter(row => !deleted[row.id] || timestamp(row) > String(deleted[row.id].deleted_at || deleted[row.id].updated_at || ''));
@@ -75,6 +80,7 @@
       daily: mergeByDate(l.daily, c.daily),
       tasks: mergeByDate(l.tasks, c.tasks),
       seen: [...new Set([...(l.seen || []), ...(c.seen || [])])],
+      explanationTopics: mergeCounters(l.explanationTopics, c.explanationTopics),
       activeExam: primaryExam,
       activeExamConflicts: conflicts,
       sync_meta: {
