@@ -2,32 +2,32 @@
   "levels": {
     "A1": {
       "count": 40,
-      "averageWordCount": 99.9,
-      "averageSentenceLength": 9.1,
+      "averageWordCount": 129.4,
+      "averageSentenceLength": 10.8,
       "averageDifficulty": 20.9
     },
     "A2": {
       "count": 50,
-      "averageWordCount": 114.7,
-      "averageSentenceLength": 11.5,
+      "averageWordCount": 139.8,
+      "averageSentenceLength": 11.7,
       "averageDifficulty": 34.9
     },
     "B1": {
       "count": 70,
-      "averageWordCount": 122.1,
-      "averageSentenceLength": 12.2,
+      "averageWordCount": 138.2,
+      "averageSentenceLength": 12.6,
       "averageDifficulty": 53
     },
     "B2": {
       "count": 80,
-      "averageWordCount": 144.6,
-      "averageSentenceLength": 13.1,
+      "averageWordCount": 152.7,
+      "averageSentenceLength": 12.7,
       "averageDifficulty": 72.9
     },
     "C1": {
       "count": 60,
-      "averageWordCount": 159,
-      "averageSentenceLength": 17.7,
+      "averageWordCount": 168.1,
+      "averageSentenceLength": 16.8,
       "averageDifficulty": 90.9
     }
   },

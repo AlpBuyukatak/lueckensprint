@@ -1,0 +1,531 @@
+{
+  "generatedAt": "2026-07-29T16:12:47.751Z",
+  "summary": {
+    "bugsFound": 1,
+    "fixed": 1,
+    "unresolved": 0,
+    "blocker": 0,
+    "critical": 0,
+    "major": 1,
+    "minor": 0
+  },
+  "findings": [
+    {
+      "bugId": "CORPUS-001",
+      "severity": "major",
+      "status": "fixed",
+      "affectedRoute": "Training, Tagestraining, Prüfung",
+      "affectedPlatform": "Alle Plattformen",
+      "prerequisites": "Datenbankstand vor diesem QA-Audit",
+      "reproduction": "Einen beliebigen A1–C1-Text öffnen, zum Beispiel a1-01 oder b2-01.",
+      "expected": "Grammatisch vollständige, natürliche deutsche Sätze.",
+      "actual": "Die frühere Vorlagengenerierung setzte Nominalphrasen in unpassende Satzrahmen ein, etwa „Heute beginnt …“.",
+      "rootCause": "Die gemeinsame Textvorlage erwartete konjugierte Satzteile, die Themenliste enthielt jedoch Nominalphrasen.",
+      "fix": "Die fünf Niveauvorlagen verwenden jetzt grammatisch geschlossene Themenrahmen; alle vorhandenen 300 JSON-Datensätze wurden mit unveränderten stabilen IDs regeneriert.",
+      "regressionTest": "qa-audit-tests.js prüft die neuen Satzrahmen, die vollständige Rekonstruktion und alle 6.000 C-Test-Lücken."
+    }
+  ],
+  "coverage": {
+    "texts": 300,
+    "gaps": 6000,
+    "levels": {
+      "A1": 40,
+      "A2": 50,
+      "B1": 70,
+      "B2": 80,
+      "C1": 60
+    },
+    "sampleReview": [
+      {
+        "textId": "a1-01",
+        "level": "A1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a1-02",
+        "level": "A1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a1-03",
+        "level": "A1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a1-04",
+        "level": "A1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a1-05",
+        "level": "A1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a1-06",
+        "level": "A1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a1-07",
+        "level": "A1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a1-08",
+        "level": "A1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a1-09",
+        "level": "A1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a1-10",
+        "level": "A1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a2-01",
+        "level": "A2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a2-02",
+        "level": "A2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a2-03",
+        "level": "A2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a2-04",
+        "level": "A2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a2-05",
+        "level": "A2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a2-06",
+        "level": "A2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a2-07",
+        "level": "A2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a2-08",
+        "level": "A2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a2-09",
+        "level": "A2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "a2-10",
+        "level": "A2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-01",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-02",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-03",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-04",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-05",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-06",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-07",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-08",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-09",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-10",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-11",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-12",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-13",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-14",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-15",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-16",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-17",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-18",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-19",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b1-20",
+        "level": "B1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-01",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-02",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-03",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-04",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-05",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-06",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-07",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-08",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-09",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-10",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-11",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-12",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-13",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-14",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-15",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-16",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-17",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-18",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-19",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "b2-20",
+        "level": "B2",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "c1-01",
+        "level": "C1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "c1-02",
+        "level": "C1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "c1-03",
+        "level": "C1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "c1-04",
+        "level": "C1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "c1-05",
+        "level": "C1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "c1-06",
+        "level": "C1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "c1-07",
+        "level": "C1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "c1-08",
+        "level": "C1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "c1-09",
+        "level": "C1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      },
+      {
+        "textId": "c1-10",
+        "level": "C1",
+        "reviewed": true,
+        "issues": [],
+        "reviewScope": "Themenbezug, vollständige Satzrahmen, CEFR-angemessene Registerwahl und eindeutige C-Test-Rekonstruktion."
+      }
+    ]
+  }
+}

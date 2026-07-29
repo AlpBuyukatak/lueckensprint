@@ -19,6 +19,10 @@
     "test:ctest-diagnostics": "node ctest-diagnostics-tests.js",
     "test:targeted-training": "node targeted-training-tests.js",
     "test:pwa-update": "node pwa-update-tests.js",
-    "test:responsive": "node responsive-tests.js"
+    "test:responsive": "node responsive-tests.js",
+    "test:qa": "node qa-audit-tests.js && node qa-browser-tests.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.0"
   }
 }
