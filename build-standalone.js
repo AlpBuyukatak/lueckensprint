@@ -7,11 +7,12 @@ const root=__dirname,read=(file)=>{
 };
 const cssFiles=['styles.css'],jsFiles=['app.js'],levels=['a1','a2','b1','b2','c1'];
 try{
-  const html=read('index.html'),css=cssFiles.map(read).join('\n'),js=jsFiles.map(read).join('\n');
+  const html=read('index.html'),css=cssFiles.map(read).join('\n'),js=jsFiles.map(read).join('\n'),publicConfig=read('supabase-config.js');
+  if(/sb_secret_|service_role/i.test(publicConfig))throw new Error('supabase-config.js must not contain a secret or service-role key.');
   const data=Object.fromEntries(levels.map(level=>[`texts-${level}`,JSON.parse(read(`data/texts-${level}.json`))]));
   if(Object.values(data).reduce((n,x)=>n+x.length,0)!==125)throw new Error('Expected 125 built-in texts in JSON databases.');
   const safe=value=>String(value).replace(/<\/script/gi,'<\\/script');
-  const bootstrap=safe(`window.__STANDALONE__=true;window.__STANDALONE_TEXTS__=${JSON.stringify(data)};`);
+  const bootstrap=safe(`window.__STANDALONE__=true;window.__STANDALONE_TEXTS__=${JSON.stringify(data)};\n${publicConfig}`);
   const standaloneJs=js.replace(/async function loadDatabase\(\)\{[^\n]*\}\n/,'async function loadDatabase(){if(typeof window!==\'undefined\')setDatabase(window.__STANDALONE_TEXTS__||{});}\n');
   if(standaloneJs===js)throw new Error('Could not remove hosted database loader from standalone build.');
   let output=html.replace(/<link rel="manifest"[^>]*>\s*/,'').replace(/<link rel="stylesheet" href="(?:\.\/)?styles\.css">/,'<style>'+safe(css)+'</style>').replace(/<script src="(?:\.\/)?supabase-config\.js"><\/script>\s*/,'').replace(/<script src="https:\/\/cdn\.jsdelivr\.net\/npm\/@supabase\/supabase-js@2\/dist\/umd\/supabase\.js" defer><\/script>\s*/,'').replace(/<script src="(?:\.\/)?sync\.js" defer><\/script>\s*/,'').replace(/<script src="(?:\.\/)?app\.js" defer><\/script>/,`<script>${bootstrap}<\/script><script>${safe(standaloneJs)}<\/script>`);

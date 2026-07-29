@@ -3,6 +3,8 @@ const target=path.join(__dirname,'dist','LueckenSprint_Standalone.html');
 assert.ok(fs.existsSync(target),'Run npm run build:standalone first.');
 const html=fs.readFileSync(target,'utf8');
 assert.ok(html.includes('window.__STANDALONE__=true'),'Standalone mode flag is missing.');
+assert.ok(html.includes('window.LUECKENSPRINT_SUPABASE_CONFIG'),'Standalone build must embed the public Supabase configuration.');
+assert.ok(!/sb_secret_|service_role/i.test(html),'Standalone build must not contain a secret or service-role key.');
 assert.ok(!/<link[^>]+(?:stylesheet|manifest)/i.test(html),'Standalone file must not load linked CSS or a manifest.');
 assert.ok(!/<script[^>]+src=/i.test(html),'Standalone file must not load external scripts.');
 assert.ok(!/(?:src|href)=["'](?:https?:)?\/\//i.test(html),'Standalone file contains a network resource.');
