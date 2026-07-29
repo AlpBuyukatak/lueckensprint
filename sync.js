@@ -82,7 +82,6 @@
       }
     };
   };
-  const download = (name, data) => { const link = document.createElement('a'); link.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], {type:'application/json'})); link.download = name; link.click(); setTimeout(() => URL.revokeObjectURL(link.href), 500); };
 
   let client = null, getState = () => ({}), replaceState = () => {}, timer = null, retryTimer = null, user = null, lastSync = '', status = 'Yerel mod', detail = '', pending = false, applying = false;
   const publicKey = cfg => cfg?.publishableKey || cfg?.anonKey || '';
@@ -147,25 +146,24 @@
     pending = true; setStatus('Senkronizasyon yeniden denenecek'); scheduleRetry(); return false;
   };
   const scheduleSync = (delay = NORMAL_DEBOUNCE_MS) => { clearTimeout(timer); if (!user || !navigator.onLine) return; timer = setTimeout(() => syncNow({reason:'debounced'}), delay); };
-  const firstBackupKey = userId => `first_cloud_backup_completed_${userId}`;
-  const createFirstBackupGate = (storage, backup) => {
-    const inFlight = new Map();
-    return {run: async (userId, state) => {
-      const key = firstBackupKey(userId);
-      if (storage.getItem(key) === 'true') return {created:false};
-      if (inFlight.has(userId)) return inFlight.get(userId);
-      const task = (async () => { await backup(state, userId); storage.setItem(key, 'true'); return {created:true}; })();
-      inFlight.set(userId, task);
-      try { return await task; } finally { inFlight.delete(userId); }
-    }};
+  const preMergeSnapshotKey = userId => `first_cloud_premerge_snapshot_${userId}`;
+  const snapshotStorage = typeof localStorage !== 'undefined' ? localStorage : {getItem:() => null, setItem:() => {}};
+  const createPreMergeSnapshot = (storage, userId, state) => {
+    const key = preMergeSnapshotKey(userId);
+    if (storage.getItem(key)) return false;
+    storage.setItem(key, JSON.stringify({created_at:now(), state:clone(state)}));
+    return true;
   };
-  const backupStorage = typeof localStorage !== 'undefined' ? localStorage : {getItem:() => null, setItem:() => {}};
-  const firstBackupGate = createFirstBackupGate(backupStorage, (state) => download(`LueckenSprint_ilk_bulut_yedegi_${Date.now()}.json`, state));
+  const readPreMergeSnapshot = (storage, userId) => {
+    const raw = storage.getItem(preMergeSnapshotKey(userId));
+    if (!raw) return null;
+    try { const snapshot = JSON.parse(raw); return snapshot?.state ? snapshot : null; } catch (_) { return null; }
+  };
   const runFirstMerge = async () => {
     if (!user) return false;
     const userId = user.id;
     const state = getState();
-    try { await firstBackupGate.run(userId, state); } catch (error) { diagnostic('First cloud backup failed', error?.message || ''); setStatus('Senkronizasyon hatası', 'İlk güvenlik yedeği oluşturulamadı.'); return false; }
+    try { createPreMergeSnapshot(snapshotStorage, userId, state); } catch (error) { diagnostic('Pre-merge snapshot failed', error?.message || ''); }
     pending = true; state.sync_meta = {...(state.sync_meta || {}), pending_sync:true}; persistMeta();
     const okay = await syncNow({force:true, reason:'first-sign-in'});
     if (okay) { detail = 'Yerel ve bulut ilerlemesi birleştirildi.'; emit(); }
@@ -199,6 +197,24 @@
     if (client) await client.auth.signOut(); user = null; setStatus('Giriş yapılmadı');
   };
   const onLocalSave = () => { if (!applying) markPending(getState().activeExam ? 'active-exam' : 'change'); };
+  const restorePreMergeSnapshot = () => {
+    if (!user) return false;
+    const snapshot = readPreMergeSnapshot(snapshotStorage, user.id);
+    if (!snapshot) return false;
+    replaceState(clone(snapshot.state));
+    setStatus('Bekleyen değişiklikler var');
+    return true;
+  };
+  const mountRecoveryControl = () => {
+    const advanced = document.querySelector('.advanced-backup');
+    if (!advanced) return;
+    let host = advanced.querySelector('#preMergeRecoveryHost');
+    if (!host) { host = document.createElement('div'); host.id = 'preMergeRecoveryHost'; advanced.appendChild(host); }
+    const snapshot = user && readPreMergeSnapshot(snapshotStorage, user.id);
+    if (!snapshot) { host.innerHTML = ''; return; }
+    host.innerHTML = '<button class="button-outline" id="restorePreMergeSnapshot">İlk bulut birleştirmesi öncesi yerel durumu geri yükle</button>';
+    host.querySelector('#restorePreMergeSnapshot')?.addEventListener('click', () => { if (restorePreMergeSnapshot()) setStatus('Bekleyen değişiklikler var'); });
+  };
   const mountSettingsPanel = () => {
     let host = document.querySelector('#syncPanelHost'); if (!host && global.VIEW === 'settings') { host = document.createElement('div'); host.id = 'syncPanelHost'; document.querySelector('#main')?.appendChild(host); } if (!host) return;
     const time = lastSync ? new Intl.DateTimeFormat('tr-TR', {dateStyle:'short', timeStyle:'short'}).format(new Date(lastSync)) : 'Henüz senkronize edilmedi';
@@ -207,7 +223,8 @@
     host.innerHTML = `<section class="card sync-panel"><h2>Bulut senkronizasyonu</h2>${account}<p class="sync-status">${safeText(status)}</p>${pending ? '<p class="sync-pending">Bekleyen değişiklikler var</p>' : ''}${errorDetails}${user ? '<button class="button-danger" id="signOut">Çıkış yap</button>' : `<form id="magicLinkForm" class="choice-row"><input required type="email" id="syncEmail" placeholder="E-posta adresi" aria-label="E-posta adresi"><button class="button">Giriş bağlantısı gönder</button></form>`}</section>`;
     host.querySelector('#magicLinkForm')?.addEventListener('submit', async event => { event.preventDefault(); try { await signIn(host.querySelector('#syncEmail').value); } catch (error) { setStatus('Senkronizasyon hatası', error?.message || ''); } });
     host.querySelector('#signOut')?.addEventListener('click', signOut);
+    mountRecoveryControl();
   };
-  global.LueckenSync = {initialize, onLocalSave, syncNow, signIn, signOut, mountSettingsPanel, runFirstMerge, mergeProgress, chooseRecord, completeness};
-  if (typeof module !== 'undefined') module.exports = {mergeProgress, chooseRecord, completeness, mergeErrors, mergeByDate, firstBackupKey, createFirstBackupGate};
+  global.LueckenSync = {initialize, onLocalSave, syncNow, signIn, signOut, mountSettingsPanel, runFirstMerge, restorePreMergeSnapshot, mergeProgress, chooseRecord, completeness};
+  if (typeof module !== 'undefined') module.exports = {mergeProgress, chooseRecord, completeness, mergeErrors, mergeByDate, preMergeSnapshotKey, createPreMergeSnapshot, readPreMergeSnapshot};
 })(typeof window !== 'undefined' ? window : globalThis);
