@@ -1,32 +1,198 @@
-/* Optional Supabase magic-link authentication and deterministic cloud sync. */
-(function(global){
-  const SCHEMA_VERSION=1, DEBOUNCE_MS=1800, POLL_MS=5*60*1000;
-  const now=()=>new Date().toISOString(), clone=value=>JSON.parse(JSON.stringify(value||{}));
-  let memoryDeviceId='';const deviceId=()=>{if(typeof localStorage==='undefined'){if(!memoryDeviceId)memoryDeviceId=`device-${Date.now()}-${Math.random().toString(36).slice(2)}`;return memoryDeviceId}let id=localStorage.getItem('lueckenSprintDeviceId');if(!id){id=global.crypto?.randomUUID?.()||`device-${Date.now()}-${Math.random().toString(36).slice(2)}`;localStorage.setItem('lueckenSprintDeviceId',id)}return id};
-  const byId=(items=[])=>Object.fromEntries(items.filter(x=>x&&x.id).map(x=>[x.id,x]));
-  const newer=(a,b)=>String(a?.updated_at||a?.updatedAt||'')>=String(b?.updated_at||b?.updatedAt||'')?a:b;
-  const mergeRecords=(a,b)=>Object.values({...byId(a),...Object.fromEntries(Object.entries(byId(b)).map(([id,row])=>[id,newer(byId(a)[id],row)]))});
-  const stamp=state=>{const out=clone(state);out.sync_meta={...(out.sync_meta||{}),schema_version:SCHEMA_VERSION,updated_at:now(),device_id:deviceId(),settings_updated_at:out.sync_meta?.settings_updated_at||now()};return out};
-  const mergeProgress=(local,cloud)=>{const l=stamp(local),c=stamp(cloud);const tombstones=mergeRecords(l.custom_deleted||[],c.custom_deleted||[]);const deleted=byId(tombstones);let custom=mergeRecords(l.custom||[],c.custom||[]).filter(item=>!deleted[item.id]||String(deleted[item.id].deleted_at||'')<String(item.updated_at||''));const settings=String(l.sync_meta.settings_updated_at)>=String(c.sync_meta.settings_updated_at)?l.settings:c.settings;const active=newer(l.activeExam&&{...l.activeExam,updated_at:l.activeExam.updated_at||l.sync_meta.updated_at},c.activeExam&&{...c.activeExam,updated_at:c.activeExam.updated_at||c.sync_meta.updated_at});return {...l,version:Math.max(Number(l.version)||1,Number(c.version)||1),settings:clone(settings||{}),attempts:mergeRecords(l.attempts,c.attempts),errors:mergeRecords(l.errors,c.errors),custom,custom_deleted:tombstones,daily:{...(c.daily||{}),...(l.daily||{})},tasks:{...(c.tasks||{}),...(l.tasks||{})},seen:[...new Set([...(c.seen||[]),...(l.seen||[])])],activeExam:active||null,sync_meta:{...l.sync_meta,updated_at:now(),cloud_revision:Math.max(Number(l.sync_meta.cloud_revision)||0,Number(c.sync_meta.cloud_revision)||0)}}};
-  const download=(name,data)=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
-  let client=null,getState=()=>({}),replaceState=()=>{},timer=null,applying=false,pending=false,lastSync='',user=null,status='Yerel olarak kaydedildi',message='';
-  const diagnostic=(label,detail='')=>{if(global.console?.info)global.console.info('[LueckenSprint Sync]',label,detail)};
-  const safeText=value=>String(value||'').replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
-  const publicKey=cfg=>cfg?.publishableKey||cfg?.anonKey||'';
-  const configured=()=>{const cfg=global.LUECKENSPRINT_SUPABASE_CONFIG||{};return Boolean(cfg.url&&publicKey(cfg)&&global.supabase?.createClient)};
-  const emit=()=>{global.dispatchEvent(new CustomEvent('lueckensprint-sync-status',{detail:{status,message,user,lastSync,pending,configured:configured()}}));mountSettingsPanel()};
-  const setStatus=(next,note='')=>{status=next;message=note;emit()};
-  const cleanAuthCallbackUrl=()=>{if(!global.history?.replaceState)return;const url=new URL(global.location.href),authKeys=['code','access_token','refresh_token','expires_in','expires_at','token_type','type'];let changed=false;authKeys.forEach(key=>{if(url.searchParams.has(key)){url.searchParams.delete(key);changed=true}});const hash=new URLSearchParams(url.hash.replace(/^#/,''));if(authKeys.some(key=>hash.has(key))){url.hash='';changed=true}if(changed)global.history.replaceState({},document.title,url.pathname+url.search+url.hash)};
-  const sessionClient=()=>{if(client||!configured())return client;const cfg=global.LUECKENSPRINT_SUPABASE_CONFIG;diagnostic('Supabase config loaded',{urlConfigured:Boolean(cfg.url),publishableKeyConfigured:Boolean(publicKey(cfg))});client=global.supabase.createClient(cfg.url,publicKey(cfg),{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});diagnostic('Supabase client created');return client};
-  const fetchCloud=async()=>{const c=sessionClient();if(!c||!user)return null;const {data,error}=await c.from('user_progress').select('*').eq('user_id',user.id).maybeSingle();if(error)throw error;return data};
-  const upload=async(force=false)=>{if(!navigator.onLine){setStatus('Çevrimdışı');return}const c=sessionClient();if(!c||!user){setStatus('Yerel olarak kaydedildi');return}if(!pending&&!force)return;setStatus('Senkronize ediliyor');try{const local=stamp(getState());const cloud=await fetchCloud();const merged=cloud?mergeProgress(local,cloud.progress_data):local;applying=true;replaceState(merged);applying=false;const revision=(Number(cloud?.revision)||0)+1;const {error}=await c.from('user_progress').upsert({user_id:user.id,schema_version:SCHEMA_VERSION,progress_data:merged,updated_at:now(),device_id:deviceId(),revision},{onConflict:'user_id'});if(error)throw error;pending=false;lastSync=now();setStatus('Senkronize edildi')}catch(error){applying=false;pending=true;setStatus('Senkronizasyon hatası',error.message||'Tekrar denenecek')}};
-  const schedule=()=>{if(applying)return;pending=true;clearTimeout(timer);timer=setTimeout(()=>upload(),DEBOUNCE_MS);setStatus(navigator.onLine?'Senkronize ediliyor':'Çevrimdışı')};
-  const refresh=async()=>{const c=sessionClient();if(!c||!user||!navigator.onLine)return;try{setStatus('Senkronize ediliyor');const cloud=await fetchCloud();if(cloud?.progress_data){const merged=mergeProgress(getState(),cloud.progress_data);applying=true;replaceState(merged);applying=false}lastSync=now();setStatus(pending?'Senkronize ediliyor':'Senkronize edildi');if(pending)upload()}catch(error){applying=false;setStatus('Senkronizasyon hatası',error.message||'Tekrar denenecek')}};
-  const initialize=async(api)=>{getState=api.getState;replaceState=api.replaceState;sessionClient();if(!client){diagnostic('Supabase client unavailable');setStatus('Supabase yapılandırması eksik');return}client.auth.onAuthStateChange((event,sessionNow)=>{diagnostic('Auth event name',event);user=sessionNow?.user||null;if(user){diagnostic('Signed-in user email',user.email||'(email unavailable)');cleanAuthCallbackUrl();setStatus('Giriş yapıldı');firstMerge().catch(error=>setStatus('Senkronizasyon hatası',error.message||'Tekrar denenecek'))}else{setStatus('Giriş yapılmadı')}});try{const {data:{session},error}=await client.auth.getSession();if(error)throw error;user=session?.user||null;diagnostic(user?'Initial session found':'Initial session missing');if(user){diagnostic('Signed-in user email',user.email||'(email unavailable)');cleanAuthCallbackUrl();setStatus('Giriş yapıldı');await refresh()}else setStatus('Giriş yapılmadı')}catch(error){diagnostic('Initial session check failed',error.message||'unknown error');setStatus('Senkronizasyon hatası',error.message||'Tekrar denenecek')}global.addEventListener('online',()=>{if(pending)upload();else refresh()});global.addEventListener('focus',refresh);document.addEventListener('submit',event=>{if(event.target?.id==='settingsForm'){const state=getState();state.sync_meta={...(state.sync_meta||{}),settings_updated_at:now()}}},true);document.addEventListener('click',event=>{const button=event.target.closest?.('.delete-custom');if(button){const state=getState(),id=button.dataset.id;if(id){state.custom_deleted=state.custom_deleted||[];state.custom_deleted=[...state.custom_deleted.filter(x=>x.id!==id),{id,deleted_at:now(),updated_at:now()}];schedule()}}if(event.target.closest?.('#saveCustomEdit'))setTimeout(()=>{const state=getState();state.custom=(state.custom||[]).map(item=>({...item,updated_at:now()}));schedule()},0)});setInterval(refresh,POLL_MS)};
-  const signIn=async(email)=>{const c=sessionClient();if(!c)throw new Error('Supabase yapılandırması eksik.');const redirect=global.location.origin+global.location.pathname;const {error}=await c.auth.signInWithOtp({email,options:{emailRedirectTo:redirect}});if(error)throw error;setStatus('Giriş bağlantısı gönderildi')};
-  const signOut=async()=>{if(client)await client.auth.signOut();user=null;setStatus('Giriş yapılmadı')};
-  const firstMerge=async()=>{if(!user)return;const cloud=await fetchCloud();const local=getState();if(!cloud&&((local.attempts||[]).length||(local.custom||[]).length)){if(global.confirm('Bu cihazdaki mevcut ilerleme bulut hesabınızla birleştirilsin mi?')){download(`LueckenSprint_ilk_bulut_yedegi_${Date.now()}.json`,local);pending=true;await upload(true)}}else await refresh()};
-  const mountSettingsPanel=()=>{let host=document.querySelector('#syncPanelHost');if(!host&&global.VIEW==='settings'){host=document.createElement('div');host.id='syncPanelHost';document.querySelector('#main')?.appendChild(host)}if(!host)return;const email=safeText(user?.email),syncLabel=lastSync?new Intl.DateTimeFormat('tr-TR',{dateStyle:'short',timeStyle:'short'}).format(new Date(lastSync)):'Henüz senkronize edilmedi';const account=user?`<p class="sync-account"><strong>Giriş yapıldı</strong><br><span>${email}</span><br><small>Son senkronizasyon: ${syncLabel}</small></p>`:`<p class="sync-account"><strong>Giriş yapılmadı</strong><br><small>${configured()?'Bulut yedekleme için e-posta ile giriş yapın.':'Supabase yapılandırılmadı — yerel mod aktif.'}</small></p>`;host.innerHTML=`<section class="card sync-panel"><h2>Bulut senkronizasyonu</h2>${account}<p class="sync-status">${safeText(status)}${message?` · ${safeText(message)}`:''}</p>${user?`<div class="choice-row"><button class="button" id="syncNow">Şimdi senkronize et</button><button class="button-outline" id="downloadCloud">Bulut verilerimin yedeğini indir</button><button class="button-outline" id="pullCloud">Buluttaki veriyi indir</button><button class="button-outline" id="pushCloud">Yerel veriyi buluta gönder</button><button class="button-danger" id="signOut">Çıkış yap</button></div>`:`<form id="magicLinkForm" class="choice-row"><input required type="email" id="syncEmail" placeholder="E-posta adresi" aria-label="E-posta adresi"><button class="button">Giriş bağlantısı gönder</button></form>`}</section>`;host.querySelector('#magicLinkForm')?.addEventListener('submit',async e=>{e.preventDefault();try{await signIn(host.querySelector('#syncEmail').value);setStatus('Giriş bağlantısı gönderildi')}catch(error){setStatus('Senkronizasyon hatası',error.message)}});host.querySelector('#syncNow')?.addEventListener('click',()=>upload(true));host.querySelector('#pullCloud')?.addEventListener('click',refresh);host.querySelector('#pushCloud')?.addEventListener('click',()=>{pending=true;upload(true)});host.querySelector('#downloadCloud')?.addEventListener('click',async()=>{try{const row=await fetchCloud();if(row)download(`LueckenSprint_bulut_yedegi_${Date.now()}.json`,row.progress_data)}catch(error){setStatus('Senkronizasyon hatası',error.message)}});host.querySelector('#signOut')?.addEventListener('click',signOut)};
-  global.LueckenSync={initialize,onLocalSave:schedule,refresh,upload,signIn,signOut,mountSettingsPanel,firstMerge,mergeProgress,stamp};
-  if(typeof module!=='undefined')module.exports={mergeProgress,stamp};
-})(typeof window!=='undefined'?window:globalThis);
+/* Optional, automatic Supabase progress synchronization. No secret keys are used. */
+(function (global) {
+  const SCHEMA_VERSION = 2;
+  const NORMAL_DEBOUNCE_MS = 2000;
+  const EXAM_DEBOUNCE_MS = 6500;
+  const POLL_MS = 90000;
+  const MAX_RETRIES = 3;
+  const now = () => new Date().toISOString();
+  const clone = value => JSON.parse(JSON.stringify(value || {}));
+  const timestamp = row => String(row?.updated_at || row?.updatedAt || row?.reviewed_at || '');
+  const safeText = value => String(value || '').replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+  const diagnostic = (label, detail = '') => global.console?.info?.('[LueckenSprint Sync]', label, detail);
+  let memoryDeviceId = '';
+  const deviceId = () => {
+    if (typeof localStorage === 'undefined') return memoryDeviceId || (memoryDeviceId = `device-${Date.now()}-${Math.random().toString(36).slice(2)}`);
+    let id = localStorage.getItem('lueckenSprintDeviceId');
+    if (!id) { id = global.crypto?.randomUUID?.() || `device-${Date.now()}-${Math.random().toString(36).slice(2)}`; localStorage.setItem('lueckenSprintDeviceId', id); }
+    return id;
+  };
+  const completeness = value => {
+    if (!value || typeof value !== 'object') return value === undefined || value === null || value === '' ? 0 : 1;
+    return Object.values(value).reduce((total, item) => total + completeness(item), 0);
+  };
+  const chooseRecord = (a, b) => {
+    if (!a) return b; if (!b) return a;
+    const left = timestamp(a), right = timestamp(b);
+    if (left !== right) return left > right ? a : b;
+    return completeness(a) >= completeness(b) ? a : b;
+  };
+  const byId = (rows = []) => Object.fromEntries(rows.filter(row => row && row.id).map(row => [row.id, row]));
+  const mergeRecords = (left = [], right = []) => {
+    const ids = new Set([...Object.keys(byId(left)), ...Object.keys(byId(right))]);
+    return [...ids].map(id => chooseRecord(byId(left)[id], byId(right)[id]));
+  };
+  const mergeErrors = (left = [], right = []) => mergeRecords(left, right).map(row => {
+    const a = byId(left)[row.id], b = byId(right)[row.id];
+    if (!a || !b) return row;
+    return {...row, mastery: Math.max(Number(a.mastery) || 0, Number(b.mastery) || 0), reviewed_at: timestamp(a) > timestamp(b) ? (a.reviewed_at || a.updated_at) : (b.reviewed_at || b.updated_at)};
+  });
+  const mergeByDate = (left = {}, right = {}) => {
+    const output = {...right};
+    for (const [date, value] of Object.entries(left || {})) {
+      const other = output[date];
+      output[date] = typeof value === 'boolean' || typeof other === 'boolean' ? Boolean(value || other) : chooseRecord(value, other);
+    }
+    return output;
+  };
+  const mergeCustom = (left, right, tombstones) => {
+    const deleted = byId(tombstones);
+    return mergeRecords(left, right).filter(row => !deleted[row.id] || timestamp(row) > String(deleted[row.id].deleted_at || deleted[row.id].updated_at || ''));
+  };
+  const mergeProgress = (local, cloud) => {
+    const l = clone(local), c = clone(cloud);
+    const tombstones = mergeRecords(l.custom_deleted || [], c.custom_deleted || []);
+    const primaryExam = chooseRecord(l.activeExam, c.activeExam) || null;
+    const otherExam = l.activeExam && c.activeExam && l.activeExam.id !== c.activeExam.id ? chooseRecord(l.activeExam, c.activeExam) === l.activeExam ? c.activeExam : l.activeExam : null;
+    const conflicts = mergeRecords(l.activeExamConflicts || [], c.activeExamConflicts || []);
+    if (otherExam && !conflicts.some(exam => exam.id === otherExam.id)) conflicts.push(otherExam);
+    const settings = chooseRecord({...l.settings, updated_at:l.sync_meta?.settings_updated_at}, {...c.settings, updated_at:c.sync_meta?.settings_updated_at}) || {};
+    const localMeta = l.sync_meta || {}, cloudMeta = c.sync_meta || {};
+    return {
+      ...c, ...l,
+      version: Math.max(Number(l.version) || 1, Number(c.version) || 1),
+      settings: clone(settings),
+      attempts: mergeRecords(l.attempts, c.attempts),
+      errors: mergeErrors(l.errors, c.errors),
+      custom: mergeCustom(l.custom || [], c.custom || [], tombstones),
+      custom_deleted: tombstones,
+      daily: mergeByDate(l.daily, c.daily),
+      tasks: mergeByDate(l.tasks, c.tasks),
+      seen: [...new Set([...(l.seen || []), ...(c.seen || [])])],
+      activeExam: primaryExam,
+      activeExamConflicts: conflicts,
+      sync_meta: {
+        ...cloudMeta, ...localMeta,
+        schema_version: SCHEMA_VERSION,
+        device_id: deviceId(),
+        local_revision: Math.max(Number(localMeta.local_revision) || 0, Number(cloudMeta.local_revision) || 0),
+        cloud_revision: Math.max(Number(localMeta.cloud_revision) || 0, Number(cloudMeta.cloud_revision) || 0),
+        pending_sync: Boolean(localMeta.pending_sync),
+        last_local_change_at: chooseRecord({updated_at:localMeta.last_local_change_at}, {updated_at:cloudMeta.last_local_change_at})?.updated_at || now()
+      }
+    };
+  };
+  const download = (name, data) => { const link = document.createElement('a'); link.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], {type:'application/json'})); link.download = name; link.click(); setTimeout(() => URL.revokeObjectURL(link.href), 500); };
+
+  let client = null, getState = () => ({}), replaceState = () => {}, timer = null, retryTimer = null, user = null, lastSync = '', status = 'Yerel mod', detail = '', pending = false, firstMergeUser = '', applying = false;
+  const publicKey = cfg => cfg?.publishableKey || cfg?.anonKey || '';
+  const configured = () => { const cfg = global.LUECKENSPRINT_SUPABASE_CONFIG || {}; return Boolean(cfg.url && publicKey(cfg) && global.supabase?.createClient); };
+  const emit = () => { global.dispatchEvent?.(new CustomEvent('lueckensprint-sync-status', {detail:{status, detail, user, lastSync, pending, configured:configured()}})); mountSettingsPanel(); };
+  const setStatus = (next, nextDetail = '') => { status = next; detail = nextDetail; emit(); };
+  const persistMeta = () => { try { localStorage.setItem('lueckenSprint', JSON.stringify(getState())); } catch (_) {} };
+  const clientForSession = () => {
+    if (client || !configured()) return client;
+    const cfg = global.LUECKENSPRINT_SUPABASE_CONFIG;
+    diagnostic('Supabase config loaded', {urlConfigured:Boolean(cfg.url), publishableKeyConfigured:Boolean(publicKey(cfg))});
+    client = global.supabase.createClient(cfg.url, publicKey(cfg), {auth:{persistSession:true, autoRefreshToken:true, detectSessionInUrl:true}});
+    diagnostic('Supabase client created');
+    return client;
+  };
+  const cleanAuthCallbackUrl = () => {
+    if (!global.history?.replaceState || !global.location) return;
+    const url = new URL(global.location.href), keys = ['code','access_token','refresh_token','expires_in','expires_at','token_type','type']; let changed = false;
+    keys.forEach(key => { if (url.searchParams.has(key)) { url.searchParams.delete(key); changed = true; } });
+    const hash = new URLSearchParams(url.hash.replace(/^#/, ''));
+    if (keys.some(key => hash.has(key))) { url.hash = ''; changed = true; }
+    if (changed) global.history.replaceState({}, document.title, url.pathname + url.search + url.hash);
+  };
+  const readCloud = async () => { const c = clientForSession(); if (!c || !user) return null; const {data, error} = await c.from('user_progress').select('*').eq('user_id', user.id).maybeSingle(); if (error) throw error; return data; };
+  const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
+  const markPending = (kind = 'change') => {
+    const state = getState(), meta = state.sync_meta = {...(state.sync_meta || {})};
+    meta.schema_version = SCHEMA_VERSION; meta.device_id = deviceId(); meta.local_revision = (Number(meta.local_revision) || 0) + 1; meta.last_local_change_at = now(); meta.updated_at = meta.last_local_change_at; meta.pending_sync = true; pending = true; persistMeta();
+    if (!navigator.onLine) setStatus('Çevrimdışı · cihazda kaydedildi');
+    else if (user) setStatus('Bekleyen değişiklikler var');
+    else setStatus('Yerel mod');
+    const delay = kind === 'active-exam' || state.activeExam ? EXAM_DEBOUNCE_MS : NORMAL_DEBOUNCE_MS;
+    scheduleSync(delay);
+  };
+  const scheduleRetry = () => { clearTimeout(retryTimer); retryTimer = setTimeout(() => syncNow({reason:'retry'}), 3000); };
+  const syncNow = async ({force = false, reason = 'automatic'} = {}) => {
+    if (!navigator.onLine) { if (pending) setStatus('Çevrimdışı · cihazda kaydedildi'); return false; }
+    const c = clientForSession();
+    if (!c || !user) { setStatus(user ? 'Senkronizasyon hatası' : (configured() ? 'Giriş yapılmadı' : 'Yerel mod')); return false; }
+    if (!pending && !force) return true;
+    clearTimeout(timer); setStatus('Senkronize ediliyor…');
+    for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+      try {
+        const cloud = await readCloud();
+        const merged = mergeProgress(getState(), cloud?.progress_data || {});
+        const expectedRevision = Number(cloud?.revision) || 0;
+        const {data, error} = await c.rpc('save_user_progress', {expected_revision:expectedRevision, next_schema_version:SCHEMA_VERSION, next_progress_data:merged, next_device_id:deviceId()});
+        if (error) throw error;
+        const result = Array.isArray(data) ? data[0] : data;
+        if (!result?.applied) { await pause(250 * (2 ** attempt)); continue; }
+        lastSync = now(); pending = false;
+        merged.sync_meta = {...(merged.sync_meta || {}), schema_version:SCHEMA_VERSION, device_id:deviceId(), cloud_revision:Number(result.revision) || expectedRevision + 1, pending_sync:false, last_successful_sync_at:lastSync};
+        applying = true; replaceState(merged); applying = false;
+        setStatus('Senkronize edildi');
+        return true;
+      } catch (error) {
+        diagnostic('Cloud sync failed', error?.message || 'unknown error');
+        if (attempt < MAX_RETRIES - 1) { await pause(250 * (2 ** attempt)); continue; }
+        pending = true; const state = getState(); state.sync_meta = {...(state.sync_meta || {}), pending_sync:true}; persistMeta(); setStatus('Senkronizasyon yeniden denenecek', error?.message || ''); scheduleRetry(); return false;
+      }
+    }
+    pending = true; setStatus('Senkronizasyon yeniden denenecek'); scheduleRetry(); return false;
+  };
+  const scheduleSync = (delay = NORMAL_DEBOUNCE_MS) => { clearTimeout(timer); if (!user || !navigator.onLine) return; timer = setTimeout(() => syncNow({reason:'debounced'}), delay); };
+  const firstMerge = async () => {
+    if (!user || firstMergeUser === user.id) return;
+    firstMergeUser = user.id;
+    const state = getState();
+    try { download(`LueckenSprint_ilk_bulut_yedegi_${Date.now()}.json`, state); } catch (_) {}
+    pending = true; state.sync_meta = {...(state.sync_meta || {}), pending_sync:true}; persistMeta();
+    const okay = await syncNow({force:true, reason:'first-sign-in'});
+    if (okay) { detail = 'Yerel ve bulut ilerlemesi birleştirildi.'; emit(); }
+  };
+  const applySession = async (event, session) => {
+    diagnostic('Auth event name', event);
+    user = session?.user || null;
+    if (!user) { firstMergeUser = ''; setStatus(configured() ? 'Giriş yapılmadı' : 'Yerel mod'); return; }
+    diagnostic('Signed-in user email', user.email || '(email unavailable)'); cleanAuthCallbackUrl(); setStatus('Giriş yapıldı');
+    await firstMerge();
+  };
+  const initialize = async api => {
+    getState = api.getState; replaceState = api.replaceState;
+    const state = getState(); lastSync = state.sync_meta?.last_successful_sync_at || ''; pending = Boolean(state.sync_meta?.pending_sync);
+    const c = clientForSession();
+    if (!c) { diagnostic('Supabase client unavailable'); setStatus('Yerel mod'); return; }
+    c.auth.onAuthStateChange((event, session) => { applySession(event, session).catch(error => setStatus('Senkronizasyon hatası', error?.message || '')); });
+    try { const {data:{session}, error} = await c.auth.getSession(); if (error) throw error; diagnostic(session ? 'Initial session found' : 'Initial session missing'); await applySession('INITIAL_SESSION', session); } catch (error) { diagnostic('Initial session check failed', error?.message || ''); setStatus('Senkronizasyon hatası', error?.message || ''); }
+    global.addEventListener('online', () => { if (user) { setStatus('Senkronize ediliyor…'); syncNow({force:true, reason:'online'}); } });
+    global.addEventListener('focus', () => syncNow({force:true, reason:'focus'}));
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') syncNow({force:true, reason:'visible'}); });
+    setInterval(() => syncNow({force:true, reason:'periodic'}), POLL_MS);
+  };
+  const signIn = async email => { const c = clientForSession(); if (!c) throw new Error('Supabase yapılandırması eksik.'); const {error} = await c.auth.signInWithOtp({email, options:{emailRedirectTo:global.location.origin + global.location.pathname}}); if (error) throw error; setStatus('Giriş bağlantısı gönderildi'); };
+  const signOut = async () => {
+    if (pending) {
+      if (!navigator.onLine) { if (!global.confirm('Henüz buluta gönderilmemiş yerel değişiklikler var. Yine de çıkış yapmak istiyor musunuz?')) return; }
+      else await syncNow({force:true, reason:'sign-out'});
+    }
+    if (client) await client.auth.signOut(); user = null; firstMergeUser = ''; setStatus('Giriş yapılmadı');
+  };
+  const onLocalSave = () => { if (!applying) markPending(getState().activeExam ? 'active-exam' : 'change'); };
+  const mountSettingsPanel = () => {
+    let host = document.querySelector('#syncPanelHost'); if (!host && global.VIEW === 'settings') { host = document.createElement('div'); host.id = 'syncPanelHost'; document.querySelector('#main')?.appendChild(host); } if (!host) return;
+    const time = lastSync ? new Intl.DateTimeFormat('tr-TR', {dateStyle:'short', timeStyle:'short'}).format(new Date(lastSync)) : 'Henüz senkronize edilmedi';
+    const account = user ? `<p class="sync-account"><strong>Giriş yapıldı</strong><br><span>${safeText(user.email)}</span><br><small>Son senkronizasyon: ${time}</small></p>` : `<p class="sync-account"><strong>Giriş yapılmadı</strong><br><small>${configured() ? 'Yerel verileriniz bu cihazda korunur.' : 'Yerel mod'}</small></p>`;
+    const errorDetails = detail && /^Senkronizasyon (yeniden denenecek|hatası)$/.test(status) ? `<details class="sync-details"><summary>Teknik ayrıntılar</summary><code>${safeText(detail)}</code></details>` : '';
+    host.innerHTML = `<section class="card sync-panel"><h2>Bulut senkronizasyonu</h2>${account}<p class="sync-status">${safeText(status)}</p>${pending ? '<p class="sync-pending">Bekleyen değişiklikler var</p>' : ''}${errorDetails}${user ? '<button class="button-danger" id="signOut">Çıkış yap</button>' : `<form id="magicLinkForm" class="choice-row"><input required type="email" id="syncEmail" placeholder="E-posta adresi" aria-label="E-posta adresi"><button class="button">Giriş bağlantısı gönder</button></form>`}</section>`;
+    host.querySelector('#magicLinkForm')?.addEventListener('submit', async event => { event.preventDefault(); try { await signIn(host.querySelector('#syncEmail').value); } catch (error) { setStatus('Senkronizasyon hatası', error?.message || ''); } });
+    host.querySelector('#signOut')?.addEventListener('click', signOut);
+  };
+  global.LueckenSync = {initialize, onLocalSave, syncNow, signIn, signOut, mountSettingsPanel, mergeProgress, chooseRecord, completeness};
+  if (typeof module !== 'undefined') module.exports = {mergeProgress, chooseRecord, completeness, mergeErrors, mergeByDate};
+})(typeof window !== 'undefined' ? window : globalThis);

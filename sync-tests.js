@@ -1,24 +1,46 @@
-const assert=require('assert');
-const {mergeProgress,stamp}=require('./sync.js');
-const base=overrides=>({version:1,settings:{theme:'light'},attempts:[],errors:[],custom:[],custom_deleted:[],daily:{},tasks:{},seen:[],activeExam:null,sync_meta:{updated_at:'2026-01-01T00:00:00.000Z',settings_updated_at:'2026-01-01T00:00:00.000Z'},...overrides});
-const attempt=(id,time='2026-01-01T00:00:00.000Z')=>({id,updated_at:time,total:20,correct:10});
-assert.equal(stamp(base()).sync_meta.schema_version,1,'local-only state is stamped');
-assert.equal(mergeProgress(base({attempts:[attempt('a')]}),base()).attempts.length,1,'empty cloud keeps local progress');
-assert.equal(mergeProgress(base(),base({attempts:[attempt('b')]})).attempts.length,1,'empty local receives cloud progress');
-let merged=mergeProgress(base({attempts:[attempt('a')]}),base({attempts:[attempt('b')]}));
-assert.deepStrictEqual(new Set(merged.attempts.map(x=>x.id)),new Set(['a','b']),'two-device records merge');
-merged=mergeProgress(base({attempts:[attempt('same','2026-01-01T00:00:00.000Z')]}),base({attempts:[{...attempt('same','2026-02-01T00:00:00.000Z'),correct:19}]}));
-assert.equal(merged.attempts.length,1,'duplicate IDs do not duplicate');assert.equal(merged.attempts[0].correct,19,'newest duplicate wins');
-merged=mergeProgress(base({settings:{theme:'dark'},sync_meta:{updated_at:'2026-01-01T00:00:00.000Z',settings_updated_at:'2026-01-01T00:00:00.000Z'}}),base({settings:{theme:'light'},sync_meta:{updated_at:'2026-02-01T00:00:00.000Z',settings_updated_at:'2026-02-01T00:00:00.000Z'}}));
-assert.equal(merged.settings.theme,'light','newer settings win');
-merged=mergeProgress(base({custom:[{id:'c',title:'old',updated_at:'2026-01-01T00:00:00.000Z'}]}),base({custom:[{id:'c',title:'new',updated_at:'2026-02-01T00:00:00.000Z'}]}));
-assert.equal(merged.custom[0].title,'new','newer custom edit wins');
-merged=mergeProgress(base({custom:[{id:'c',title:'old',updated_at:'2026-01-01T00:00:00.000Z'}]}),base({custom_deleted:[{id:'c',deleted_at:'2026-02-01T00:00:00.000Z',updated_at:'2026-02-01T00:00:00.000Z'}]}));
-assert.equal(merged.custom.length,0,'custom tombstone preserves deletion');
-merged=mergeProgress(base({activeExam:{id:'e',updated_at:'2026-01-01T00:00:00.000Z'}}),base({activeExam:{id:'e2',updated_at:'2026-02-01T00:00:00.000Z'}}));
-assert.equal(merged.activeExam.id,'e2','newest active exam wins');
-merged=mergeProgress(base({version:1}),base({version:2}));assert.equal(merged.version,2,'schema-version mismatch retains newest version');
-const syncSource=require('fs').readFileSync('sync.js','utf8');
-for(const token of ['DEBOUNCE_MS','addEventListener(\'online\'','setInterval(refresh','Senkronizasyon hatası','signOut'])assert.ok(syncSource.includes(token),`Missing sync behavior: ${token}`);
-for(const token of ['auth.getSession()','auth.onAuthStateChange','detectSessionInUrl:true','cleanAuthCallbackUrl','Supabase config loaded','Supabase client created','Initial session found','Initial session missing','Auth event name','Signed-in user email','lastSync?new Intl.DateTimeFormat'])assert.ok(syncSource.includes(token),`Missing auth lifecycle behavior: ${token}`);
-console.log('Sync merge, queue, and auth lifecycle tests passed');
+const assert=require('assert'),fs=require('fs');
+const {mergeProgress,chooseRecord,completeness}=require('./sync.js');
+const base=overrides=>({version:1,settings:{theme:'light'},attempts:[],errors:[],custom:[],custom_deleted:[],daily:{},tasks:{},seen:[],activeExam:null,sync_meta:{updated_at:'2026-01-01T00:00:00.000Z',settings_updated_at:'2026-01-01T00:00:00.000Z',local_revision:0,cloud_revision:0},...overrides});
+const row=(id,time='2026-01-01T00:00:00.000Z',extra={})=>({id,updated_at:time,...extra});
+
+assert.equal(completeness({a:1,b:{c:'x'}}),2,'record completeness counts meaningful fields');
+assert.equal(chooseRecord(row('x','2026-01-01',{answer:'a'}),row('x','2026-01-01',{answer:'a',score:1})).score,1,'same-time more complete record wins');
+let merged=mergeProgress(base({attempts:[row('a')]}),base());
+assert.deepStrictEqual(merged.attempts.map(x=>x.id),['a'],'local-only attempt is preserved');
+merged=mergeProgress(base(),base({attempts:[row('b')]}));
+assert.deepStrictEqual(merged.attempts.map(x=>x.id),['b'],'cloud-only attempt is preserved');
+merged=mergeProgress(base({attempts:[row('a')]}),base({attempts:[row('a'),row('b')]}));
+assert.equal(merged.attempts.length,2,'duplicate records are deduplicated');
+merged=mergeProgress(base({attempts:[row('a','2026-01-01',{correct:2})]}),base({attempts:[row('a','2026-02-01',{correct:9})]}));
+assert.equal(merged.attempts[0].correct,9,'same-ID newest attempt wins');
+merged=mergeProgress(base({settings:{theme:'dark'},sync_meta:{settings_updated_at:'2026-01-02'}}),base({settings:{theme:'light'},sync_meta:{settings_updated_at:'2026-01-03'}}));
+assert.equal(merged.settings.theme,'light','newest settings object wins');
+merged=mergeProgress(base({errors:[row('word','2026-02-01',{mastery:1,reviewed_at:'2026-02-01'})]}),base({errors:[row('word','2026-01-01',{mastery:3,reviewed_at:'2026-01-01'})]}));
+assert.equal(merged.errors[0].mastery,3,'error mastery keeps the highest value');
+merged=mergeProgress(base({custom:[row('c','2026-01-01',{title:'old'})]}),base({custom:[row('c','2026-02-01',{title:'new'})]}));
+assert.equal(merged.custom[0].title,'new','newest custom edit wins');
+merged=mergeProgress(base({custom:[row('c','2026-01-01',{title:'old'})]}),base({custom_deleted:[row('c','2026-02-01',{deleted_at:'2026-02-01'})]}));
+assert.equal(merged.custom.length,0,'custom deletion tombstone wins over older edit');
+merged=mergeProgress(base({daily:{'2026-01-02':true},tasks:{'2026-01-02':true}}),base({daily:{'2026-01-01':true},tasks:{'2026-01-02':false}}));
+assert.deepStrictEqual(merged.daily,{'2026-01-01':true,'2026-01-02':true},'activity dates merge without loss');
+assert.equal(merged.tasks['2026-01-02'],true,'completed daily task is never double-counted or cleared');
+merged=mergeProgress(base({activeExam:row('old','2026-01-01')}),base({activeExam:row('new','2026-02-01')}));
+assert.equal(merged.activeExam.id,'new','newest active exam is selected');
+assert.ok(merged.activeExamConflicts.some(exam=>exam.id==='old'),'different active exam is retained as a conflict copy');
+
+// Device A -> cloud -> offline Device B -> reconnect -> Device A merge.
+const deviceA=base({attempts:[row('a-exercise','2026-02-01',{correct:18,total:20})]});
+const cloudAfterA=mergeProgress(deviceA,base());
+const deviceBOffline=mergeProgress(base({attempts:[row('b-exercise','2026-02-02',{correct:19,total:20})]}),cloudAfterA);
+const cloudAfterB=mergeProgress(cloudAfterA,deviceBOffline);
+const deviceAReceived=mergeProgress(deviceA,cloudAfterB);
+assert.deepStrictEqual(new Set(deviceAReceived.attempts.map(x=>x.id)),new Set(['a-exercise','b-exercise']),'two-device automatic flow keeps both records');
+assert.equal(deviceAReceived.attempts.length,2,'two-device flow creates no duplicates');
+assert.equal(deviceAReceived.attempts.reduce((total,item)=>total+item.correct,0),37,'statistics can be recalculated from merged attempts');
+
+const source=fs.readFileSync('sync.js','utf8');
+for(const token of ['auth.getSession()','auth.onAuthStateChange','detectSessionInUrl:true','addEventListener(\'online\'','visibilitychange','addEventListener(\'focus\'','force:true, reason:\'periodic\'','POLL_MS = 90000','NORMAL_DEBOUNCE_MS = 2000','EXAM_DEBOUNCE_MS = 6500','save_user_progress','MAX_RETRIES = 3','Senkronizasyon yeniden denenecek','Çevrimdışı · cihazda kaydedildi','Henüz buluta gönderilmemiş yerel değişiklikler var','Giriş yapıldı','Giriş yapılmadı','id="syncNow"','id="pullCloud"','id="pushCloud"','id="downloadCloud"']){
+  if(['id="syncNow"','id="pullCloud"','id="pushCloud"','id="downloadCloud"'].includes(token))assert.ok(!source.includes(token),`Manual cloud control leaked into normal UI: ${token}`);
+  else assert.ok(source.includes(token),`Missing automatic sync behavior: ${token}`);
+}
+console.log('Sync merge, offline queue, revision, and automatic UX tests passed');
