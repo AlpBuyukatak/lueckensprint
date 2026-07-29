@@ -24,12 +24,7 @@
     "test:corpus-integrity": "node corpus-integrity-tests.js",
     "test:answer-integrity": "node answer-integrity-tests.js",
     "test:level-calibration": "node level-calibration-tests.js",
-    "test:exam-progression": "node exam-progression-tests.js",
-    "audit:linguistic": "node scripts/linguistic-audit.mjs --dry-run",
-    "audit:linguistic:changed": "node scripts/linguistic-audit.mjs --changed --dry-run",
-    "audit:linguistic:dry-run": "node scripts/linguistic-audit.mjs --dry-run",
-    "audit:linguistic:apply": "node scripts/apply-linguistic-fixes.mjs",
-    "test:linguistic-audit": "node linguistic-audit-tests.mjs"
+    "test:exam-progression": "node exam-progression-tests.js"
   },
   "devDependencies": {
     "playwright": "^1.62.0"

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T18:32:05.626Z",
+  "generatedAt": "2026-07-29T19:00:16.695Z",
   "method": "Normalized token-set Jaccard similarity within each CEFR level; pairs above 0.93 are warnings.",
   "duplicateWarnings": [],
   "warningCount": 0,

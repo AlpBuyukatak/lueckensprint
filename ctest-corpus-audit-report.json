@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T18:32:08.957Z",
+  "generatedAt": "2026-07-29T19:00:20.082Z",
   "finalCounts": {
     "A1": 50,
     "A2": 70,
@@ -25,6 +25,6 @@
     "apostrophes": "Tokens containing straight or typographic apostrophes are skipped as ineligible.",
     "punctuation": "Kept outside the input and excluded from the completion."
   },
-  "structuredInternalLinguisticReview": "Automated structural review plus template-level linguistic review; this is not native-speaker validation.",
+  "deterministicValidation": "Structural validation verifies corpus counts, stable IDs and gap construction; it is not native-speaker validation.",
   "problems": []
 }
