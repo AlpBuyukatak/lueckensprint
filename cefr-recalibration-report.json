@@ -1,0 +1,1250 @@
+{
+  "generatedAt": "2026-07-29T20:24:05.902Z",
+  "method": "Qualitative CEFR audit: vocabulary, sentence length, syntax, cohesion, abstraction and required C-Test context were reviewed; numeric scores are regenerated only after the qualitative decision.",
+  "totalTextsReviewed": 450,
+  "reviewedByLevel": {
+    "A1": {
+      "reviewed": 50,
+      "rewritten": 50,
+      "retained": 0
+    },
+    "A2": {
+      "reviewed": 70,
+      "rewritten": 70,
+      "retained": 0
+    },
+    "B1": {
+      "reviewed": 120,
+      "rewritten": 0,
+      "retained": 120
+    },
+    "B2": {
+      "reviewed": 140,
+      "rewritten": 0,
+      "retained": 140
+    },
+    "C1": {
+      "reviewed": 70,
+      "rewritten": 0,
+      "retained": 70
+    }
+  },
+  "levelCounts": {
+    "A1": 50,
+    "A2": 70,
+    "B1": 120,
+    "B2": 140,
+    "C1": 70
+  },
+  "changes": [
+    {
+      "id": "a1-01",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-02",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-03",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-04",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-05",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-06",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-07",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-08",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-09",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-10",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-11",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-12",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-13",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-14",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-15",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-16",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-17",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-18",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-19",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-20",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-21",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-22",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-23",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-24",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-25",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-26",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-27",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-28",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-29",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-30",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-31",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-32",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-33",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-34",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-35",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-36",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-37",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-38",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-39",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-40",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-41",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-42",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-43",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-44",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-45",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-46",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-47",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-48",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-49",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a1-50",
+      "oldLevel": "A1",
+      "newLevel": "A1",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache verlangte B1-Wortschatz und abstrakten Kontext. Der Ersatz nutzt konkrete Alltagshandlungen, Grundwortschatz und kurze Hauptsätze.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-01",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-02",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-03",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-04",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-05",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-06",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-07",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-08",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-09",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-10",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-11",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-12",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-13",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-14",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-15",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-16",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-17",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-18",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-19",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-20",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-21",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-22",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-23",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-24",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-25",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-26",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-27",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-28",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-29",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-30",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-31",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-32",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-33",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-34",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-35",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-36",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-37",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-38",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-39",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-40",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-41",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-42",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-43",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-44",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-45",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-46",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-47",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-48",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-49",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-50",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-51",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-52",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-53",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-54",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-55",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-56",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-57",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-58",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-59",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-60",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-61",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-62",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-63",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-64",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-65",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-66",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-67",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-68",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-69",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    },
+    {
+      "id": "a2-70",
+      "oldLevel": "A2",
+      "newLevel": "A2",
+      "auditedOriginalCEFR": "B1",
+      "action": "rewritten_in_place",
+      "reason": "Die ursprüngliche Arbeitsblatt-/Metasprache war für A2 zu abstrakt und lexikalisch zu anspruchsvoll. Der Ersatz beschränkt sich auf Alltag, Perfekt, Modalverb und einfache Konnektoren.",
+      "stableTextIdPreserved": true,
+      "stableGapIdsPreserved": true
+    }
+  ],
+  "retainedLevels": {
+    "B1": "Retained after qualitative review: independent-user project reports with connectors, relative clauses and multi-sentence context.",
+    "B2": "Retained after qualitative review: nominalisation, passive constructions, argument structure and abstract stakeholder context.",
+    "C1": "Retained after qualitative review: advanced argumentation, dense academic vocabulary and complex information integration."
+  },
+  "stableIds": {
+    "textIds": "All 450 text IDs retained.",
+    "gapIds": "C-Test gap IDs remain textId:gap-index; every revised lower-level text still produces exactly 20 gaps."
+  }
+}

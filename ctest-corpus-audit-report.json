@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T19:34:49.545Z",
+  "generatedAt": "2026-07-29T20:24:08.763Z",
   "finalCounts": {
     "A1": 50,
     "A2": 70,
@@ -11,9 +11,9 @@
   "totalGaps": 9000,
   "invalidGapCount": 0,
   "processLevelDistribution": {
-    "Wortebene": 3360,
-    "Satzebene": 2155,
-    "Textebene": 3485
+    "Wortebene": 4406,
+    "Satzebene": 1696,
+    "Textebene": 2898
   },
   "existingDefectsFixed": [
     "CORPUS-001: grammatically incomplete topic-frame sentences"

@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-29T19:34:50.441Z",
+  "generatedAt": "2026-07-29T20:24:10.048Z",
   "method": "Reviewed linguistic feature scores (lexical, syntax, cohesion and C-Test gap difficulty); empirical values remain unset until at least 20 real attempts.",
   "distribution": {
     "A1": {
       "count": 50,
       "min": 18,
-      "max": 28,
-      "average": 22.7,
+      "max": 29,
+      "average": 23.3,
       "range": [
         15,
         30
@@ -15,8 +15,8 @@
     "A2": {
       "count": 70,
       "min": 32,
-      "max": 42,
-      "average": 36.8,
+      "max": 45,
+      "average": 38.5,
       "range": [
         30,
         45

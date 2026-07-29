@@ -27,7 +27,8 @@
     "test:exam-progression": "node exam-progression-tests.js",
     "test:english-help": "node english-help-tests.js",
     "test:mobile": "node mobile-regression-tests.js",
-    "test:auth-callback": "node auth-callback-tests.js"
+    "test:auth-callback": "node auth-callback-tests.js",
+    "test:cefr-lower": "node cefr-lower-level-tests.js"
   },
   "devDependencies": {
     "playwright": "^1.62.0"

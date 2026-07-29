@@ -2,15 +2,15 @@
   "levels": {
     "A1": {
       "count": 50,
-      "averageWordCount": 92.3,
-      "averageSentenceLength": 11.5,
-      "averageDifficulty": 22.7
+      "averageWordCount": 84.1,
+      "averageSentenceLength": 7.6,
+      "averageDifficulty": 23.3
     },
     "A2": {
       "count": 70,
-      "averageWordCount": 96.8,
-      "averageSentenceLength": 12.1,
-      "averageDifficulty": 36.8
+      "averageWordCount": 95.4,
+      "averageSentenceLength": 8.7,
+      "averageDifficulty": 38.5
     },
     "B1": {
       "count": 120,
@@ -59,16 +59,18 @@
     "Integration": 15
   },
   "genres": {
-    "Alltagsbericht": 45,
-    "Erzählung": 45,
-    "Reisebericht": 45,
-    "Sachtext": 45,
-    "E-Mail": 45,
-    "Kommentar": 45,
-    "Museumsnotiz": 45,
-    "Kurzbericht": 45,
-    "Erklärung": 45,
-    "Porträt": 45
+    "Tagesnotiz": 50,
+    "Erlebnisbericht": 70,
+    "Alltagsbericht": 33,
+    "Erzählung": 33,
+    "Reisebericht": 33,
+    "Sachtext": 33,
+    "E-Mail": 33,
+    "Kommentar": 33,
+    "Museumsnotiz": 33,
+    "Kurzbericht": 33,
+    "Erklärung": 33,
+    "Porträt": 33
   },
   "duplicates": []
 }

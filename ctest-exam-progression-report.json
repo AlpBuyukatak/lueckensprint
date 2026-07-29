@@ -1,40 +1,40 @@
 {
-  "generatedAt": "2026-07-29T19:34:50.912Z",
+  "generatedAt": "2026-07-29T20:24:10.711Z",
   "selected": [
     {
-      "id": "a1-40",
+      "id": "a1-08",
       "level": "A1",
-      "topic": "Soziale Medien",
-      "genre": "Porträt",
-      "difficulty": 24
-    },
-    {
-      "id": "a2-32",
-      "level": "A2",
-      "topic": "Sport",
-      "genre": "Erzählung",
-      "difficulty": 41
-    },
-    {
-      "id": "b1-109",
-      "level": "B1",
-      "topic": "Digitale Kommunikation",
-      "genre": "Erklärung",
-      "difficulty": 56
-    },
-    {
-      "id": "b2-121",
-      "level": "B2",
-      "topic": "Forschung",
-      "genre": "Alltagsbericht",
-      "difficulty": 72
-    },
-    {
-      "id": "c1-08",
-      "level": "C1",
       "topic": "Reisen",
+      "genre": "Tagesnotiz",
+      "difficulty": 25
+    },
+    {
+      "id": "a2-45",
+      "level": "A2",
+      "topic": "Psychologie",
+      "genre": "Erlebnisbericht",
+      "difficulty": 34
+    },
+    {
+      "id": "b1-48",
+      "level": "B1",
+      "topic": "Datenschutz",
       "genre": "Kurzbericht",
-      "difficulty": 85
+      "difficulty": 50
+    },
+    {
+      "id": "b2-124",
+      "level": "B2",
+      "topic": "Stadtplanung",
+      "genre": "Sachtext",
+      "difficulty": 64
+    },
+    {
+      "id": "c1-53",
+      "level": "C1",
+      "topic": "Arbeit",
+      "genre": "Reisebericht",
+      "difficulty": 86
     }
   ],
   "totalGaps": 100,
