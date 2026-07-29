@@ -49,10 +49,16 @@
     const deleted = byId(tombstones);
     return mergeRecords(left, right).filter(row => !deleted[row.id] || timestamp(row) > String(deleted[row.id].deleted_at || deleted[row.id].updated_at || ''));
   };
+  const mergeActiveExam = (left, right) => {
+    if (!left) return right || null; if (!right) return left;
+    if (left.id !== right.id) return chooseRecord(left,right);
+    const newest=chooseRecord(left,right),older=newest===left?right:left;
+    const sets=(newest.sets||[]).map((set,index)=>{const other=(older.sets||[])[index];if(!other)return set;const answers=(set.answers||[]).map((answer,gap)=>{const otherAnswer=other.answers?.[gap]||'',ownAt=Number(set.answer_updated_at?.[gap])||Number(newest.last_updated_at)||0,otherAt=Number(other.answer_updated_at?.[gap])||Number(older.last_updated_at)||0;if(answer&&(!otherAnswer||ownAt>=otherAt))return answer;if(otherAnswer&&(!answer||otherAt>ownAt))return otherAnswer;return answer||otherAnswer||''});const answer_updated_at=answers.map((_,gap)=>Math.max(Number(set.answer_updated_at?.[gap])||0,Number(other.answer_updated_at?.[gap])||0));return {...set,answers,answer_updated_at}});const remaining=[left,right].map(exam=>Number(exam.remaining_ms)).filter(Number.isFinite);return {...newest,sets,remaining_ms:remaining.length?Math.max(0,Math.min(...remaining)):newest.remaining_ms,last_updated_at:Math.max(Number(left.last_updated_at)||0,Number(right.last_updated_at)||0)};
+  };
   const mergeProgress = (local, cloud) => {
     const l = clone(local), c = clone(cloud);
     const tombstones = mergeRecords(l.custom_deleted || [], c.custom_deleted || []);
-    const primaryExam = chooseRecord(l.activeExam, c.activeExam) || null;
+    const primaryExam = mergeActiveExam(l.activeExam, c.activeExam) || null;
     const otherExam = l.activeExam && c.activeExam && l.activeExam.id !== c.activeExam.id ? chooseRecord(l.activeExam, c.activeExam) === l.activeExam ? c.activeExam : l.activeExam : null;
     const conflicts = mergeRecords(l.activeExamConflicts || [], c.activeExamConflicts || []);
     if (otherExam && !conflicts.some(exam => exam.id === otherExam.id)) conflicts.push(otherExam);
@@ -226,5 +232,5 @@
     mountRecoveryControl();
   };
   global.LueckenSync = {initialize, onLocalSave, syncNow, signIn, signOut, mountSettingsPanel, runFirstMerge, restorePreMergeSnapshot, mergeProgress, chooseRecord, completeness};
-  if (typeof module !== 'undefined') module.exports = {mergeProgress, chooseRecord, completeness, mergeErrors, mergeByDate, preMergeSnapshotKey, createPreMergeSnapshot, readPreMergeSnapshot};
+  if (typeof module !== 'undefined') module.exports = {mergeProgress, mergeActiveExam, chooseRecord, completeness, mergeErrors, mergeByDate, preMergeSnapshotKey, createPreMergeSnapshot, readPreMergeSnapshot};
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -1,0 +1,74 @@
+{
+  "levels": {
+    "A1": {
+      "count": 40,
+      "averageWordCount": 99.9,
+      "averageSentenceLength": 9.1,
+      "averageDifficulty": 20.9
+    },
+    "A2": {
+      "count": 50,
+      "averageWordCount": 114.7,
+      "averageSentenceLength": 11.5,
+      "averageDifficulty": 34.9
+    },
+    "B1": {
+      "count": 70,
+      "averageWordCount": 122.1,
+      "averageSentenceLength": 12.2,
+      "averageDifficulty": 53
+    },
+    "B2": {
+      "count": 80,
+      "averageWordCount": 144.6,
+      "averageSentenceLength": 13.1,
+      "averageDifficulty": 72.9
+    },
+    "C1": {
+      "count": 60,
+      "averageWordCount": 159,
+      "averageSentenceLength": 17.7,
+      "averageDifficulty": 90.9
+    }
+  },
+  "topics": {
+    "Alltag": 14,
+    "Universität": 14,
+    "Arbeit": 14,
+    "Wohnen": 14,
+    "Verkehr": 14,
+    "Gesundheit": 13,
+    "Sport": 13,
+    "Reisen": 13,
+    "Digitale Kommunikation": 13,
+    "Künstliche Intelligenz": 13,
+    "Umwelt": 12,
+    "Bildung": 12,
+    "Wissenschaft": 12,
+    "Technologie": 12,
+    "Soziale Medien": 12,
+    "Politik": 11,
+    "Wirtschaft": 11,
+    "Kultur": 11,
+    "Geschichte": 11,
+    "Psychologie": 11,
+    "Forschung": 10,
+    "Energie": 10,
+    "Datenschutz": 10,
+    "Stadtplanung": 10,
+    "Integration": 10
+  },
+  "genres": {
+    "Alltagsbericht": 30,
+    "Erzählung": 30,
+    "Reisebericht": 30,
+    "Sachtext": 30,
+    "E-Mail": 30,
+    "Kommentar": 30,
+    "Museumsnotiz": 30,
+    "Kurzbericht": 30,
+    "Erklärung": 30,
+    "Porträt": 30
+  },
+  "duplicates": []
+}

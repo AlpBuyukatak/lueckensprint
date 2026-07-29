@@ -10,7 +10,7 @@ try{
   const html=read('index.html'),css=cssFiles.map(read).join('\n'),js=jsFiles.map(read).join('\n'),publicConfig=read('supabase-config.js');
   if(/sb_secret_|service_role/i.test(publicConfig))throw new Error('supabase-config.js must not contain a secret or service-role key.');
   const data=Object.fromEntries(levels.map(level=>[`texts-${level}`,JSON.parse(read(`data/texts-${level}.json`))]));
-  if(Object.values(data).reduce((n,x)=>n+x.length,0)!==125)throw new Error('Expected 125 built-in texts in JSON databases.');
+  if(Object.values(data).reduce((n,x)=>n+x.length,0)!==300)throw new Error('Expected 300 built-in texts in JSON databases.');
   const safe=value=>String(value).replace(/<\/script/gi,'<\\/script');
   const bootstrap=safe(`window.__STANDALONE__=true;window.__STANDALONE_TEXTS__=${JSON.stringify(data)};\n${publicConfig}`);
   const standaloneJs=js.replace(/async function loadDatabase\(\)\{[^\n]*\}\n/,'async function loadDatabase(){if(typeof window!==\'undefined\')setDatabase(window.__STANDALONE_TEXTS__||{});}\n');

@@ -36,6 +36,11 @@ const cloudAfterB=mergeProgress(cloudAfterA,deviceBOffline);
 const deviceAReceived=mergeProgress(deviceA,cloudAfterB);
 assert.deepStrictEqual(new Set(deviceAReceived.attempts.map(x=>x.id)),new Set(['a-exercise','b-exercise']),'two-device automatic flow keeps both records');
 assert.equal(deviceAReceived.attempts.length,2,'two-device flow creates no duplicates');
+const localExam={id:'same-exam',last_updated_at:100,remaining_ms:90000,sets:[{answers:['neu',''],answer_updated_at:[100,100]}]};
+const cloudExam={id:'same-exam',last_updated_at:90,remaining_ms:95000,sets:[{answers:['','wolke'],answer_updated_at:[90,110]}]};
+merged=mergeProgress(base({activeExam:localExam}),base({activeExam:cloudExam}));
+assert.deepStrictEqual(merged.activeExam.sets[0].answers,['neu','wolke'],'same exam merges answers gap by gap');
+assert.equal(merged.activeExam.remaining_ms,90000,'newest usable timer state is preserved without negative time');
 assert.equal(deviceAReceived.attempts.reduce((total,item)=>total+item.correct,0),37,'statistics can be recalculated from merged attempts');
 
 const source=fs.readFileSync('sync.js','utf8');

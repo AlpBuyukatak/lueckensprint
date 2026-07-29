@@ -10,6 +10,9 @@
     "test:hosted": "node hosted-pwa-tests.js",
     "test:startup": "node startup-cache-tests.js",
     "test:audit": "node audit-tests.js",
-    "test:sync": "node sync-tests.js"
+    "test:sync": "node sync-tests.js",
+    "test:texts": "node text-database-tests.js",
+    "test:exam-state": "node exam-state-tests.js",
+    "test:performance": "node performance-tests.js"
   }
 }

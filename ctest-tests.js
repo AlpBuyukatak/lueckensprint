@@ -9,12 +9,12 @@ assert.ok(made.html.includes('style="--gap-ch:'),'Gap width does not use missing
 assert.deepStrictEqual(made.items.map(x=>[x.word,x.prefix,x.missing]),[['besuchen','besu','chen'],['Häuser','Häu','ser'],['später','spä','ter'],['Straße','Str','aße'],['sauber','sau','ber']]);
 assert.equal(score(made.items,made.items.map(x=>x.missing),{lenient:false,acceptSS:false}).percent,100);
 assert.equal(norm('STRASSE',{lenient:true,acceptSS:true}),norm('Straße',{lenient:true,acceptSS:true}));
-assert.equal(Object.values(DB).reduce((n,a)=>n+a.length,0),125);
-assert.deepStrictEqual(Object.fromEntries(Object.entries(DB).map(([k,v])=>[k,v.length])),{A1:20,A2:25,B1:30,B2:30,C1:20});
-assert.equal(new Set(Object.values(DB).flat().map(x=>x.id)).size,125);
+assert.equal(Object.values(DB).reduce((n,a)=>n+a.length,0),300);
+assert.deepStrictEqual(Object.fromEntries(Object.entries(DB).map(([k,v])=>[k,v.length])),{A1:40,A2:50,B1:70,B2:80,C1:60});
+assert.equal(new Set(Object.values(DB).flat().map(x=>x.id)).size,300);
 const json=Object.fromEntries(['a1','a2','b1','b2','c1'].map(level=>[level.toUpperCase(),JSON.parse(fs.readFileSync(`data/texts-${level}.json`,'utf8'))]));
 setDatabase(json);
-assert.equal(Object.values(getDatabase()).reduce((n,list)=>n+list.length,0),125);
+assert.equal(Object.values(getDatabase()).reduce((n,list)=>n+list.length,0),300);
 assert.equal(trainingBand(59),'Deutlicher Übungsbedarf');
 assert.equal(trainingBand(90),'Sehr starke Leistung');
 console.log('C-Test tests passed');
