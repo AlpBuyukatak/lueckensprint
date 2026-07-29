@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LueckenSprint linguistic review v1",
+  "type": "object",
+  "required": ["textId","originalLevel","proposedLevel","languageNaturalnessScore","coherenceScore","cefrConfidence","ctestValidityScore","overallConfidence","finalDecision","problems","proposedCorrections","reviewedGapResults","reviewerAgreement","quarantineReasons","reviewModel","promptVersion","reviewedAt"],
+  "properties": {
+    "textId":{"type":"string"},"originalLevel":{"enum":["A1","A2","B1","B2","C1"]},"proposedLevel":{"enum":["A1","A2","B1","B2","C1"]},
+    "languageNaturalnessScore":{"type":"number","minimum":0,"maximum":100},"coherenceScore":{"type":"number","minimum":0,"maximum":100},"cefrConfidence":{"type":"number","minimum":0,"maximum":1},"ctestValidityScore":{"type":"number","minimum":0,"maximum":100},"overallConfidence":{"type":"number","minimum":0,"maximum":1},"finalDecision":{"enum":["PASS","FIX","QUARANTINE","REJECT"]},
+    "problems":{"type":"array"},"proposedCorrections":{"type":"array"},"reviewedGapResults":{"type":"array"},"reviewerAgreement":{"type":"string"},"quarantineReasons":{"type":"array"},"reviewModel":{"type":"string"},"promptVersion":{"type":"string"},"reviewedAt":{"type":"string"}
+  }
+}

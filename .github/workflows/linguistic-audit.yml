@@ -1,0 +1,32 @@
+name: Linguistic corpus audit
+on:
+  workflow_dispatch:
+    inputs:
+      changed_only:
+        description: Review only changed corpus items
+        required: false
+        type: boolean
+        default: true
+concurrency:
+  group: linguistic-audit-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm ci
+      - run: node scripts/linguistic-audit.mjs --real ${{ inputs.changed_only && '--changed' || '' }}
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linguistic-audit-reports
+          path: |
+            linguistic-audit-*.json
+            LINGUISTIC_AUDIT_REPORT.md

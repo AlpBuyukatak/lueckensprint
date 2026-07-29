@@ -13,4 +13,14 @@ npm-debug.log*
 .env.*
 !.env.example
 
+# Local or GitHub Actions linguistic-review artifacts; never commit API-derived results by default.
+linguistic-audit-state.json
+linguistic-audit-summary.json
+linguistic-audit-results.json
+linguistic-fix-proposals.json
+linguistic-quarantine.json
+LINGUISTIC_AUDIT_REPORT.md
+linguistic-fix-migration.json
+audit-backups/
+
 # Keep deployable application files, JSON databases, PWA assets, workflow, and dist/ tracked.
