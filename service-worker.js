@@ -1,4 +1,4 @@
-const CACHE='lueckensprint-v1.4.2';
+const CACHE='lueckensprint-v1.4.3';
 const ASSETS=['./','./index.html','./styles.css','./app.js','./sync.js','./supabase-config.js','./manifest.json','./icons/icon.svg','./data/texts-a1.json','./data/texts-a2.json','./data/texts-b1.json','./data/texts-b2.json','./data/texts-c1.json'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS))));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));

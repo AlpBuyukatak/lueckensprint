@@ -176,13 +176,13 @@
     diagnostic('Signed-in user email', user.email || '(email unavailable)'); cleanAuthCallbackUrl(); setStatus('Giriş yapıldı');
     await runFirstMerge();
   };
-  const initialize = async api => {
+  const initialize = api => {
     getState = api.getState; replaceState = api.replaceState;
     const state = getState(); lastSync = state.sync_meta?.last_successful_sync_at || ''; pending = Boolean(state.sync_meta?.pending_sync);
     const c = clientForSession();
     if (!c) { diagnostic('Supabase client unavailable'); setStatus('Yerel mod'); return; }
     c.auth.onAuthStateChange((event, session) => { applySession(event, session).catch(error => setStatus('Senkronizasyon hatası', error?.message || '')); });
-    try { const {data:{session}, error} = await c.auth.getSession(); if (error) throw error; diagnostic(session ? 'Initial session found' : 'Initial session missing'); await applySession('INITIAL_SESSION', session); } catch (error) { diagnostic('Initial session check failed', error?.message || ''); setStatus('Senkronizasyon hatası', error?.message || ''); }
+    void (async () => { try { const {data:{session}, error} = await c.auth.getSession(); if (error) throw error; diagnostic(session ? 'Initial session found' : 'Initial session missing'); await applySession('INITIAL_SESSION', session); } catch (error) { diagnostic('Initial session check failed', error?.message || ''); setStatus('Senkronizasyon hatası', error?.message || ''); } })();
     global.addEventListener('online', () => { if (user) { setStatus('Senkronize ediliyor…'); syncNow({force:true, reason:'online'}); } });
     global.addEventListener('focus', () => syncNow({force:true, reason:'focus'}));
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') syncNow({force:true, reason:'visible'}); });
