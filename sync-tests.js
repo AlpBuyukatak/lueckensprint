@@ -20,4 +20,5 @@ assert.equal(merged.activeExam.id,'e2','newest active exam wins');
 merged=mergeProgress(base({version:1}),base({version:2}));assert.equal(merged.version,2,'schema-version mismatch retains newest version');
 const syncSource=require('fs').readFileSync('sync.js','utf8');
 for(const token of ['DEBOUNCE_MS','addEventListener(\'online\'','setInterval(refresh','Senkronizasyon hatası','signOut'])assert.ok(syncSource.includes(token),`Missing sync behavior: ${token}`);
-console.log('Sync merge and queue tests passed');
+for(const token of ['auth.getSession()','auth.onAuthStateChange','detectSessionInUrl:true','cleanAuthCallbackUrl','Supabase config loaded','Supabase client created','Initial session found','Initial session missing','Auth event name','Signed-in user email','lastSync?new Intl.DateTimeFormat'])assert.ok(syncSource.includes(token),`Missing auth lifecycle behavior: ${token}`);
+console.log('Sync merge, queue, and auth lifecycle tests passed');
