@@ -84,7 +84,7 @@
   };
   const download = (name, data) => { const link = document.createElement('a'); link.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], {type:'application/json'})); link.download = name; link.click(); setTimeout(() => URL.revokeObjectURL(link.href), 500); };
 
-  let client = null, getState = () => ({}), replaceState = () => {}, timer = null, retryTimer = null, user = null, lastSync = '', status = 'Yerel mod', detail = '', pending = false, firstMergeUser = '', applying = false;
+  let client = null, getState = () => ({}), replaceState = () => {}, timer = null, retryTimer = null, user = null, lastSync = '', status = 'Yerel mod', detail = '', pending = false, applying = false;
   const publicKey = cfg => cfg?.publishableKey || cfg?.anonKey || '';
   const configured = () => { const cfg = global.LUECKENSPRINT_SUPABASE_CONFIG || {}; return Boolean(cfg.url && publicKey(cfg) && global.supabase?.createClient); };
   const emit = () => { global.dispatchEvent?.(new CustomEvent('lueckensprint-sync-status', {detail:{status, detail, user, lastSync, pending, configured:configured()}})); mountSettingsPanel(); };
@@ -147,21 +147,36 @@
     pending = true; setStatus('Senkronizasyon yeniden denenecek'); scheduleRetry(); return false;
   };
   const scheduleSync = (delay = NORMAL_DEBOUNCE_MS) => { clearTimeout(timer); if (!user || !navigator.onLine) return; timer = setTimeout(() => syncNow({reason:'debounced'}), delay); };
-  const firstMerge = async () => {
-    if (!user || firstMergeUser === user.id) return;
-    firstMergeUser = user.id;
+  const firstBackupKey = userId => `first_cloud_backup_completed_${userId}`;
+  const createFirstBackupGate = (storage, backup) => {
+    const inFlight = new Map();
+    return {run: async (userId, state) => {
+      const key = firstBackupKey(userId);
+      if (storage.getItem(key) === 'true') return {created:false};
+      if (inFlight.has(userId)) return inFlight.get(userId);
+      const task = (async () => { await backup(state, userId); storage.setItem(key, 'true'); return {created:true}; })();
+      inFlight.set(userId, task);
+      try { return await task; } finally { inFlight.delete(userId); }
+    }};
+  };
+  const backupStorage = typeof localStorage !== 'undefined' ? localStorage : {getItem:() => null, setItem:() => {}};
+  const firstBackupGate = createFirstBackupGate(backupStorage, (state) => download(`LueckenSprint_ilk_bulut_yedegi_${Date.now()}.json`, state));
+  const runFirstMerge = async () => {
+    if (!user) return false;
+    const userId = user.id;
     const state = getState();
-    try { download(`LueckenSprint_ilk_bulut_yedegi_${Date.now()}.json`, state); } catch (_) {}
+    try { await firstBackupGate.run(userId, state); } catch (error) { diagnostic('First cloud backup failed', error?.message || ''); setStatus('Senkronizasyon hatası', 'İlk güvenlik yedeği oluşturulamadı.'); return false; }
     pending = true; state.sync_meta = {...(state.sync_meta || {}), pending_sync:true}; persistMeta();
     const okay = await syncNow({force:true, reason:'first-sign-in'});
     if (okay) { detail = 'Yerel ve bulut ilerlemesi birleştirildi.'; emit(); }
+    return okay;
   };
   const applySession = async (event, session) => {
     diagnostic('Auth event name', event);
     user = session?.user || null;
-    if (!user) { firstMergeUser = ''; setStatus(configured() ? 'Giriş yapılmadı' : 'Yerel mod'); return; }
+    if (!user) { setStatus(configured() ? 'Giriş yapılmadı' : 'Yerel mod'); return; }
     diagnostic('Signed-in user email', user.email || '(email unavailable)'); cleanAuthCallbackUrl(); setStatus('Giriş yapıldı');
-    await firstMerge();
+    await runFirstMerge();
   };
   const initialize = async api => {
     getState = api.getState; replaceState = api.replaceState;
@@ -181,7 +196,7 @@
       if (!navigator.onLine) { if (!global.confirm('Henüz buluta gönderilmemiş yerel değişiklikler var. Yine de çıkış yapmak istiyor musunuz?')) return; }
       else await syncNow({force:true, reason:'sign-out'});
     }
-    if (client) await client.auth.signOut(); user = null; firstMergeUser = ''; setStatus('Giriş yapılmadı');
+    if (client) await client.auth.signOut(); user = null; setStatus('Giriş yapılmadı');
   };
   const onLocalSave = () => { if (!applying) markPending(getState().activeExam ? 'active-exam' : 'change'); };
   const mountSettingsPanel = () => {
@@ -193,6 +208,6 @@
     host.querySelector('#magicLinkForm')?.addEventListener('submit', async event => { event.preventDefault(); try { await signIn(host.querySelector('#syncEmail').value); } catch (error) { setStatus('Senkronizasyon hatası', error?.message || ''); } });
     host.querySelector('#signOut')?.addEventListener('click', signOut);
   };
-  global.LueckenSync = {initialize, onLocalSave, syncNow, signIn, signOut, mountSettingsPanel, mergeProgress, chooseRecord, completeness};
-  if (typeof module !== 'undefined') module.exports = {mergeProgress, chooseRecord, completeness, mergeErrors, mergeByDate};
+  global.LueckenSync = {initialize, onLocalSave, syncNow, signIn, signOut, mountSettingsPanel, runFirstMerge, mergeProgress, chooseRecord, completeness};
+  if (typeof module !== 'undefined') module.exports = {mergeProgress, chooseRecord, completeness, mergeErrors, mergeByDate, firstBackupKey, createFirstBackupGate};
 })(typeof window !== 'undefined' ? window : globalThis);

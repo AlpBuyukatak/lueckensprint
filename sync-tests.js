@@ -1,5 +1,5 @@
 const assert=require('assert'),fs=require('fs');
-const {mergeProgress,chooseRecord,completeness}=require('./sync.js');
+const {mergeProgress,chooseRecord,completeness,createFirstBackupGate,firstBackupKey}=require('./sync.js');
 const base=overrides=>({version:1,settings:{theme:'light'},attempts:[],errors:[],custom:[],custom_deleted:[],daily:{},tasks:{},seen:[],activeExam:null,sync_meta:{updated_at:'2026-01-01T00:00:00.000Z',settings_updated_at:'2026-01-01T00:00:00.000Z',local_revision:0,cloud_revision:0},...overrides});
 const row=(id,time='2026-01-01T00:00:00.000Z',extra={})=>({id,updated_at:time,...extra});
 
@@ -43,4 +43,20 @@ for(const token of ['auth.getSession()','auth.onAuthStateChange','detectSessionI
   if(['id="syncNow"','id="pullCloud"','id="pushCloud"','id="downloadCloud"'].includes(token))assert.ok(!source.includes(token),`Manual cloud control leaked into normal UI: ${token}`);
   else assert.ok(source.includes(token),`Missing automatic sync behavior: ${token}`);
 }
+const makeStorage=()=>{const values=new Map();return {getItem:key=>values.has(key)?values.get(key):null,setItem:(key,value)=>values.set(key,String(value))}};
+(async()=>{
+  const storage=makeStorage();let backups=0;const gate=createFirstBackupGate(storage,async()=>{backups++});
+  await Promise.all([gate.run('user-a',{a:1}),gate.run('user-a',{a:1})]);
+  assert.equal(backups,1,'first sign-in plus duplicate auth event creates one backup');
+  assert.equal(storage.getItem(firstBackupKey('user-a')),'true','first backup completion is durable');
+  const afterReload=createFirstBackupGate(storage,async()=>{backups++});await afterReload.run('user-a',{});
+  assert.equal(backups,1,'page reload creates zero additional backups');
+  await afterReload.run('user-b',{});assert.equal(backups,2,'a different user receives an independent one-time backup');
+  const failingStorage=makeStorage();let attempts=0;const flaky=createFirstBackupGate(failingStorage,async()=>{attempts++;if(attempts===1)throw new Error('download failed')});
+  await assert.rejects(()=>flaky.run('user-c',{}));assert.equal(failingStorage.getItem(firstBackupKey('user-c')),null,'failed backup does not set completion marker');
+  await flaky.run('user-c',{});assert.equal(attempts,2,'failed first backup retries on the next genuine first merge');
+  assert.equal((source.match(/firstBackupGate\.run/g)||[]).length,1,'only first-merge flow may trigger automatic backup');
+  assert.ok(fs.readFileSync('app.js','utf8').includes('id="exportJson"'),'manual JSON backup remains available');
+  console.log('First-cloud-backup idempotency tests passed');
+})().catch(error=>{console.error(error);process.exitCode=1});
 console.log('Sync merge, offline queue, revision, and automatic UX tests passed');
